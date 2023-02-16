@@ -3,7 +3,7 @@ import React from "react";
 export default function Header() {
   return (
     <header>
-      <div>
+      <div className="logo-container">
         <span className="material-symbols-outlined">open_with</span>
         <h1>Button App</h1>
       </div>

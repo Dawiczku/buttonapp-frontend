@@ -1,0 +1,24 @@
+@import "./mixins";
+@import "./variables";
+
+header {
+  display: grid;
+  grid-template-columns: 1fr repeat(3, auto) 1fr;
+  grid-column-gap: 5px;
+
+  padding: 0 25px;
+
+  .logo-container {
+    @include flex(space-between, center);
+    grid-column-start: 2;
+    gap: 15px;
+  }
+
+  h1 {
+    font-size: 2.5rem;
+  }
+
+  .material-symbols-outlined {
+    font-size: 36px;
+  }
+}

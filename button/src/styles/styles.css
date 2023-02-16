@@ -1,5 +1,73 @@
 @import url("https://fonts.googleapis.com/css2?family=Cinzel:wght@700&family=Sofia+Sans&family=Varela+Round&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0");
+header {
+  display: grid;
+  grid-template-columns: 1fr repeat(3, auto) 1fr;
+  grid-column-gap: 5px;
+  padding: 0 25px;
+}
+header .logo-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  grid-column-start: 2;
+  gap: 15px;
+}
+header h1 {
+  font-size: 2.5rem;
+}
+header .material-symbols-outlined {
+  font-size: 36px;
+}
+
+.dark-mode-paragraph {
+  font-size: 1.25rem;
+  font-weight: 600;
+}
+
+.dark-mode-container {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  grid-column-start: 5;
+}
+.dark-mode-container input[type=checkbox] {
+  height: 0;
+  width: 0;
+  visibility: hidden;
+}
+.dark-mode-container label {
+  cursor: pointer;
+  position: relative;
+  display: block;
+  background: grey;
+  width: 40px;
+  height: 20px;
+  text-indent: -9999px;
+  border-radius: 100px;
+}
+.dark-mode-container label:after {
+  content: "";
+  position: absolute;
+  top: 3px;
+  left: 4px;
+  background-color: #fff;
+  width: 14px;
+  height: 14px;
+  border-radius: 90px;
+  transition: 0.3s;
+}
+.dark-mode-container input:checked + label {
+  background: linear-gradient(45deg, #10ac32, #147a1d);
+}
+.dark-mode-container input:checked + label:after {
+  left: calc(100% - 5px);
+  transform: translateX(-100%);
+}
+.dark-mode-container label:active:after {
+  width: 24px;
+}
+
 *,
 *::after,
 *::before {

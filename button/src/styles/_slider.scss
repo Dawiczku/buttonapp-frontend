@@ -1,0 +1,47 @@
+@mixin sliderCheckbox {
+  height: 0;
+  width: 0;
+  visibility: hidden;
+}
+
+@mixin sliderLabel($width, $height) {
+  cursor: pointer;
+  position: relative;
+  display: block;
+
+  background: grey;
+
+  width: $width;
+  height: $height;
+
+  text-indent: -9999px;
+  border-radius: 100px;
+}
+
+@mixin sliderAfterLabel($width, $height) {
+  content: "";
+  position: absolute;
+  top: 3px;
+  left: 4px;
+
+  background-color: #fff;
+
+  width: $width;
+  height: $height;
+
+  border-radius: 90px;
+  transition: 0.3s;
+}
+
+@mixin checkedSlider($clr) {
+  background: $clr;
+}
+
+@mixin checkedSliderAfterLabel {
+  left: calc(100% - 5px);
+  transform: translateX(-100%);
+}
+
+@mixin onClickLabel($size) {
+  width: $size;
+}
