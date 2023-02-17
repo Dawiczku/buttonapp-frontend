@@ -15,7 +15,7 @@ header .logo-container {
 }
 header h1 {
   color: #2e2e2e;
-  font-size: 2.5rem;
+  font-size: 3rem;
   text-shadow: 1px 0px 1px #ccc, 0px 1px 1px #eee, 2px 1px 1px #ccc, 1px 2px 1px #eee, 3px 2px 1px #ccc, 2px 3px 1px #eee, 4px 3px 1px #ccc, 3px 4px 1px #eee, 5px 4px 1px #ccc, 4px 5px 1px #eee, 6px 5px 1px #ccc, 5px 6px 1px #eee, 7px 6px 1px #ccc;
 }
 header .material-symbols-outlined {
@@ -139,6 +139,35 @@ header .material-symbols-outlined {
   font-size: 1.5rem;
   font-weight: 600;
   margin-bottom: 0;
+}
+
+footer {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  position: fixed;
+  bottom: 0;
+  left: 300px;
+  right: 300px;
+  padding: 15px 0;
+  border-top: 1px solid black;
+}
+footer .footer-container a {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  font-size: 1.25rem;
+  font-weight: 600;
+  text-decoration: none;
+  color: inherit;
+  transition: all 0.2s ease-in;
+}
+footer .footer-container a .github-logo {
+  width: 40px;
+  height: 40px;
+}
+footer .footer-container a:hover {
+  color: rgb(22, 138, 6);
 }
 
 *,
