@@ -25,7 +25,7 @@
   }
 
   input:checked + label {
-    @include checkedSlider($darkModeSwitchChecked);
+    @include checkedSlider($darkModeSwitchCheckedClr);
   }
 
   input:checked + label:after {

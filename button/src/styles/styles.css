@@ -14,10 +14,16 @@ header .logo-container {
   gap: 15px;
 }
 header h1 {
+  color: #2e2e2e;
   font-size: 2.5rem;
+  text-shadow: 1px 0px 1px #ccc, 0px 1px 1px #eee, 2px 1px 1px #ccc, 1px 2px 1px #eee, 3px 2px 1px #ccc, 2px 3px 1px #eee, 4px 3px 1px #ccc, 3px 4px 1px #eee, 5px 4px 1px #ccc, 4px 5px 1px #eee, 6px 5px 1px #ccc, 5px 6px 1px #eee, 7px 6px 1px #ccc;
 }
 header .material-symbols-outlined {
   font-size: 36px;
+  background-image: linear-gradient(45deg, #38be55, #196920);
+  -webkit-background-clip: text;
+          background-clip: text;
+  color: transparent;
 }
 
 .dark-mode-paragraph {
@@ -58,7 +64,7 @@ header .material-symbols-outlined {
   transition: 0.3s;
 }
 .dark-mode-container input:checked + label {
-  background: linear-gradient(45deg, #10ac32, #147a1d);
+  background: linear-gradient(45deg, #13cc3b, #1cad29);
 }
 .dark-mode-container input:checked + label:after {
   left: calc(100% - 5px);
@@ -66,6 +72,73 @@ header .material-symbols-outlined {
 }
 .dark-mode-container label:active:after {
   width: 24px;
+}
+
+.account-list {
+  width: 400px;
+  height: 486px;
+  margin: 50px auto;
+  border: 2px solid #666666;
+  border-radius: 7px;
+  background-color: #e9e9e9;
+  box-shadow: 0 10px 20px -6px black;
+}
+.account-list ul {
+  list-style: none;
+  padding: 0 40px;
+}
+.account-list ul li {
+  position: relative;
+  padding: 5px;
+  border-bottom: 1px solid #000000;
+  transition: all 0.2s ease-in;
+}
+.account-list ul li span,
+.account-list ul li button {
+  width: 24px;
+  height: 24px;
+  padding: 0;
+  margin: 0;
+  border: none;
+}
+.account-list ul li button {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  background-color: inherit;
+  transition: 0.1s;
+}
+.account-list ul li button:hover {
+  cursor: pointer;
+  transform: scale(1.4);
+}
+.account-list ul li:last-child {
+  border-bottom: none;
+}
+.account-list ul li:hover {
+  background-color: rgba(44, 202, 23, 0.55);
+  cursor: -webkit-grab;
+  cursor: grab;
+}
+.account-list ul li:active {
+  transform: scale(0.95);
+}
+.account-list .account-container {
+  display: flex;
+  align-items: center;
+  gap: 30px;
+  padding: 10px 20px;
+}
+.account-list .account-container .avatar {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  vertical-align: middle;
+}
+.account-list .account-container p {
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin-bottom: 0;
 }
 
 *,
