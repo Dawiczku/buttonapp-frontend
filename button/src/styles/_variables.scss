@@ -1,12 +1,15 @@
 $darkModeSwitchCheckedClr: linear-gradient(45deg, #13cc3b, #1cad29);
+$logoClr: linear-gradient(45deg, #38be55, #196920);
 
-$darkModeTextClr: #dbdbdb;
+$darkModeTextClr: #e0e0e0;
+$darkModeListBackgroundClr: #313131;
+$darkModeBackground: #1b1b1b;
+$darkAccountsBorderClr: #4d4d4d;
 
 $lightModeTextClr: #000000;
 $lightModeListBackgroundClr: #e9e9e9;
 $lightModeBackground: $darkModeTextClr;
 $lightAccountsBorderClr: #666666;
 
-$logoClr: linear-gradient(45deg, #38be55, #196920);
 $avatarHoverClr: rgba(44, 202, 23, 0.55);
 $linkHoverClr: rgb(22, 138, 6);
