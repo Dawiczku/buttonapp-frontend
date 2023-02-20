@@ -54,6 +54,9 @@
 
     li:last-child {
       border-bottom: none;
+      button {
+        display: none;
+      }
     }
 
     li:hover {

@@ -6,7 +6,7 @@ export default function Foooter() {
       <div className="footer-container">
         <a href="https://github.com/forceindia712">
           <img
-            src={require("../avatars/github_logo.png")}
+            src={require("../icons/github_logo.png")}
             alt="github-logo"
             className="github-logo"
           ></img>
@@ -16,7 +16,7 @@ export default function Foooter() {
       <div className="footer-container">
         <a href="https://github.com/Dawiczku">
           <img
-            src={require("../avatars/github_logo.png")}
+            src={require("../icons/github_logo.png")}
             alt="github-logo"
             className="github-logo"
           ></img>

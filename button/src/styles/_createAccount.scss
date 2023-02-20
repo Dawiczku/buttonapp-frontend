@@ -1,0 +1,127 @@
+@import "./variables";
+
+.return {
+  @include flex(center, center);
+  gap: 5px;
+
+  padding: 8px 10px;
+  margin: 15px;
+
+  border: none;
+  border-radius: 5px;
+
+  background-color: inherit;
+
+  font-size: 1.25rem;
+  font-weight: 600;
+}
+
+.return:hover {
+  color: #199964;
+  cursor: pointer;
+}
+
+.new-acc-container {
+  @include flex(space-between, center);
+  gap: 25px;
+  flex-direction: column;
+
+  padding: 20px;
+
+  h2 {
+    margin: 0 5px;
+    text-transform: uppercase;
+  }
+}
+
+.new-acc-avatar-container {
+  position: relative;
+
+  border: 2px solid black;
+  border-radius: 50%;
+}
+
+.new-avatar {
+  width: 170px;
+  height: 170px;
+
+  border-radius: 50%;
+
+  background-color: white;
+
+  overflow: visible;
+  vertical-align: middle;
+}
+
+.random-avatar {
+  @include flex(center, center);
+
+  position: absolute;
+  bottom: 0;
+  right: 0;
+
+  width: 50px;
+  height: 50px;
+
+  border-radius: 50%;
+  border: 3px solid black;
+
+  font-size: 2rem;
+  cursor: pointer;
+
+  transition: 0.6s ease-in-out;
+}
+
+.random-avatar:hover {
+  transform: rotate(360deg);
+  background: #20bd7b;
+}
+
+.new-acc-nickname-input {
+  width: 60%;
+  padding: 5px 10px;
+  border: 2px solid black;
+  font-size: 1.5rem;
+}
+
+.create-acc-btn {
+  position: relative;
+
+  padding: 10px 70px 10px 20px;
+
+  border: none;
+  border-radius: 10px;
+  box-shadow: 0px 5px 10px -2px black;
+
+  background-color: #20bd7b;
+
+  font-size: 1.25rem;
+  cursor: pointer;
+
+  transition: 0.1s ease-in-out;
+}
+
+.create-acc-btn:active {
+  transform: scale(0.95);
+}
+
+.create-acc-btn::after {
+  content: "\2713";
+
+  display: grid;
+  place-items: center;
+
+  position: absolute;
+  right: 0;
+  bottom: 0;
+
+  width: 50px;
+  height: 100%;
+
+  border-radius: inherit;
+
+  background-color: #199964;
+
+  font-size: 2rem;
+  transform: scale(0.99);
+}
