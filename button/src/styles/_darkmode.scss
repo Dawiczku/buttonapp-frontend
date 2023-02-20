@@ -9,8 +9,13 @@
 // Dark mode switch
 
 .dark-mode-container {
-  @include flex(flex-end, center);
+  @include flex(flex-end, start);
   grid-column-start: 5;
+  margin: 25px;
+
+  p {
+    margin: 0;
+  }
 
   input[type="checkbox"] {
     @include sliderCheckbox();

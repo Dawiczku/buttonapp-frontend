@@ -5,7 +5,7 @@ header {
   display: grid;
   grid-template-columns: 1fr repeat(3, auto) 1fr;
   grid-column-gap: 5px;
-  padding: 0 25px;
+  padding: 0;
 }
 header .logo-container {
   display: flex;
@@ -35,8 +35,12 @@ header .material-symbols-outlined {
 .dark-mode-container {
   display: flex;
   justify-content: flex-end;
-  align-items: center;
+  align-items: start;
   grid-column-start: 5;
+  margin: 25px;
+}
+.dark-mode-container p {
+  margin: 0;
 }
 .dark-mode-container input[type=checkbox] {
   height: 0;
@@ -79,7 +83,7 @@ header .material-symbols-outlined {
   width: 400px;
   height: 486px;
   margin: 50px auto;
-  border: 2px solid #666666;
+  border: 2px solid #000000;
   border-radius: 7px;
   background-color: #e9e9e9;
   box-shadow: 0 10px 20px -6px black;
@@ -123,7 +127,7 @@ header .material-symbols-outlined {
   display: none;
 }
 .account-list ul li:hover {
-  background-color: rgba(44, 202, 23, 0.55);
+  background-color: #3dbb87;
   cursor: -webkit-grab;
   cursor: grab;
 }
@@ -171,7 +175,7 @@ footer .footer-container a .github-logo {
   height: 40px;
 }
 footer .footer-container a:hover {
-  color: rgb(22, 138, 6);
+  color: #199964;
 }
 
 .return {
@@ -208,7 +212,7 @@ footer .footer-container a:hover {
 
 .new-acc-avatar-container {
   position: relative;
-  border: 2px solid black;
+  border: 2px solid #000000;
   border-radius: 50%;
 }
 
@@ -231,7 +235,7 @@ footer .footer-container a:hover {
   width: 50px;
   height: 50px;
   border-radius: 50%;
-  border: 3px solid black;
+  border: 3px solid #000000;
   font-size: 2rem;
   cursor: pointer;
   transition: 0.6s ease-in-out;
@@ -245,7 +249,7 @@ footer .footer-container a:hover {
 .new-acc-nickname-input {
   width: 60%;
   padding: 5px 10px;
-  border: 2px solid black;
+  border: 2px solid #000000;
   font-size: 1.5rem;
 }
 
@@ -254,7 +258,7 @@ footer .footer-container a:hover {
   padding: 10px 70px 10px 20px;
   border: none;
   border-radius: 10px;
-  box-shadow: 0px 5px 10px -2px black;
+  box-shadow: 0px 5px 10px -2px #000000;
   background-color: #20bd7b;
   font-size: 1.25rem;
   cursor: pointer;
