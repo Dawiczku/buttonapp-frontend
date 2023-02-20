@@ -22,7 +22,7 @@
 
       border-bottom: 1px solid $lightModeTextClr;
 
-      transition: all 0.2s ease-in;
+      transition: all 0.08s ease-in;
 
       span,
       button {
@@ -50,6 +50,9 @@
         cursor: pointer;
         transform: scale(1.4);
       }
+      button:active {
+        transform: scale(1.1);
+      }
     }
 
     li:last-child {
@@ -63,11 +66,6 @@
       background-color: $avatarHoverClr;
 
       cursor: grab;
-    }
-
-    li:active {
-      // Add stopPropagation to JS!
-      transform: scale(0.95);
     }
   }
 

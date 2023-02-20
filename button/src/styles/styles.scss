@@ -11,6 +11,11 @@
 *::after,
 *::before {
   box-sizing: border-box;
+  user-select: none;
+}
+
+img {
+  pointer-events: none;
 }
 
 html,

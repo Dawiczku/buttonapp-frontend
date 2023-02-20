@@ -9,7 +9,7 @@ function App() {
   return (
     <>
       <Header />
-      <CreateAccount />
+      <AccountList />
       <Footer />
     </>
   );

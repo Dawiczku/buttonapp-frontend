@@ -1,6 +1,9 @@
 import React from "react";
 
 export default function Account() {
+  const stopProp = (e) => {
+    e.stopPropagation();
+  };
   return (
     <div className="account-container">
       <img
@@ -9,7 +12,12 @@ export default function Account() {
         alt="avatar"
       ></img>
       <p>Name</p>
-      <button className="close">
+      <button
+        className="close"
+        onClick={(e) => {
+          stopProp(e);
+        }}
+      >
         <span className="material-symbols-outlined">close</span>
       </button>
     </div>
