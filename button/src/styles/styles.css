@@ -302,7 +302,8 @@ footer .footer-container a:hover {
   margin-bottom: 0.75rem;
 }
 
-.submit-btn.join-lobby::after {
+.submit-btn.join-lobby::after,
+.join-lobby-button::after {
   content: "➤";
   font-size: 1.5em;
 }
@@ -311,6 +312,44 @@ footer .footer-container a:hover {
   content: "+";
   font-weight: 600;
   font-size: 2em;
+}
+
+.join-lobby-input {
+  width: 100%;
+  padding: 5px 10px;
+  border: none;
+  font-size: 1.5rem;
+}
+
+.join-lobby-button {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  top: 0;
+  aspect-ratio: 1;
+  border: none;
+  background-color: inherit;
+  cursor: pointer;
+  background-color: #199964;
+}
+
+.join-lobby-button:hover {
+  background-color: #3dbb87;
+}
+
+.join-lobby-input-container {
+  position: relative;
+  width: 40%;
+  border: 2px solid #000000;
+  box-shadow: 0px 5px 10px -2px #000000;
+}
+
+.disabled {
+  display: none;
+}
+
+.enabled {
+  display: auto;
 }
 
 *,
@@ -344,4 +383,8 @@ option {
 body {
   height: 100vh;
   margin: 0 auto;
+}
+
+input {
+  outline: none;
 }/*# sourceMappingURL=styles.css.map */

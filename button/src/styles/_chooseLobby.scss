@@ -12,7 +12,9 @@
     margin-bottom: 0.75rem;
   }
 }
-.submit-btn.join-lobby::after {
+
+.submit-btn.join-lobby::after,
+.join-lobby-button::after {
   content: "\27A4";
   font-size: 1.5em;
 }
@@ -21,4 +23,42 @@
   content: "\002B";
   font-weight: 600;
   font-size: 2em;
+}
+
+.join-lobby-input {
+  width: 100%;
+  padding: 5px 10px;
+  border: none;
+  font-size: 1.5rem;
+}
+
+.join-lobby-button {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  top: 0;
+  aspect-ratio: 1;
+  border: none;
+  background-color: inherit;
+  cursor: pointer;
+  background-color: #199964;
+}
+
+.join-lobby-button:hover {
+  background-color: #3dbb87;
+}
+
+.join-lobby-input-container {
+  position: relative;
+  width: 40%;
+  border: 2px solid $lightModeBordersClr;
+  box-shadow: 0px 5px 10px -2px $lightModeBordersClr;
+}
+
+.disabled {
+  display: none;
+}
+
+.enabled {
+  display: auto;
 }
