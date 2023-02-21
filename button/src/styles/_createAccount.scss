@@ -36,9 +36,6 @@
 
 .new-acc-avatar-container {
   position: relative;
-
-  border: 2px solid $lightModeBordersClr;
-  border-radius: 50%;
 }
 
 .new-avatar {
@@ -48,6 +45,7 @@
   border-radius: 50%;
 
   background-color: white;
+  border: 2px solid $lightModeBordersClr;
 
   overflow: visible;
   vertical-align: middle;
