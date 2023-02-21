@@ -82,7 +82,7 @@
   font-size: 1.5rem;
 }
 
-.create-acc-btn {
+.submit-btn {
   position: relative;
 
   padding: 10px 70px 10px 20px;
@@ -97,15 +97,18 @@
   cursor: pointer;
 
   transition: 0.1s ease-in-out;
+  text-transform: uppercase;
 }
 
-.create-acc-btn:active {
+.submit-btn:active {
   transform: scale(0.95);
 }
 
-.create-acc-btn::after {
+.submit-btn.create-acc::after {
   content: "\2713";
+}
 
+.submit-btn::after {
   display: grid;
   place-items: center;
 

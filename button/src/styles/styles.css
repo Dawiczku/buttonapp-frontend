@@ -212,8 +212,6 @@ footer .footer-container a:hover {
 
 .new-acc-avatar-container {
   position: relative;
-  border: 2px solid #000000;
-  border-radius: 50%;
 }
 
 .new-avatar {
@@ -221,6 +219,7 @@ footer .footer-container a:hover {
   height: 170px;
   border-radius: 50%;
   background-color: white;
+  border: 2px solid #000000;
   overflow: visible;
   vertical-align: middle;
 }
@@ -253,7 +252,7 @@ footer .footer-container a:hover {
   font-size: 1.5rem;
 }
 
-.create-acc-btn {
+.submit-btn {
   position: relative;
   padding: 10px 70px 10px 20px;
   border: none;
@@ -263,14 +262,18 @@ footer .footer-container a:hover {
   font-size: 1.25rem;
   cursor: pointer;
   transition: 0.1s ease-in-out;
+  text-transform: uppercase;
 }
 
-.create-acc-btn:active {
+.submit-btn:active {
   transform: scale(0.95);
 }
 
-.create-acc-btn::after {
+.submit-btn.create-acc::after {
   content: "✓";
+}
+
+.submit-btn::after {
   display: grid;
   place-items: center;
   position: absolute;
@@ -282,6 +285,32 @@ footer .footer-container a:hover {
   background-color: #199964;
   font-size: 2rem;
   transform: scale(0.99);
+}
+
+.create-lobby-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: column;
+  gap: 20px;
+}
+.create-lobby-container h2 {
+  font-size: 2em;
+  margin: 0;
+}
+.create-lobby-container img {
+  margin-bottom: 0.75rem;
+}
+
+.submit-btn.join-lobby::after {
+  content: "➤";
+  font-size: 1.5em;
+}
+
+.submit-btn.create-lobby::after {
+  content: "+";
+  font-weight: 600;
+  font-size: 2em;
 }
 
 *,

@@ -1,0 +1,24 @@
+.create-lobby-container {
+  @include flex(space-between, center);
+  flex-direction: column;
+  gap: 20px;
+
+  h2 {
+    font-size: 2em;
+    margin: 0;
+  }
+
+  img {
+    margin-bottom: 0.75rem;
+  }
+}
+.submit-btn.join-lobby::after {
+  content: "\27A4";
+  font-size: 1.5em;
+}
+
+.submit-btn.create-lobby::after {
+  content: "\002B";
+  font-weight: 600;
+  font-size: 2em;
+}
