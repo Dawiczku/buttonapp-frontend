@@ -48,7 +48,7 @@ export default function CreateAccount() {
           minLength="2"
           maxLength="15"
         ></input>
-        <button className="create-acc-btn" onClick={handleClick}>
+        <button className="submit-btn create-acc" onClick={handleClick}>
           Create
         </button>
       </div>
