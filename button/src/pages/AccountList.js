@@ -1,10 +1,13 @@
 import React from "react";
-import Account from "./Account";
-import NewAccount from "./NewAccount";
+import Account from "../components/Account";
+import NewAccount from "../components/NewAccount";
+import Header from "../components/Header";
+import Footer from "../components/Footer";
 
 export default function AccountList() {
   return (
     <>
+      <Header />
       <div className="account-list">
         <ul>
           <li>
@@ -24,6 +27,7 @@ export default function AccountList() {
           </li>
         </ul>
       </div>
+      <Footer />
     </>
   );
 }

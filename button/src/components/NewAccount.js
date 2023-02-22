@@ -1,11 +1,13 @@
 import React from "react";
 
+// This component represents a "New Account" container, used to add new account.
+
 export default function NewAccount() {
   return (
     <div className="account-container">
       <img
         src={require("../icons/plus-round-line-icon.png")}
-        className="avatar"
+        className="avatar normal"
         alt="new-avatar"
       ></img>
       <p>Create new</p>

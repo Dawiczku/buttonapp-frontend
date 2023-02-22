@@ -1,16 +1,18 @@
 import "./styles/styles.css";
 import React from "react";
 import Header from "./components/Header";
-import CreateAccount from "./components/CreateAccount";
-import AccountList from "./components/AccountList";
-import Footer from "./components/Foooter";
-import ChooseLobby from "./components/ChooseLobby";
+import CreateAccount from "./pages/CreateAccount";
+import AccountList from "./pages/AccountList";
+import Footer from "./components/Footer";
+import ChooseLobby from "./pages/ChooseLobby";
+import Lobby from "./pages/Lobby";
 
 function App() {
   return (
     <>
       <Header />
-      <ChooseLobby />
+      {/* <Lobby type="admin" /> */}
+      <AccountList />
       <Footer />
     </>
   );

@@ -12,15 +12,16 @@ header .logo-container {
   justify-content: space-between;
   align-items: center;
   grid-column-start: 2;
-  gap: 15px;
+  gap: 0.75em;
 }
 header h1 {
   color: #2e2e2e;
-  font-size: 3rem;
+  font-size: 3.5rem;
   text-shadow: 1px 0px 1px #ccc, 0px 1px 1px #eee, 2px 1px 1px #ccc, 1px 2px 1px #eee, 3px 2px 1px #ccc, 2px 3px 1px #eee, 4px 3px 1px #ccc, 3px 4px 1px #eee, 5px 4px 1px #ccc, 4px 5px 1px #eee, 6px 5px 1px #ccc, 5px 6px 1px #eee, 7px 6px 1px #ccc;
+  margin: 0.5em 0;
 }
 header .material-symbols-outlined {
-  font-size: 36px;
+  font-size: 3.75rem;
   background-image: linear-gradient(to right, #11998e, #38ef7d);
   -webkit-background-clip: text;
           background-clip: text;
@@ -138,10 +139,12 @@ header .material-symbols-outlined {
   padding: 10px 20px;
 }
 .account-list .account-container .avatar {
-  width: 60px;
-  height: 60px;
   border-radius: 50%;
   vertical-align: middle;
+}
+.account-list .account-container .avatar.normal {
+  width: 60px;
+  height: 60px;
 }
 .account-list .account-container p {
   font-size: 1.5rem;
@@ -317,8 +320,8 @@ footer .footer-container a:hover {
 .join-lobby-input {
   width: 100%;
   padding: 5px 10px;
-  border: none;
   font-size: 1.5rem;
+  border: none;
 }
 
 .join-lobby-button {
@@ -327,10 +330,9 @@ footer .footer-container a:hover {
   bottom: 0;
   top: 0;
   aspect-ratio: 1;
-  border: none;
-  background-color: inherit;
-  cursor: pointer;
   background-color: #199964;
+  border: none;
+  cursor: pointer;
 }
 
 .join-lobby-button:hover {
@@ -350,6 +352,112 @@ footer .footer-container a:hover {
 
 .enabled {
   display: auto;
+}
+
+.user {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1em;
+}
+.user p {
+  font-size: 1.25em;
+  font-weight: 600;
+}
+
+.avatar.large {
+  width: 70px;
+  height: 70px;
+}
+
+.user {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1em;
+}
+.user p {
+  font-size: 1.25em;
+  font-weight: 600;
+}
+
+.avatar.large {
+  width: 70px;
+  height: 70px;
+}
+
+.lobby.users {
+  height: 65vh;
+}
+.lobby.users .close-lobby-btn,
+.lobby.users .start-game {
+  display: none;
+}
+
+.lobby {
+  border: 2px solid black;
+  width: 70vw;
+  margin: 0 auto;
+  border: 2px solid #000000;
+  border-radius: 0.5em;
+  background-color: #e9e9e9;
+  box-shadow: 0 10px 20px -6px black;
+}
+.lobby .lobby-header {
+  display: grid;
+  padding: 0.5em;
+  grid-template-columns: 1fr 1fr 1fr;
+  border-bottom: 1px solid black;
+}
+.lobby .lobby-header h2 {
+  font-size: 2.5rem;
+  margin: auto;
+}
+.lobby .lobby-header button {
+  place-self: start;
+}
+.lobby .lobby-users-container ul {
+  padding: 0 1em;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+}
+.lobby .lobby-users-container ul li {
+  margin: 0.5em 0.5em;
+  padding: 1.5em 0.5em;
+  border: 2px dashed #3dbb87;
+  border-radius: 0.5em;
+  box-shadow: 0 0 10px -4px #3dbb87;
+  background-color: rgb(238, 235, 235);
+}
+.lobby .lobby-users-container ul li p {
+  font-size: 1.5rem;
+  margin-bottom: 0;
+}
+
+.lobby.admin {
+  height: 70vh;
+}
+.lobby.admin .close-lobby-btn {
+  border: none;
+  background-color: inherit;
+  place-self: start end;
+  cursor: pointer;
+  transition: 0.1s ease-in-out;
+}
+.lobby.admin .close-lobby-btn span {
+  font-size: 2.25em;
+}
+.lobby.admin .close-lobby-btn:hover {
+  transform: scale(1.25);
+}
+.lobby.admin .admin-buttons {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.lobby.admin .submit-btn.start-game::after {
+  content: "➤";
+  font-size: 1.5em;
 }
 
 *,
@@ -387,4 +495,8 @@ body {
 
 input {
   outline: none;
+}
+
+ul {
+  list-style: none;
 }/*# sourceMappingURL=styles.css.map */

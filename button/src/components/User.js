@@ -1,5 +1,7 @@
 import React from "react";
 
+// This component represents a single User in Lobby.
+
 export default function User() {
   return (
     <div className="user">

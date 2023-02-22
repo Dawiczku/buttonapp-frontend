@@ -1,5 +1,7 @@
 import React from "react";
 
+// This component represents a single account placed in AccountList.
+
 export default function Account() {
   const stopProp = (e) => {
     e.stopPropagation();
