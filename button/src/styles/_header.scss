@@ -4,6 +4,7 @@
 header {
   display: grid;
   grid-template-columns: 1fr repeat(3, auto) 1fr;
+  // Delete this v
   grid-column-gap: 5px;
 
   padding: 0;

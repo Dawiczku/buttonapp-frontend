@@ -8,7 +8,7 @@ export default function Account() {
     <div className="account-container">
       <img
         src={require("../avatars/reindeer-color-icon.png")}
-        className="avatar"
+        className="avatar normal"
         alt="avatar"
       ></img>
       <p>Name</p>

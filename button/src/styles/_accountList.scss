@@ -77,11 +77,13 @@
     padding: 10px 20px;
 
     .avatar {
-      width: 60px;
-      height: 60px;
-
       border-radius: 50%;
       vertical-align: middle;
+    }
+
+    .avatar.normal {
+      width: 60px;
+      height: 60px;
     }
 
     p {
