@@ -2,6 +2,11 @@
 
 .lobby.users {
   height: 65vh;
+
+  .close-lobby-btn,
+  .start-game {
+    display: none;
+  }
 }
 
 .lobby {
@@ -18,7 +23,7 @@
 
   .lobby-header {
     display: grid;
-    padding: 0.5em 0;
+    padding: 0.5em;
     grid-template-columns: 1fr 1fr 1fr;
     border-bottom: 1px solid black;
 

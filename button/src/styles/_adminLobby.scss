@@ -1,0 +1,31 @@
+@import "./user";
+@import "./userLobby";
+
+.lobby.admin {
+  height: 70vh;
+
+  .close-lobby-btn {
+    border: none;
+    background-color: inherit;
+    place-self: start end;
+    cursor: pointer;
+    transition: 0.1s ease-in-out;
+
+    span {
+      font-size: 2.25em;
+    }
+  }
+
+  .close-lobby-btn:hover {
+    transform: scale(1.25);
+  }
+
+  .admin-buttons {
+    @include flex(center, center);
+  }
+
+  .submit-btn.start-game::after {
+    content: "\27A4";
+    font-size: 1.5em;
+  }
+}
