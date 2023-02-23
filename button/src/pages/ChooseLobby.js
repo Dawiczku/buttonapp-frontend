@@ -2,12 +2,16 @@ import React from "react";
 import { useRef, useState } from "react";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
+import { Link, useNavigate } from "react-router-dom";
+import ReturnButton from "../components/ReturnButton";
 
 export default function ChooseLobby() {
   const createButtonRef = useRef();
 
   const [code, setCode] = useState("");
   const [status, setStatus] = useState(false);
+
+  const navigate = useNavigate();
 
   const toggleInputVisibility = () => {
     setStatus(!status);
@@ -28,15 +32,14 @@ export default function ChooseLobby() {
     setCode(code);
     // Reset after pushing to the array!
     setCode("");
+    navigate("/lobby-users");
   };
 
   return (
     <>
       <Header />
       <div className="account-list">
-        <button className="return">
-          <span className="material-symbols-outlined">arrow_back</span>Wstecz
-        </button>
+        <ReturnButton />
         <div className="create-lobby-container">
           <h2>Nickname</h2>
 
@@ -46,9 +49,11 @@ export default function ChooseLobby() {
             alt="avatar"
           ></img>
 
-          <button className="submit-btn create-lobby" ref={createButtonRef}>
-            create new lobby
-          </button>
+          <Link to="/lobby-admin" className="link">
+            <button className="submit-btn create-lobby" ref={createButtonRef}>
+              create new lobby
+            </button>
+          </Link>
           <button
             className={
               status
@@ -75,7 +80,11 @@ export default function ChooseLobby() {
               minLength="5"
               maxLength="5"
             ></input>
-            <button className="join-lobby-button"></button>
+
+            <button
+              className="join-lobby-button"
+              onClick={handleClick}
+            ></button>
           </div>
         </div>
       </div>

@@ -2,6 +2,7 @@ import React from "react";
 import User from "../components/User";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
+import ReturnButton from "../components/ReturnButton";
 
 export default function Lobby(user) {
   return (
@@ -9,9 +10,7 @@ export default function Lobby(user) {
       <Header />
       <div className={user.type === "users" ? "lobby users" : "lobby admin"}>
         <div className="lobby-header">
-          <button className="return">
-            <span className="material-symbols-outlined">arrow_back</span>Wstecz
-          </button>
+          <ReturnButton />
           <h2>Lobby</h2>
           <button className="close-lobby-btn">
             <span className="material-symbols-outlined">close</span>

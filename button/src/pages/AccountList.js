@@ -3,6 +3,7 @@ import Account from "../components/Account";
 import NewAccount from "../components/NewAccount";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
+import { Link } from "react-router-dom";
 
 export default function AccountList() {
   return (
@@ -11,19 +12,29 @@ export default function AccountList() {
       <div className="account-list">
         <ul>
           <li>
-            <Account />
+            <Link to="/choose-lobby" className="link">
+              <Account />
+            </Link>
           </li>
           <li>
-            <Account />
+            <Link to="/choose-lobby" className="link">
+              <Account />
+            </Link>
           </li>
           <li>
-            <Account />
+            <Link to="/choose-lobby" className="link">
+              <Account />
+            </Link>
           </li>
           <li>
-            <Account />
+            <Link to="/choose-lobby" className="link">
+              <Account />
+            </Link>
           </li>
           <li>
-            <NewAccount />
+            <Link to="/create-account" className="link">
+              <NewAccount />
+            </Link>
           </li>
         </ul>
       </div>

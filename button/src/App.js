@@ -1,19 +1,23 @@
 import "./styles/styles.css";
 import React from "react";
-import Header from "./components/Header";
 import CreateAccount from "./pages/CreateAccount";
 import AccountList from "./pages/AccountList";
-import Footer from "./components/Footer";
 import ChooseLobby from "./pages/ChooseLobby";
 import Lobby from "./pages/Lobby";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 function App() {
   return (
     <>
-      <Header />
-      {/* <Lobby type="admin" /> */}
-      <AccountList />
-      <Footer />
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<AccountList />} />
+          <Route path="choose-lobby" element={<ChooseLobby />} />
+          <Route path="create-account" element={<CreateAccount />} />
+          <Route path="lobby-admin" element={<Lobby type="admin" />} />
+          <Route path="lobby-users" element={<Lobby type="users" />} />
+        </Routes>
+      </BrowserRouter>
     </>
   );
 }

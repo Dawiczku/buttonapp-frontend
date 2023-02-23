@@ -3,9 +3,13 @@ import { useState } from "react";
 import { BsArrowClockwise } from "react-icons/bs";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
+import { useNavigate } from "react-router-dom";
+import ReturnButton from "../components/ReturnButton";
 
 export default function CreateAccount() {
   const [nickname, setNickname] = useState("");
+
+  const navigate = useNavigate();
 
   const handleChange = (event) => {
     setNickname(event.target.value);
@@ -20,17 +24,21 @@ export default function CreateAccount() {
     }
 
     setNickname(nickname);
+
+    // Dodac do tablicy.
+
     setNickname("");
+
+    // Funckja, ktora dodaje nowe konto do AccountList.
+
+    navigate("/");
   };
 
   return (
     <>
       <Header />
       <div className="account-list">
-        <button className="return">
-          <span className="material-symbols-outlined">arrow_back</span>
-          Wstecz
-        </button>
+        <ReturnButton />
         <div className="new-acc-container">
           <h2>Choose Avatar !</h2>
           <div className="new-acc-avatar-container">
@@ -52,6 +60,7 @@ export default function CreateAccount() {
             minLength="2"
             maxLength="15"
           ></input>
+
           <button className="submit-btn create-acc" onClick={handleClick}>
             Create
           </button>
