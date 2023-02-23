@@ -8,6 +8,7 @@
 @import "./createAccount";
 @import "./chooseLobby";
 @import "./adminLobby";
+@import "./variables";
 
 *,
 *::after,
@@ -45,4 +46,9 @@ input {
 
 ul {
   list-style: none;
+}
+
+.link {
+  text-decoration: none;
+  color: $lightModeTextClr;
 }

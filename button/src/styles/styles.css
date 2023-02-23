@@ -17,14 +17,17 @@ header .logo-container {
 header h1 {
   color: #2e2e2e;
   font-size: 3.5rem;
-  text-shadow: 1px 0px 1px #ccc, 0px 1px 1px #eee, 2px 1px 1px #ccc, 1px 2px 1px #eee, 3px 2px 1px #ccc, 2px 3px 1px #eee, 4px 3px 1px #ccc, 3px 4px 1px #eee, 5px 4px 1px #ccc, 4px 5px 1px #eee, 6px 5px 1px #ccc, 5px 6px 1px #eee, 7px 6px 1px #ccc;
+  text-shadow: 1px 0px 1px #ccc, 0px 1px 1px #eee, 2px 1px 1px #ccc,
+    1px 2px 1px #eee, 3px 2px 1px #ccc, 2px 3px 1px #eee, 4px 3px 1px #ccc,
+    3px 4px 1px #eee, 5px 4px 1px #ccc, 4px 5px 1px #eee, 6px 5px 1px #ccc,
+    5px 6px 1px #eee, 7px 6px 1px #ccc;
   margin: 0.5em 0;
 }
 header .material-symbols-outlined {
   font-size: 3.75rem;
   background-image: linear-gradient(to right, #11998e, #38ef7d);
   -webkit-background-clip: text;
-          background-clip: text;
+  background-clip: text;
   color: transparent;
 }
 
@@ -36,14 +39,14 @@ header .material-symbols-outlined {
 .dark-mode-container {
   display: flex;
   justify-content: flex-end;
-  align-items: start;
+  align-items: flex-start;
   grid-column-start: 5;
   margin: 25px;
 }
 .dark-mode-container p {
   margin: 0;
 }
-.dark-mode-container input[type=checkbox] {
+.dark-mode-container input[type="checkbox"] {
   height: 0;
   width: 0;
   visibility: hidden;
@@ -465,9 +468,9 @@ footer .footer-container a:hover {
 *::before {
   box-sizing: border-box;
   -webkit-user-select: none;
-     -moz-user-select: none;
-      -ms-user-select: none;
-          user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
 }
 
 img {
@@ -499,4 +502,9 @@ input {
 
 ul {
   list-style: none;
-}/*# sourceMappingURL=styles.css.map */
+}
+
+.link {
+  text-decoration: none;
+  color: #000000;
+} /*# sourceMappingURL=styles.css.map */
