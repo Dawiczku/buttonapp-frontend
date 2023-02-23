@@ -25,7 +25,7 @@
       transition: all 0.08s ease-in;
 
       span,
-      button {
+      .close {
         width: 24px;
         height: 24px;
 
@@ -35,22 +35,22 @@
         border: none;
       }
 
-      button {
+      .close {
         position: absolute;
 
         top: 12px;
         right: 12px;
 
-        background-color: inherit;
+        background-color: transparent;
 
         transition: 0.1s;
       }
 
-      button:hover {
+      .close:hover {
         cursor: pointer;
         transform: scale(1.4);
       }
-      button:active {
+      .close:active {
         transform: scale(1.1);
       }
     }

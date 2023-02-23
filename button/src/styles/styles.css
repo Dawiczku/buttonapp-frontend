@@ -103,25 +103,25 @@ header .material-symbols-outlined {
   transition: all 0.08s ease-in;
 }
 .account-list ul li span,
-.account-list ul li button {
+.account-list ul li .close {
   width: 24px;
   height: 24px;
   padding: 0;
   margin: 0;
   border: none;
 }
-.account-list ul li button {
+.account-list ul li .close {
   position: absolute;
   top: 12px;
   right: 12px;
-  background-color: inherit;
+  background-color: transparent;
   transition: 0.1s;
 }
-.account-list ul li button:hover {
+.account-list ul li .close:hover {
   cursor: pointer;
   transform: scale(1.4);
 }
-.account-list ul li button:active {
+.account-list ul li .close:active {
   transform: scale(1.1);
 }
 .account-list ul li:last-child {
