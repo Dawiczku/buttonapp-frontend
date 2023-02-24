@@ -7,7 +7,7 @@ export default function NewAccount() {
     <div className="account-container">
       <img
         src={require("../icons/plus-round-line-icon.png")}
-        className="avatar normal"
+        className="avatar normal new"
         alt="new-avatar"
       ></img>
       <p>Create new</p>

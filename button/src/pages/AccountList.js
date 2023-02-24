@@ -24,9 +24,7 @@ export default function AccountList() {
             <AccountContainer />
           </li>
           <li>
-            <Link to="/create-account" className="link">
-              <NewAccount />
-            </Link>
+            <AccountContainer type="new" />
           </li>
         </ul>
       </div>
