@@ -1,43 +1,101 @@
-@import "./slider";
-@import "./variables";
+.dark-body {
+  background-color: $darkModeBackgroundClr;
 
-.dark-mode-paragraph {
-  font-size: 1.25rem;
-  font-weight: 600;
-}
+  header,
+  footer,
+  .return {
+    color: $darkModeTextClr;
 
-// Dark mode switch
-
-.dark-mode-container {
-  @include flex(flex-end, start);
-  grid-column-start: 5;
-  margin: 25px;
-
-  p {
-    margin: 0;
+    h1 {
+      text-shadow: 1px 0px 1px $lightModeLogoShadow1,
+        0px 1px 1px $lightModeLogoShadow2, 2px 1px 1px $lightModeLogoShadow1,
+        1px 2px 1px $lightModeLogoShadow2, 3px 2px 1px $lightModeLogoShadow1,
+        2px 3px 1px $lightModeLogoShadow2, 4px 3px 1px $lightModeLogoShadow1,
+        3px 4px 1px $lightModeLogoShadow2, 5px 4px 1px $lightModeLogoShadow1,
+        4px 5px 1px $lightModeLogoShadow2, 6px 5px 1px $lightModeLogoShadow1,
+        5px 6px 1px $lightModeLogoShadow2, 7px 6px 1px $lightModeLogoShadow1;
+    }
   }
 
-  input[type="checkbox"] {
-    @include sliderCheckbox();
+  .account-list-container {
+    .account-list {
+      li {
+        border-bottom-color: $darkModeBorderClr;
+
+        p,
+        .close-span {
+          color: $darkModeTextClr;
+        }
+
+        .new-acc-icon {
+          filter: invert(100%);
+        }
+      }
+
+      li:hover {
+        background-color: $darkModeHoverClr;
+      }
+    }
   }
 
-  label {
-    @include sliderLabel(40px, 20px);
+  footer {
+    border-top-color: $darkModeBorderClr;
+
+    .github-logo {
+      filter: invert(100%);
+    }
   }
 
-  label:after {
-    @include sliderAfterLabel(14px, 14px);
+  .create-lobby-container,
+  .new-acc-container {
+    h2 {
+      color: $darkModeTextClr;
+    }
+
+    .new-avatar {
+      border-color: $darkModeBorderClr;
+      background-color: $darkModeAvatarBackgroundClr;
+    }
   }
 
-  input:checked + label {
-    @include checkedSlider($darkModeSwitchCheckedClr);
+  .join-lobby-input-container,
+  .new-acc-nickname-input {
+    border-color: $darkInputBorderClr;
   }
 
-  input:checked + label:after {
-    @include checkedSliderAfterLabel();
+  .join-lobby-input,
+  .new-acc-nickname-input {
+    background-color: $darkModeInputBackgroundClr;
   }
 
-  label:active:after {
-    @include onClickLabel(24px);
+  .join-lobby-input::placeholder,
+  .new-acc-nickname-input::placeholder {
+    color: $darkModePlaceHolderClr;
+  }
+
+  .account-list-container,
+  .lobby {
+    border-color: $darkInputBorderClr;
+    background-color: $darkModeListBackgroundClr;
+  }
+
+  .lobby {
+    .lobby-header,
+    .lobby-header > .close-lobby-btn {
+      color: $darkModeTextClr;
+    }
+
+    .lobby-header {
+      border-bottom-color: $darkModeBorderClr;
+    }
+
+    .lobby-users-container {
+      ul {
+        li {
+          background-color: $darkModeListBackgroundClr;
+          color: $darkModeTextClr;
+        }
+      }
+    }
   }
 }
