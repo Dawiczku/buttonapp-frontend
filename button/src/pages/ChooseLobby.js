@@ -38,7 +38,7 @@ export default function ChooseLobby() {
   return (
     <>
       <Header />
-      <div className="account-list">
+      <div className="account-list-container">
         <ReturnButton />
         <div className="create-lobby-container">
           <h2>Nickname</h2>

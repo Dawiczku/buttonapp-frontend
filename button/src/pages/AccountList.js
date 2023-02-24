@@ -1,16 +1,14 @@
 import React from "react";
-import NewAccount from "../components/NewAccount";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
-import { Link } from "react-router-dom";
 import AccountContainer from "../components/AccountContainer";
 
 export default function AccountList() {
   return (
     <>
       <Header />
-      <div className="account-list">
-        <ul>
+      <div className="account-list-container">
+        <ul className="account-list">
           <li>
             <AccountContainer />
           </li>

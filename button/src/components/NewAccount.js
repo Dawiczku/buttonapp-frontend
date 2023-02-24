@@ -7,8 +7,8 @@ export default function NewAccount() {
     <div className="account-container">
       <img
         src={require("../icons/plus-round-line-icon.png")}
-        className="avatar normal new"
-        alt="new-avatar"
+        className="avatar normal new-acc-icon"
+        alt="new-acc-icon"
       ></img>
       <p>Create new</p>
       <button className="close">

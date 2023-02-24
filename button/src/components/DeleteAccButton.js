@@ -13,7 +13,7 @@ export default function DeleteAccButton() {
           stopProp(e);
         }}
       >
-        <span className="material-symbols-outlined">close</span>
+        <span className="material-symbols-outlined close-span">close</span>
       </button>
     </>
   );

@@ -37,7 +37,7 @@ export default function CreateAccount() {
   return (
     <>
       <Header />
-      <div className="account-list">
+      <div className="account-list-container">
         <ReturnButton />
         <div className="new-acc-container">
           <h2>Choose Avatar !</h2>
