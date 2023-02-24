@@ -3,10 +3,10 @@ footer {
 
   position: fixed;
   bottom: 0;
-  left: 300px;
-  right: 300px;
+  left: 15vw;
+  right: 15vw;
 
-  padding: 15px 0;
+  padding: 1rem 0;
   border-top: 1px solid black;
 
   .footer-container {
@@ -20,8 +20,6 @@ footer {
 
       text-decoration: none;
       color: inherit;
-
-      transition: all 0.2s ease-in;
 
       .github-logo {
         width: 40px;

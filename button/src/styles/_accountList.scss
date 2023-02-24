@@ -1,8 +1,8 @@
-.account-list {
+.account-list-container {
   width: 400px;
   height: 486px;
 
-  margin: 50px auto;
+  margin: 3.125rem auto;
 
   border: 2px solid $lightModeBordersClr;
   border-radius: 7px;
@@ -11,20 +11,20 @@
 
   box-shadow: 0 10px 20px -6px black;
 
-  ul {
+  .account-list {
     list-style: none;
-    padding: 0 40px;
+    padding: 0 2.5rem;
 
     li {
       position: relative;
 
-      padding: 5px;
+      padding: 0.3125rem;
 
       border-bottom: 1px solid $lightModeTextClr;
 
       transition: all 0.08s ease-in;
 
-      span,
+      .close-span,
       .close {
         width: 24px;
         height: 24px;
@@ -57,7 +57,7 @@
 
     li:last-child {
       border-bottom: none;
-      button {
+      .close {
         display: none;
       }
     }
@@ -65,16 +65,15 @@
     li:hover {
       background-color: $avatarHoverClr;
 
-      cursor: grab;
+      cursor: pointer;
     }
   }
 
   .account-container {
-    display: flex;
-    align-items: center;
+    @include flex(normal, center);
     gap: 30px;
 
-    padding: 10px 20px;
+    padding: 0.625rem 1.25rem;
 
     .avatar {
       border-radius: 50%;

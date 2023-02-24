@@ -4,25 +4,27 @@
 header {
   display: grid;
   grid-template-columns: 1fr repeat(3, auto) 1fr;
-  // Delete this v
-  grid-column-gap: 5px;
+  color: $lightModeLogoClr;
 
   padding: 0;
 
   .logo-container {
     @include flex(space-between, center);
     grid-column-start: 2;
-    gap: 0.75em;
+    gap: 12px;
   }
 
   h1 {
-    color: #2e2e2e;
-    font-size: 3.5rem;
-    text-shadow: 1px 0px 1px #ccc, 0px 1px 1px #eee, 2px 1px 1px #ccc,
-      1px 2px 1px #eee, 3px 2px 1px #ccc, 2px 3px 1px #eee, 4px 3px 1px #ccc,
-      3px 4px 1px #eee, 5px 4px 1px #ccc, 4px 5px 1px #eee, 6px 5px 1px #ccc,
-      5px 6px 1px #eee, 7px 6px 1px #ccc;
-    margin: 0.5em 0;
+    font-size: 3.75rem;
+    text-shadow: 1px 0px 1px $darkModeLogoShadow1,
+      0px 1px 1px $darkModeLogoShadow2, 2px 1px 1px $darkModeLogoShadow1,
+      1px 2px 1px $darkModeLogoShadow2, 3px 2px 1px $darkModeLogoShadow1,
+      2px 3px 1px $darkModeLogoShadow2, 4px 3px 1px $darkModeLogoShadow1,
+      3px 4px 1px $darkModeLogoShadow2, 5px 4px 1px $darkModeLogoShadow1,
+      4px 5px 1px $darkModeLogoShadow2, 6px 5px 1px $darkModeLogoShadow1,
+      5px 6px 1px $darkModeLogoShadow2, 7px 6px 1px $darkModeLogoShadow1;
+
+    margin: 2rem 0;
   }
 
   .material-symbols-outlined {
