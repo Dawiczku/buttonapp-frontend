@@ -5,16 +5,16 @@
   footer,
   .return {
     color: $darkModeTextClr;
+  }
 
-    h1 {
-      text-shadow: 1px 0px 1px $lightModeLogoShadow1,
-        0px 1px 1px $lightModeLogoShadow2, 2px 1px 1px $lightModeLogoShadow1,
-        1px 2px 1px $lightModeLogoShadow2, 3px 2px 1px $lightModeLogoShadow1,
-        2px 3px 1px $lightModeLogoShadow2, 4px 3px 1px $lightModeLogoShadow1,
-        3px 4px 1px $lightModeLogoShadow2, 5px 4px 1px $lightModeLogoShadow1,
-        4px 5px 1px $lightModeLogoShadow2, 6px 5px 1px $lightModeLogoShadow1,
-        5px 6px 1px $lightModeLogoShadow2, 7px 6px 1px $lightModeLogoShadow1;
-    }
+  h1 {
+    text-shadow: 1px 0px 1px $lightModeLogoShadow1,
+      0px 1px 1px $lightModeLogoShadow2, 2px 1px 1px $lightModeLogoShadow1,
+      1px 2px 1px $lightModeLogoShadow2, 3px 2px 1px $lightModeLogoShadow1,
+      2px 3px 1px $lightModeLogoShadow2, 4px 3px 1px $lightModeLogoShadow1,
+      3px 4px 1px $lightModeLogoShadow2, 5px 4px 1px $lightModeLogoShadow1,
+      4px 5px 1px $lightModeLogoShadow2, 6px 5px 1px $lightModeLogoShadow1,
+      5px 6px 1px $lightModeLogoShadow2, 7px 6px 1px $lightModeLogoShadow1;
   }
 
   .account-list-container {
@@ -81,7 +81,7 @@
 
   .lobby {
     .lobby-header,
-    .lobby-header > .close-lobby-btn {
+    .close-lobby-btn {
       color: $darkModeTextClr;
     }
 
