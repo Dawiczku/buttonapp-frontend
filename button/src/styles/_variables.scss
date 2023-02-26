@@ -1,17 +1,31 @@
 $darkModeSwitchCheckedClr: linear-gradient(to right, #11998e, #38ef7d);
 $logoClr: linear-gradient(to right, #11998e, #38ef7d);
 
-$darkModeTextClr: #e0e0e0;
-$darkModeListBackgroundClr: #313131;
-$darkModeBackground: #1b1b1b;
-$darkAccountsBorderClr: #4d4d4d;
+$textShadowClr: #000;
 
-$lightModeTextClr: #000000;
-$lightModeListBackgroundClr: #e9e9e9;
+$darkModeTextClr: #e0e0e0;
+$darkModeBackgroundClr: #1b1b1b;
+$darkModeListBackgroundClr: #252525;
+$darkInputBorderClr: #199964;
+$darkModeHoverClr: #1b7c54;
+$darkModeLogoShadow1: #ccc;
+$darkModeLogoShadow2: #eee;
+$darkModeBorderClr: #e0e0e0;
+$darkModeAvatarBackgroundClr: #3f3f3f;
+$darkModeInputBackgroundClr: #3f3f3f;
+$darkModePlaceHolderClr: #c7c7c7;
+
+$lightModeTextClr: #000;
 $lightModeBackground: #e0e0e0;
-$lightAccountsBorderClr: #666666;
-$lightModeBordersClr: #000000;
+$lightModeListBackgroundClr: #e9e9e9;
+$lightAccountsBorderClr: #3f3f3f;
+$lightModeBordersClr: #000;
+$lightModeLogoShadow1: #292929;
+$lightModeLogoShadow2: #414141;
+$lightModeLogoClr: #2e2e2e;
 
 $avatarHoverClr: #3dbb87;
 $linkHoverClr: #199964;
 $returnBtnHoverClr: #199964;
+
+$userInLobbyBorderClr: #3dbb87;

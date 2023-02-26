@@ -17,19 +17,19 @@
 .submit-btn.join-lobby::after,
 .join-lobby-button::after {
   content: "\27A4";
-  font-size: 1.5em;
+  font-size: 1.5rem;
 }
 
 .submit-btn.create-lobby::after {
   content: "\002B";
   font-weight: 600;
-  font-size: 2em;
+  font-size: 2rem;
 }
 
 .join-lobby-input {
   width: 100%;
 
-  padding: 5px 10px;
+  padding: 0.25em 0.5em;
   font-size: 1.5rem;
 
   border: none;

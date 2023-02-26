@@ -1,0 +1,43 @@
+@import "./slider";
+@import "./variables";
+
+.dark-mode-paragraph {
+  font-size: 1.25rem;
+  font-weight: 600;
+}
+
+// Dark mode switch
+
+.dark-mode-container {
+  @include flex(flex-end, start);
+  grid-column-start: 5;
+  margin: 2em;
+
+  p {
+    margin: 0;
+  }
+
+  input[type="checkbox"] {
+    @include sliderCheckbox();
+  }
+
+  label {
+    @include sliderLabel(40px, 20px);
+  }
+
+  label:after {
+    @include sliderAfterLabel(14px, 14px);
+  }
+
+  input:checked + label {
+    @include checkedSlider($darkModeSwitchCheckedClr);
+  }
+
+  input:checked + label:after {
+    @include checkedSliderAfterLabel();
+  }
+
+  label:active:after {
+    @include onClickLabel(24px);
+  }
+}

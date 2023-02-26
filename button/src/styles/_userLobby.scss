@@ -10,7 +10,7 @@
 }
 
 .lobby {
-  border: 2px solid black;
+  border: 2px solid $lightModeBordersClr;
   width: 70vw;
   margin: 0 auto;
 
@@ -19,20 +19,20 @@
 
   background-color: $lightModeListBackgroundClr;
 
-  box-shadow: 0 10px 20px -6px black;
+  box-shadow: 0 10px 20px -6px $textShadowClr;
 
   .lobby-header {
     display: grid;
     padding: 0.5em;
     grid-template-columns: 1fr 1fr 1fr;
-    border-bottom: 1px solid black;
+    border-bottom: 1px solid $lightModeBordersClr;
 
     h2 {
       font-size: 2.5rem;
       margin: auto;
     }
     button {
-      place-self: start;
+      place-self: flex-start;
     }
   }
 
@@ -45,9 +45,9 @@
       li {
         margin: 0.5em 0.5em;
         padding: 1.5em 0.5em;
-        border: 2px dashed #3dbb87;
+        border: 2px dashed $userInLobbyBorderClr;
         border-radius: 0.5em;
-        box-shadow: 0 0 10px -4px #3dbb87;
+        box-shadow: 0 0 10px -4px $userInLobbyBorderClr;
         background-color: rgb(238, 235, 235);
         p {
           font-size: 1.5rem;
