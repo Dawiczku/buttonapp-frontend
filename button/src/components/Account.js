@@ -1,8 +1,9 @@
 import React from "react";
+import DeleteAccButton from "./DeleteAccButton";
 
 // This component represents a single account placed in AccountList.
 
-export default function Account() {
+export default function Account(account) {
   return (
     <div className="account-container">
       <img
@@ -10,7 +11,8 @@ export default function Account() {
         className="avatar normal"
         alt="avatar"
       ></img>
-      <p>Name</p>
+      <p>{account.nickname}</p>
+      <DeleteAccButton />
     </div>
   );
 }

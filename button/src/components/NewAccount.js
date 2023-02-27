@@ -11,9 +11,6 @@ export default function NewAccount() {
         alt="new-acc-icon"
       ></img>
       <p>Create new</p>
-      <button className="close">
-        <span className="material-symbols-outlined">close</span>
-      </button>
     </div>
   );
 }

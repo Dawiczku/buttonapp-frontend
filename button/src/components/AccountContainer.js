@@ -1,7 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import Account from "./Account";
-import DeleteAccButton from "./DeleteAccButton";
 import NewAccount from "./NewAccount";
 
 export default function AccountContainer(account) {
@@ -13,10 +12,9 @@ export default function AccountContainer(account) {
         </Link>
       ) : (
         <Link to="choose-lobby" className="link">
-          <Account />
+          <Account nickname={account.nickname} />
         </Link>
       )}
-      <DeleteAccButton />
     </>
   );
 }
