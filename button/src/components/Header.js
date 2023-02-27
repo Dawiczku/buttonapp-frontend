@@ -1,9 +1,25 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 
 export default function Header() {
-  const changeToDarkMode = () => {
-    document.body.classList.toggle("dark-body");
+  let storageDarkMode = null;
+
+  localStorage.getItem("darkMode")
+    ? (storageDarkMode = JSON.parse(localStorage.getItem("darkMode")))
+    : (storageDarkMode = false);
+
+  const [darkMode, setDarkMode] = useState(storageDarkMode);
+
+  const switchDarkMode = () => {
+    setDarkMode(!darkMode);
   };
+
+  useEffect(() => {
+    darkMode
+      ? document.body.classList.add("dark-body")
+      : document.body.classList.remove("dark-body");
+
+    localStorage.setItem("darkMode", JSON.stringify(darkMode));
+  }, [darkMode]);
 
   return (
     <header>
@@ -17,7 +33,8 @@ export default function Header() {
         <input
           type="checkbox"
           id="dark-mode-switch"
-          onChange={changeToDarkMode}
+          checked={darkMode}
+          onChange={switchDarkMode}
         />
         <label for="dark-mode-switch">Toggle</label>
       </div>
