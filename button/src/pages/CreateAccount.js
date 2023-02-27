@@ -1,20 +1,29 @@
-import React from "react";
-import { useState } from "react";
+import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { BsArrowClockwise } from "react-icons/bs";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
-import { useNavigate } from "react-router-dom";
 import ReturnButton from "../components/ReturnButton";
 
 export default function CreateAccount() {
+  // Initializing variables.
   const [nickname, setNickname] = useState("");
+  let accountList = null;
 
+  /* Setting accountList value based on, if accounts are already stored in local storage. */
+  localStorage.getItem("accounts")
+    ? (accountList = JSON.parse(localStorage.getItem("accounts")))
+    : (accountList = []);
+
+  // Navigation hook.
   const navigate = useNavigate();
 
+  // Handling kayboard clicks on input field.
   const handleChange = (event) => {
     setNickname(event.target.value);
   };
 
+  // Submit button click handler.
   const handleClick = (event) => {
     event.preventDefault();
 
@@ -25,12 +34,14 @@ export default function CreateAccount() {
 
     setNickname(nickname);
 
-    // Dodac do tablicy.
+    if (accountList.length < 5) {
+      accountList.push({ nickname: nickname });
+      localStorage.setItem("accounts", JSON.stringify(accountList));
+    }
 
     setNickname("");
 
-    // Funckja, ktora dodaje nowe konto do AccountList.
-
+    // Comming back to AccountList after creating a new one
     navigate("/");
   };
 
