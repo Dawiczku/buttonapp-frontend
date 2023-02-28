@@ -3,6 +3,7 @@ import User from "../components/User";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
 import ReturnButton from "../components/ReturnButton";
+import { Link } from "react-router-dom";
 
 export default function Lobby(user) {
   return (
@@ -57,7 +58,9 @@ export default function Lobby(user) {
           </ul>
         </div>
         <div className="admin-buttons">
-          <button className="submit-btn start-game">Start the game !</button>
+          <Link to="/button-game" className="link">
+            <button className="submit-btn start-game">Start the game !</button>
+          </Link>
         </div>
       </div>
       <Footer />

@@ -35,9 +35,10 @@ header .material-symbols-outlined {
 .dark-body .return {
   color: #e0e0e0;
 }
-.dark-body header h1,
-.dark-body footer h1,
-.dark-body .return h1 {
+.dark-body input {
+  color: #e0e0e0;
+}
+.dark-body h1 {
   text-shadow: 1px 0px 1px #292929, 0px 1px 1px #414141, 2px 1px 1px #292929, 1px 2px 1px #414141, 3px 2px 1px #292929, 2px 3px 1px #414141, 4px 3px 1px #292929, 3px 4px 1px #414141, 5px 4px 1px #292929, 4px 5px 1px #414141, 6px 5px 1px #292929, 5px 6px 1px #414141, 7px 6px 1px #292929;
 }
 .dark-body .account-list-container .account-list li {
@@ -92,7 +93,7 @@ header .material-symbols-outlined {
   background-color: #252525;
 }
 .dark-body .lobby .lobby-header,
-.dark-body .lobby .lobby-header > .close-lobby-btn {
+.dark-body .lobby .close-lobby-btn {
   color: #e0e0e0;
 }
 .dark-body .lobby .lobby-header {
@@ -198,9 +199,6 @@ header .material-symbols-outlined {
 }
 .account-list-container .account-list li:last-child {
   border-bottom: none;
-}
-.account-list-container .account-list li:last-child .close {
-  display: none;
 }
 .account-list-container .account-list li:hover {
   background-color: #3dbb87;
@@ -532,6 +530,14 @@ footer .footer-container a:hover {
 .lobby.admin .submit-btn.start-game::after {
   content: "➤";
   font-size: 1.5rem;
+}
+
+.lobby.ingame {
+  height: 70vh;
+}
+
+.game-section {
+  border: 2px solid coral;
 }
 
 *,
