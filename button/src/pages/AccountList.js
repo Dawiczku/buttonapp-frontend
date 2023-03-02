@@ -2,6 +2,7 @@ import React from "react";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
 import AccountContainer from "../components/AccountContainer";
+import DeleteAccButton from "../components/DeleteAccButton";
 
 export default function AccountList() {
   let accountList = null;
@@ -27,6 +28,7 @@ export default function AccountList() {
             return (
               <li key={index}>
                 <AccountContainer nickname={account.nickname} />
+                <DeleteAccButton />
               </li>
             );
           })}

@@ -12,7 +12,6 @@ export default function Account(account) {
         alt="avatar"
       ></img>
       <p>{account.nickname}</p>
-      <DeleteAccButton />
     </div>
   );
 }
