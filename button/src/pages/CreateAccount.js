@@ -25,9 +25,7 @@ export default function CreateAccount() {
   };
 
   // Submit button click handler.
-  const handleClick = (event) => {
-    event.preventDefault();
-
+  const handleSubmitButton = (event) => {
     if (nickname.length < 2) {
       window.alert("Nickname too short !");
       return;
@@ -46,6 +44,8 @@ export default function CreateAccount() {
     navigate("/");
   };
 
+  const handleAvatarButton = () => {};
+
   return (
     <>
       <Header />
@@ -59,7 +59,7 @@ export default function CreateAccount() {
               className="new-avatar"
               alt="avatar"
             ></img>
-            <button className="random-avatar">
+            <button className="random-avatar" onClick={handleAvatarButton}>
               <BsArrowClockwise />
             </button>
           </div>
@@ -73,7 +73,10 @@ export default function CreateAccount() {
             maxLength="15"
           ></input>
 
-          <button className="submit-btn create-acc" onClick={handleClick}>
+          <button
+            className="submit-btn create-acc"
+            onClick={handleSubmitButton}
+          >
             Create
           </button>
         </div>
