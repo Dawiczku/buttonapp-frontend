@@ -1,5 +1,4 @@
 import React from "react";
-import DeleteAccButton from "./DeleteAccButton";
 
 // This component represents a single account placed in AccountList.
 

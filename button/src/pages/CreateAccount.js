@@ -4,6 +4,7 @@ import { BsArrowClockwise } from "react-icons/bs";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
 import ReturnButton from "../components/ReturnButton";
+import uuid from "react-uuid";
 
 export default function CreateAccount() {
   // Initializing variables.
@@ -35,7 +36,7 @@ export default function CreateAccount() {
     setNickname(nickname);
 
     if (accountList.length < 5) {
-      accountList.push({ nickname: nickname });
+      accountList.push({ nickname: nickname, accountID: uuid() });
       localStorage.setItem("accounts", JSON.stringify(accountList));
     }
 
