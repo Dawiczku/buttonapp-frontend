@@ -9,6 +9,7 @@ import uuid from "react-uuid";
 export default function CreateAccount() {
   // Initializing variables.
   const [nickname, setNickname] = useState("");
+  const [randomNumber, setRandomNumber] = useState(1);
   let accountList = null;
 
   /* Setting accountList value based on, if accounts are already stored in local storage. */
@@ -44,7 +45,10 @@ export default function CreateAccount() {
     navigate("/");
   };
 
-  const handleAvatarButton = () => {};
+  // Function setting avatar's number so it's random.
+  const handleAvatarButton = () => {
+    setRandomNumber(Math.floor(Math.random() * 3) + 1);
+  };
 
   return (
     <>
@@ -55,7 +59,7 @@ export default function CreateAccount() {
           <h2>Choose Avatar !</h2>
           <div className="new-acc-avatar-container">
             <img
-              src={require("../avatars/avatar3.png")}
+              src={require(`../avatars/avatar${randomNumber}.png`)}
               className="new-avatar"
               alt="avatar"
             ></img>
