@@ -8,7 +8,7 @@ export default function User() {
       <img
         className="avatar large"
         alt="avatar"
-        src={require("../avatars/reindeer-color-icon.png")}
+        src={require("../avatars/avatar3.png")}
       ></img>
       <p>Name</p>
     </div>

@@ -55,7 +55,7 @@ export default function CreateAccount() {
           <h2>Choose Avatar !</h2>
           <div className="new-acc-avatar-container">
             <img
-              src={require("../avatars/dog-face-color-icon.png")}
+              src={require("../avatars/avatar3.png")}
               className="new-avatar"
               alt="avatar"
             ></img>

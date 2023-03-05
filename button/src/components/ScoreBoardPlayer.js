@@ -5,7 +5,7 @@ export default function ScoreBoardPlayer() {
     <div className="scoreboard-player">
       <img
         className="avatar small"
-        src={require("../avatars/dog-face-color-icon.png")}
+        src={require("../avatars/avatar2.png")}
         alt="small-avatar"
       />
       <p className="scoreboard-position">1.</p>

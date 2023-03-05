@@ -44,7 +44,7 @@ export default function ChooseLobby() {
           <h2>Nickname</h2>
 
           <img
-            src={require("../avatars/dog-face-color-icon.png")}
+            src={require("../avatars/avatar2.png")}
             className="new-avatar"
             alt="avatar"
           ></img>
