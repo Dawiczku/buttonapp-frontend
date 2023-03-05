@@ -9,7 +9,7 @@
 // Dark mode switch
 
 .dark-mode-container {
-  @include flex(flex-end, start);
+  @include flex(flex-end, flex-start);
   grid-column-start: 5;
   margin: 2em;
 
