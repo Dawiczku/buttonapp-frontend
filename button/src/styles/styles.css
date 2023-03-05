@@ -112,7 +112,7 @@ header .material-symbols-outlined {
 .dark-mode-container {
   display: flex;
   justify-content: flex-end;
-  align-items: start;
+  align-items: flex-start;
   grid-column-start: 5;
   margin: 2em;
 }
