@@ -5,11 +5,11 @@ import AccountContainer from "../components/AccountContainer";
 import DeleteAccButton from "../components/DeleteAccButton";
 
 export default function AccountList() {
-  const storageItems = localStorage.getItem("accounts")
-    ? JSON.parse(localStorage.getItem("accounts"))
-    : [];
-
-  const [accountList, setAccountList] = useState(storageItems);
+  const [accountList, setAccountList] = useState(
+    localStorage.getItem("accounts")
+      ? JSON.parse(localStorage.getItem("accounts"))
+      : []
+  );
 
   useEffect(() => {
     localStorage.setItem("accounts", JSON.stringify(accountList));
