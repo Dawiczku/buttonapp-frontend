@@ -10,12 +10,11 @@ export default function CreateAccount() {
   // Initializing variables.
   const [nickname, setNickname] = useState("");
   const [randomNumber, setRandomNumber] = useState(1);
-  let accountList = null;
-
-  /* Setting accountList value based on, if accounts are already stored in local storage. */
-  localStorage.getItem("accounts")
-    ? (accountList = JSON.parse(localStorage.getItem("accounts")))
-    : (accountList = []);
+  const [accountList, setAccountList] = useState(
+    localStorage.getItem("accounts")
+      ? JSON.parse(localStorage.getItem("accounts"))
+      : []
+  );
 
   // Navigation hook.
   const navigate = useNavigate();
@@ -32,14 +31,16 @@ export default function CreateAccount() {
       return;
     }
 
-    setNickname(nickname);
-
     if (accountList.length < 5) {
-      accountList.push({ nickname: nickname, accountID: uuid() });
-      localStorage.setItem("accounts", JSON.stringify(accountList));
+      localStorage.setItem(
+        "accounts",
+        JSON.stringify([
+          ...accountList,
+          { nickname: nickname, accountID: uuid() },
+        ])
+      );
+      setAccountList(JSON.parse(localStorage.getItem("accounts")));
     }
-
-    setNickname("");
 
     // Comming back to AccountList after creating a new one
     navigate("/");
