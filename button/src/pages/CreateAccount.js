@@ -15,6 +15,7 @@ export default function CreateAccount() {
       ? JSON.parse(localStorage.getItem("accounts"))
       : []
   );
+  const amountOfAvatars = 3;
 
   // Navigation hook.
   const navigate = useNavigate();
@@ -48,7 +49,7 @@ export default function CreateAccount() {
 
   // Function setting avatar's number so it's random.
   const handleAvatarButton = () => {
-    setRandomNumber(Math.floor(Math.random() * 3) + 1);
+    setRandomNumber(Math.floor(Math.random() * amountOfAvatars) + 1);
   };
 
   return (
