@@ -32,6 +32,16 @@ export default function CreateAccount() {
       return;
     }
 
+    if (
+      accountList.some((account) => {
+        return account.nickname === nickname;
+      })
+    ) {
+      window.alert("Nickname already exists!");
+      setNickname("");
+      return;
+    }
+
     if (accountList.length < 5) {
       localStorage.setItem(
         "accounts",
