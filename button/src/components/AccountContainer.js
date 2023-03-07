@@ -11,8 +11,12 @@ export default function AccountContainer(account) {
           <NewAccount />
         </Link>
       ) : (
-        <Link to="choose-lobby" className="link">
-          <Account nickname={account.nickname} />
+        <Link
+          to="choose-lobby"
+          className="link"
+          state={{ nickname: account.nickname, avatarid: account.avatarid }}
+        >
+          <Account nickname={account.nickname} avatarid={account.avatarid} />
         </Link>
       )}
     </>

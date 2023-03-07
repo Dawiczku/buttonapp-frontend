@@ -2,16 +2,16 @@ import React from "react";
 import { useRef, useState } from "react";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useNavigate, useLocation } from "react-router-dom";
 import ReturnButton from "../components/ReturnButton";
 
 export default function ChooseLobby() {
   const createButtonRef = useRef();
+  const location = useLocation();
+  const navigate = useNavigate();
 
   const [code, setCode] = useState("");
   const [status, setStatus] = useState(false);
-
-  const navigate = useNavigate();
 
   const toggleInputVisibility = () => {
     setStatus(!status);
@@ -41,10 +41,10 @@ export default function ChooseLobby() {
       <div className="account-list-container">
         <ReturnButton />
         <div className="create-lobby-container">
-          <h2>Nickname</h2>
+          <h2>{location.state.nickname}</h2>
 
           <img
-            src={require("../avatars/avatar2.png")}
+            src={require(`../avatars/${location.state.avatarid}`)}
             className="new-avatar"
             alt="avatar"
           ></img>

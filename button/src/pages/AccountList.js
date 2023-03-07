@@ -40,7 +40,10 @@ export default function AccountList() {
           {accountList.map((account, index) => {
             return (
               <li key={index}>
-                <AccountContainer nickname={account.nickname} />
+                <AccountContainer
+                  nickname={account.nickname}
+                  avatarid={account.avatarID}
+                />
                 <DeleteAccButton
                   handleClick={handleClick}
                   buttonID={account.accountID}
