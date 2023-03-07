@@ -9,7 +9,7 @@ import uuid from "react-uuid";
 export default function CreateAccount() {
   // Initializing variables.
   const [nickname, setNickname] = useState("");
-  const [randomNumber, setRandomNumber] = useState(1);
+  const [avatarID, setAvatarID] = useState("avatar3.png");
   const [accountList, setAccountList] = useState(
     localStorage.getItem("accounts")
       ? JSON.parse(localStorage.getItem("accounts"))
@@ -26,7 +26,7 @@ export default function CreateAccount() {
   };
 
   // Submit button click handler.
-  const handleSubmitButton = (event) => {
+  const handleSubmitButton = () => {
     if (nickname.length < 2) {
       window.alert("Nickname too short !");
       return;
@@ -47,7 +47,7 @@ export default function CreateAccount() {
         "accounts",
         JSON.stringify([
           ...accountList,
-          { nickname: nickname, accountID: uuid() },
+          { nickname: nickname, accountID: uuid(), avatarID: avatarID },
         ])
       );
       setAccountList(JSON.parse(localStorage.getItem("accounts")));
@@ -57,9 +57,14 @@ export default function CreateAccount() {
     navigate("/");
   };
 
-  // Function setting avatar's number so it's random.
+  const randomNumber = (max) => {
+    return Math.floor(Math.random() * max) + 1;
+  };
+
+  // Function setting avatar's ID randomly.
   const handleAvatarButton = () => {
-    setRandomNumber(Math.floor(Math.random() * amountOfAvatars) + 1);
+    const random = randomNumber(amountOfAvatars);
+    setAvatarID(`avatar${random}.png`);
   };
 
   return (
@@ -71,7 +76,7 @@ export default function CreateAccount() {
           <h2>Choose Avatar !</h2>
           <div className="new-acc-avatar-container">
             <img
-              src={require(`../avatars/avatar${randomNumber}.png`)}
+              src={require(`../avatars/${avatarID}`)}
               className="new-avatar"
               alt="avatar"
             ></img>
