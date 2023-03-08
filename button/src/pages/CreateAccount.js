@@ -77,7 +77,7 @@ export default function CreateAccount() {
           <div className="create-acc__container--avatar">
             <img
               src={require(`../avatars/${avatarID}`)}
-              className="create-acc__avatar"
+              className="avatar create-acc__avatar"
               alt="avatar"
             ></img>
             <button
