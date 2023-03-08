@@ -9,10 +9,6 @@ export default function Header() {
 
   const [darkMode, setDarkMode] = useState(storageDarkMode);
 
-  const switchDarkMode = () => {
-    setDarkMode(!darkMode);
-  };
-
   useEffect(() => {
     darkMode
       ? document.body.classList.add("dark-body")
@@ -20,6 +16,10 @@ export default function Header() {
 
     localStorage.setItem("darkMode", JSON.stringify(darkMode));
   }, [darkMode]);
+
+  const switchDarkMode = () => {
+    setDarkMode(!darkMode);
+  };
 
   return (
     <header>

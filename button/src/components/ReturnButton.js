@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 
 export default function ReturnButton() {
   const navigate = useNavigate();
+
   const returnToLastPage = () => {
     navigate(-1);
   };
