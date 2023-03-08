@@ -8,27 +8,27 @@ footer {
 
   padding: 1rem 0;
   border-top: 1px solid black;
+}
 
-  .github-link__container {
-    a {
-      display: flex;
-      align-items: center;
-      gap: 15px;
+.github-link__container {
+  a {
+    display: flex;
+    align-items: center;
+    gap: 15px;
 
-      font-size: 1.25rem;
-      font-weight: 600;
+    font-size: 1.25rem;
+    font-weight: 600;
 
-      text-decoration: none;
-      color: inherit;
+    text-decoration: none;
+    color: inherit;
 
-      .github__logo {
-        width: 40px;
-        height: 40px;
-      }
+    .github__logo {
+      width: 40px;
+      height: 40px;
     }
+  }
 
-    a:hover {
-      color: $linkHoverClr;
-    }
+  a:hover {
+    color: $linkHoverClr;
   }
 }

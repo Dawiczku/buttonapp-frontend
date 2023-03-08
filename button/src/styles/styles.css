@@ -256,7 +256,8 @@ footer {
   padding: 1rem 0;
   border-top: 1px solid black;
 }
-footer .github-link__container a {
+
+.github-link__container a {
   display: flex;
   align-items: center;
   gap: 15px;
@@ -265,11 +266,11 @@ footer .github-link__container a {
   text-decoration: none;
   color: inherit;
 }
-footer .github-link__container a .github__logo {
+.github-link__container a .github__logo {
   width: 40px;
   height: 40px;
 }
-footer .github-link__container a:hover {
+.github-link__container a:hover {
   color: #199964;
 }
 

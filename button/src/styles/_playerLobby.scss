@@ -1,0 +1,46 @@
+@import "./user";
+
+.content__container--large.player__lobby {
+  height: 65vh;
+
+  .lobby__close-button,
+  .start-game__button {
+    display: none;
+  }
+}
+.lobby__header {
+  display: grid;
+  padding: 0.5em;
+  grid-template-columns: 1fr 1fr 1fr;
+  border-bottom: 1px solid $lightModeBordersClr;
+
+  h2 {
+    font-size: 2.5rem;
+    margin: auto;
+  }
+  button {
+    place-self: flex-start;
+  }
+}
+
+.lobby__user-list-container {
+  height: 70%;
+  ul {
+    padding: 0 1em;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+
+    li {
+      margin: 0.5em 0.5em;
+      padding: 1.5em 0.5em;
+      border: 2px dashed $userInLobbyBorderClr;
+      border-radius: 0.5em;
+      box-shadow: 0 0 10px -4px $userInLobbyBorderClr;
+      background-color: rgb(238, 235, 235);
+      p {
+        font-size: 1.5rem;
+        margin-bottom: 0;
+      }
+    }
+  }
+}
