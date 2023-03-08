@@ -8,7 +8,7 @@ export default function ButtonGame() {
   return (
     <>
       <Header />
-      <div className="content__container--large ingame__lobby">
+      <div className="content__container content__container--large ingame__lobby">
         <div className="lobby__header">
           <ReturnButton />
           <h2>Lobby</h2>

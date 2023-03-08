@@ -12,8 +12,8 @@ export default function Lobby(user) {
       <div
         className={
           user.type === "users"
-            ? "content__container--large player__lobby"
-            : "content__container--large admin__lobby"
+            ? "content__container content__container--large player__lobby"
+            : "content__container content__container--large admin__lobby"
         }
       >
         <div className="lobby__header">

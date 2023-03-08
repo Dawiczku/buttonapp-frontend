@@ -38,7 +38,7 @@ export default function ChooseLobby() {
   return (
     <>
       <Header />
-      <div className="content__container--small">
+      <div className="content__container content__container--small">
         <ReturnButton />
         <div className="lobby-chosing__section">
           <h2>{location.state.nickname}</h2>

@@ -70,7 +70,7 @@ export default function CreateAccount() {
   return (
     <>
       <Header />
-      <div className="content__container--small">
+      <div className="content__container content__container--small">
         <ReturnButton />
         <div className="create-acc__container">
           <h2>Choose Avatar !</h2>

@@ -1,70 +1,56 @@
 @import "./account";
 
-.content__container--small {
-  width: 400px;
-  height: 486px;
+.accounts__list {
+  list-style: none;
+  padding: 0 2.5rem;
 
-  margin: 3.125rem auto;
+  li {
+    position: relative;
 
-  border: 2px solid $lightModeBordersClr;
-  border-radius: 7px;
+    padding: 0.3125rem;
 
-  background-color: $lightModeListBackgroundClr;
+    border-bottom: 1px solid $lightModeTextClr;
 
-  box-shadow: 0 10px 20px -6px black;
+    transition: all 0.08s ease-in;
 
-  .accounts__list {
-    list-style: none;
-    padding: 0 2.5rem;
+    span,
+    .delete-acc__button {
+      width: 24px;
+      height: 24px;
 
-    li {
-      position: relative;
+      padding: 0;
+      margin: 0;
 
-      padding: 0.3125rem;
-
-      border-bottom: 1px solid $lightModeTextClr;
-
-      transition: all 0.08s ease-in;
-
-      span,
-      .delete-acc__button {
-        width: 24px;
-        height: 24px;
-
-        padding: 0;
-        margin: 0;
-
-        border: none;
-      }
-
-      .delete-acc__button {
-        position: absolute;
-
-        top: 12px;
-        right: 12px;
-
-        background-color: transparent;
-
-        transition: 0.1s;
-      }
-
-      .delete-acc__button:hover {
-        cursor: pointer;
-        transform: scale(1.4);
-      }
-      .delete-acc__button:active {
-        transform: scale(1.1);
-      }
+      border: none;
     }
 
-    li:last-child {
-      border-bottom: none;
+    .delete-acc__button {
+      position: absolute;
+
+      top: 12px;
+      right: 12px;
+
+      background-color: transparent;
+
+      transition: 0.1s;
     }
 
-    li:hover {
-      background-color: $avatarHoverClr;
-
+    .delete-acc__button:hover {
       cursor: pointer;
+      transform: scale(1.4);
     }
+    .delete-acc__button:active {
+      transform: scale(1.1);
+    }
+  }
+
+  li:last-child {
+    border-bottom: none;
+  }
+
+  li:hover {
+    background-color: $avatarHoverClr;
+
+    cursor: pointer;
   }
 }

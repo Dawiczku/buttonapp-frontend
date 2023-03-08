@@ -1,0 +1,19 @@
+.content__container--small {
+  width: 400px;
+  height: 486px;
+  margin: 3.125rem auto;
+}
+
+.content__container--large {
+  width: 70vw;
+  margin: 0 auto;
+}
+
+.content__container {
+  border: 2px solid $lightModeBordersClr;
+  border-radius: 0.5em;
+
+  background-color: $lightModeListBackgroundClr;
+
+  box-shadow: 0 10px 20px -6px $textShadowClr;
+}

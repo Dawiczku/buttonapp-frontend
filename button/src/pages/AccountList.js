@@ -35,7 +35,7 @@ export default function AccountList() {
   return (
     <>
       <Header />
-      <div className="content__container--small">
+      <div className="content__container content__container--small">
         <ul className="accounts__list">
           {accountList.map((account, index) => {
             return (
