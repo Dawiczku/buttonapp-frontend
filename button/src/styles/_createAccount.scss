@@ -1,26 +1,5 @@
 @import "./variables";
 
-.return__button {
-  @include flex(center, center);
-  gap: 5px;
-
-  padding: 0.5em;
-  margin: 0.75em;
-
-  border: none;
-  border-radius: 5px;
-
-  background-color: inherit;
-
-  font-size: 1.25rem;
-  font-weight: 600;
-}
-
-.return__button:hover {
-  color: $returnBtnHoverClr;
-  cursor: pointer;
-}
-
 .create-acc__container {
   @include flex(space-between, center);
   gap: 25px;
@@ -67,49 +46,4 @@
   padding: 0.25em 0.5em;
   border: 2px solid $lightModeBordersClr;
   font-size: 1.5rem;
-}
-
-.submit__button {
-  position: relative;
-
-  padding: 0.5em 3.5em 0.5em 1em;
-
-  border: none;
-  border-radius: 10px;
-  box-shadow: 0px 5px 10px -2px $lightModeBordersClr;
-
-  background-color: #20bd7b;
-
-  font-size: 1.25rem;
-  cursor: pointer;
-
-  transition: 0.1s ease-in-out;
-  text-transform: uppercase;
-}
-
-.submit__button:active {
-  transform: scale(0.95);
-}
-
-.submit__button.create-acc__button::after {
-  content: "\2713";
-}
-
-.submit__button::after {
-  display: grid;
-  place-items: center;
-
-  position: absolute;
-  right: 0;
-  bottom: 0;
-
-  width: 1.5em;
-  height: 100%;
-
-  border-radius: inherit;
-
-  background-color: #199964;
-
-  font-size: 2rem;
-  transform: scale(0.99);
 }

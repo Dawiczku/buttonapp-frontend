@@ -1,0 +1,20 @@
+.return__button {
+  @include flex(center, center);
+  gap: 5px;
+
+  padding: 0.5em;
+  margin: 0.75em;
+
+  border: none;
+  border-radius: 5px;
+
+  background-color: inherit;
+
+  font-size: 1.25rem;
+  font-weight: 600;
+}
+
+.return__button:hover {
+  color: $returnBtnHoverClr;
+  cursor: pointer;
+}
