@@ -105,6 +105,9 @@ header .material-symbols-outlined {
   background-color: #252525;
   color: #e0e0e0;
 }
+.dark-body .content__container--large .lobby__user-list-container ul li:first-child p {
+  color: aquamarine;
+}
 
 .dark-mode__paragraph {
   font-size: 1.25rem;
@@ -432,7 +435,7 @@ footer {
   box-shadow: 0 0 30px -4px #3dbb87;
 }
 .lobby__user-list-container ul li:first-child p {
-  color: aquamarine;
+  color: rgb(16, 155, 79);
 }
 
 .lobby__user {
@@ -484,7 +487,7 @@ footer {
   box-shadow: 0 0 30px -4px #3dbb87;
 }
 .lobby__user-list-container ul li:first-child p {
-  color: aquamarine;
+  color: rgb(16, 155, 79);
 }
 
 .content__container--large.player__lobby {
