@@ -45,7 +45,7 @@ export default function ChooseLobby() {
 
           <img
             src={require(`../avatars/${location.state.avatarid}`)}
-            className="player__avatar"
+            className="avatar player__avatar"
             alt="avatar"
           ></img>
 
