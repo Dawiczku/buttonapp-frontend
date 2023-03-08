@@ -18,26 +18,50 @@
   }
 
   input[type="checkbox"] {
-    @include sliderCheckbox();
+    height: 0;
+    width: 0;
+    visibility: hidden;
   }
 
   label {
-    @include sliderLabel(40px, 20px);
+    cursor: pointer;
+    position: relative;
+    display: block;
+
+    background: grey;
+
+    width: 40px;
+    height: 20px;
+
+    text-indent: -9999px;
+    border-radius: 100px;
   }
 
   label:after {
-    @include sliderAfterLabel(14px, 14px);
+    content: "";
+    position: absolute;
+    top: 3px;
+    left: 4px;
+
+    background-color: #fff;
+
+    width: 14px;
+    height: 14px;
+
+    border-radius: 90px;
+    transition: 0.3s;
   }
 
   input:checked + label {
-    @include checkedSlider($darkModeSwitchCheckedClr);
+    background: $darkModeSwitchCheckedClr;
   }
 
   input:checked + label:after {
-    @include checkedSliderAfterLabel();
+    left: calc(100% - 5px);
+    transform: translateX(-100%);
   }
 
   label:active:after {
-    @include onClickLabel(24px);
+    width: 24px;
   }
 }
