@@ -9,16 +9,22 @@ export default function Lobby(user) {
   return (
     <>
       <Header />
-      <div className={user.type === "users" ? "lobby users" : "lobby admin"}>
-        <div className="lobby-header">
+      <div
+        className={
+          user.type === "users"
+            ? "content__container--large player__lobby"
+            : "content__container--large admin__lobby"
+        }
+      >
+        <div className="lobby__header">
           <ReturnButton />
           <h2>Lobby</h2>
-          <button className="close-lobby-btn">
+          <button className="lobby__close-button">
             <span className="material-symbols-outlined">close</span>
           </button>
         </div>
-        <div className="lobby-users-container">
-          <ul className="user-list">
+        <div className="lobby__user-list-container">
+          <ul className="lobby__user-list">
             <li>
               <User />
             </li>
@@ -57,9 +63,11 @@ export default function Lobby(user) {
             </li>
           </ul>
         </div>
-        <div className="admin-buttons">
+        <div className="lobby__admin-buttons">
           <Link to="/button-game" className="link">
-            <button className="submit-btn start-game">Start the game !</button>
+            <button className="submit__button start-game__button">
+              Start the game !
+            </button>
           </Link>
         </div>
       </div>

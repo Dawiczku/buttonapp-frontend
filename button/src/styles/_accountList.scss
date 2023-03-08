@@ -1,4 +1,6 @@
-.account-list-container {
+@import "./account";
+
+.content__container--small {
   width: 400px;
   height: 486px;
 
@@ -11,7 +13,7 @@
 
   box-shadow: 0 10px 20px -6px black;
 
-  .account-list {
+  .accounts__list {
     list-style: none;
     padding: 0 2.5rem;
 
@@ -24,8 +26,8 @@
 
       transition: all 0.08s ease-in;
 
-      .close-span,
-      .close {
+      span,
+      .delete-acc__button {
         width: 24px;
         height: 24px;
 
@@ -35,7 +37,7 @@
         border: none;
       }
 
-      .close {
+      .delete-acc__button {
         position: absolute;
 
         top: 12px;
@@ -46,11 +48,11 @@
         transition: 0.1s;
       }
 
-      .close:hover {
+      .delete-acc__button:hover {
         cursor: pointer;
         transform: scale(1.4);
       }
-      .close:active {
+      .delete-acc__button:active {
         transform: scale(1.1);
       }
     }
@@ -63,30 +65,6 @@
       background-color: $avatarHoverClr;
 
       cursor: pointer;
-    }
-  }
-
-  .account-container {
-    @include flex(normal, center);
-    gap: 1.5em;
-
-    padding: 0.625rem 1.25rem;
-
-    .avatar {
-      border-radius: 50%;
-      vertical-align: middle;
-    }
-
-    .avatar.normal {
-      width: 60px;
-      height: 60px;
-    }
-
-    p {
-      font-size: 1.5rem;
-      font-weight: 600;
-
-      margin-bottom: 0;
     }
   }
 }

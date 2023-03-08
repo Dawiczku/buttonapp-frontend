@@ -8,16 +8,16 @@ export default function ButtonGame() {
   return (
     <>
       <Header />
-      <div className="lobby ingame">
-        <div className="lobby-header">
+      <div className="content__container--large ingame__lobby">
+        <div className="lobby__header">
           <ReturnButton />
           <h2>Lobby</h2>
         </div>
-        <div className="game-section">
-          <ul className="score-board">
+        <div className="ingame__game-section">
+          <ul className="score-board__list">
             <ScoreBoardPlayer />
           </ul>
-          <button className="game-button"></button>
+          <button className="ingame__main-button"></button>
         </div>
       </div>
       <Footer />

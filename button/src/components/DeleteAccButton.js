@@ -4,11 +4,11 @@ export default function DeleteAccButton(props) {
   return (
     <>
       <button
-        className="close"
+        className="delete-acc__button"
         data-buttonid={props.buttonID}
         onClick={props.handleClick}
       >
-        <span className="material-symbols-outlined close-span">close</span>
+        <span className="material-symbols-outlined">close</span>
       </button>
     </>
   );

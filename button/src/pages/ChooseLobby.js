@@ -38,27 +38,30 @@ export default function ChooseLobby() {
   return (
     <>
       <Header />
-      <div className="account-list-container">
+      <div className="content__container--small">
         <ReturnButton />
-        <div className="create-lobby-container">
+        <div className="lobby-chosing__section">
           <h2>{location.state.nickname}</h2>
 
           <img
             src={require(`../avatars/${location.state.avatarid}`)}
-            className="new-avatar"
+            className="player__avatar"
             alt="avatar"
           ></img>
 
           <Link to="/lobby-admin" className="link">
-            <button className="submit-btn create-lobby" ref={createButtonRef}>
+            <button
+              className="submit__button create-lobby__button"
+              ref={createButtonRef}
+            >
               create new lobby
             </button>
           </Link>
           <button
             className={
               status
-                ? "submit-btn join-lobby disabled"
-                : "submit-btn join-lobby enabled"
+                ? "submit__button join-lobby__button disabled"
+                : "submit__button join-lobby__button enabled"
             }
             onClick={toggleInputVisibility}
           >
@@ -67,12 +70,12 @@ export default function ChooseLobby() {
           <div
             className={
               status
-                ? "join-lobby-input-container enabled"
-                : "join-lobby-input-container disabled"
+                ? "lobby-code__container enabled"
+                : "lobby-code__container disabled"
             }
           >
             <input
-              className="join-lobby-input"
+              className="lobby-code__input"
               type="text"
               placeholder="ABC12"
               onChange={handleChange}
@@ -82,7 +85,7 @@ export default function ChooseLobby() {
             ></input>
 
             <button
-              className="join-lobby-button"
+              className="lobby-code__submit-button"
               onClick={handleClick}
             ></button>
           </div>

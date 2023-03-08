@@ -1,4 +1,4 @@
-.create-lobby-container {
+.lobby-chosing__section {
   @include flex(space-between, center);
   flex-direction: column;
   gap: 20px;
@@ -14,19 +14,19 @@
   }
 }
 
-.submit-btn.join-lobby::after,
-.join-lobby-button::after {
+.submit__button.join-lobby__button::after,
+.lobby-code__submit-button::after {
   content: "\27A4";
   font-size: 1.5rem;
 }
 
-.submit-btn.create-lobby::after {
+.submit__button.create-lobby__button::after {
   content: "\002B";
   font-weight: 600;
   font-size: 2rem;
 }
 
-.join-lobby-input {
+.lobby-code__input {
   width: 100%;
 
   padding: 0.25em 0.5em;
@@ -35,7 +35,7 @@
   border: none;
 }
 
-.join-lobby-button {
+.lobby-code__submit-button {
   position: absolute;
   right: 0;
   bottom: 0;
@@ -48,11 +48,11 @@
   cursor: pointer;
 }
 
-.join-lobby-button:hover {
+.lobby-code__submit-button:hover {
   background-color: #3dbb87;
 }
 
-.join-lobby-input-container {
+.lobby-code__container {
   position: relative;
 
   width: 40%;

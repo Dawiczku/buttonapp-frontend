@@ -9,7 +9,7 @@ footer {
   padding: 1rem 0;
   border-top: 1px solid black;
 
-  .footer-container {
+  .github-link__container {
     a {
       display: flex;
       align-items: center;
@@ -21,7 +21,7 @@ footer {
       text-decoration: none;
       color: inherit;
 
-      .github-logo {
+      .github__logo {
         width: 40px;
         height: 40px;
       }

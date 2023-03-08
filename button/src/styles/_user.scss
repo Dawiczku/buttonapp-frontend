@@ -1,4 +1,4 @@
-.user {
+.lobby__user {
   @include flex(center, center);
   gap: 1em;
 
@@ -6,9 +6,4 @@
     font-size: 1.25rem;
     font-weight: 600;
   }
-}
-
-.avatar.large {
-  width: 70px;
-  height: 70px;
 }

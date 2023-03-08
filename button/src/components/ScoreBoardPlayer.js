@@ -2,14 +2,14 @@ import React from "react";
 
 export default function ScoreBoardPlayer() {
   return (
-    <div className="scoreboard-player">
+    <div className="scoreboard__player">
       <img
-        className="avatar small"
+        className="avatar avatar--small"
         src={require("../avatars/avatar2.png")}
-        alt="small-avatar"
+        alt="avatar"
       />
-      <p className="scoreboard-position">1.</p>
-      <p className="scoreboard-nickname">Nickname</p>
+      <p className="scoreboard__position">1.</p>
+      <p className="scoreboard__nickname">Nickname</p>
     </div>
   );
 }

@@ -1,0 +1,13 @@
+@import "./avatar";
+
+.accounts__list__item {
+  @include flex(normal, center);
+  gap: 1.5em;
+  padding: 0.625rem 1.25rem;
+
+  p {
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-bottom: 0;
+  }
+}

@@ -23,20 +23,20 @@ export default function Header() {
 
   return (
     <header>
-      <div className="logo-container">
+      <div className="logo__container">
         <span className="material-symbols-outlined">open_with</span>
         <h1>Button App</h1>
       </div>
 
-      <div className="dark-mode-container">
-        <p className="dark-mode-paragraph">Dark mode</p>
+      <div className="dark-mode__container">
+        <p className="dark-mode__paragraph">Dark mode</p>
         <input
           type="checkbox"
-          id="dark-mode-switch"
+          id="dark-mode__switch"
           checked={darkMode}
           onChange={switchDarkMode}
         />
-        <label for="dark-mode-switch">Toggle</label>
+        <label for="dark-mode__switch">Toggle</label>
       </div>
     </header>
   );

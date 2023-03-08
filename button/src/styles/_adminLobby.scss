@@ -1,10 +1,11 @@
 @import "./user";
 @import "./userLobby";
 
-.lobby.admin {
+.content__container--large.admin__lobby {
   height: 70vh;
+  position: relative;
 
-  .close-lobby-btn {
+  .lobby__close-button {
     place-self: start end;
     background-color: transparent;
     border: none;
@@ -16,15 +17,20 @@
     }
   }
 
-  .close-lobby-btn:hover {
+  .lobby__close-button:hover {
     transform: scale(1.25);
   }
 
-  .admin-buttons {
+  .lobby__admin-buttons {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
     @include flex(center, center);
+    padding: 1em;
   }
 
-  .submit-btn.start-game::after {
+  .submit__button.start-game__button::after {
     content: "\27A4";
     font-size: 1.5rem;
   }

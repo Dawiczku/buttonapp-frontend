@@ -21,12 +21,12 @@ export default function CreateAccount() {
   const navigate = useNavigate();
 
   // Handling kayboard clicks on input field.
-  const handleChange = (event) => {
+  const handleNicknameChange = (event) => {
     setNickname(event.target.value);
   };
 
   // Submit button click handler.
-  const handleSubmitButton = () => {
+  const handleCreateAccButton = () => {
     if (nickname.length < 2) {
       window.alert("Nickname too short !");
       return;
@@ -57,46 +57,49 @@ export default function CreateAccount() {
     navigate("/");
   };
 
-  const randomNumber = (max) => {
-    return Math.floor(Math.random() * max) + 1;
+  const getRandomNumber = (maxValue) => {
+    return Math.floor(Math.random() * maxValue) + 1;
   };
 
   // Function setting avatar's ID randomly.
-  const handleAvatarButton = () => {
-    const random = randomNumber(amountOfAvatars);
+  const handleRandomAvatarButton = () => {
+    const random = getRandomNumber(amountOfAvatars);
     setAvatarID(`avatar${random}.png`);
   };
 
   return (
     <>
       <Header />
-      <div className="account-list-container">
+      <div className="content__container--small">
         <ReturnButton />
-        <div className="new-acc-container">
+        <div className="create-acc__container">
           <h2>Choose Avatar !</h2>
-          <div className="new-acc-avatar-container">
+          <div className="create-acc__container--avatar">
             <img
               src={require(`../avatars/${avatarID}`)}
-              className="new-avatar"
+              className="create-acc__avatar"
               alt="avatar"
             ></img>
-            <button className="random-avatar" onClick={handleAvatarButton}>
+            <button
+              className="avatar__randomize-button"
+              onClick={handleRandomAvatarButton}
+            >
               <BsArrowClockwise />
             </button>
           </div>
           <input
-            className="new-acc-nickname-input"
+            className="create-acc__nickname-input"
             type="text"
             placeholder="Nickname"
-            onChange={handleChange}
+            onChange={handleNicknameChange}
             value={nickname}
             minLength="2"
             maxLength="15"
           ></input>
 
           <button
-            className="submit-btn create-acc"
-            onClick={handleSubmitButton}
+            className="submit__button create-acc__button"
+            onClick={handleCreateAccButton}
           >
             Create
           </button>

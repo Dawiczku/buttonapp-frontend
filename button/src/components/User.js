@@ -4,9 +4,9 @@ import React from "react";
 
 export default function User() {
   return (
-    <div className="user">
+    <div className="lobby__user">
       <img
-        className="avatar large"
+        className="avatar avatar--large"
         alt="avatar"
         src={require("../avatars/avatar3.png")}
       ></img>

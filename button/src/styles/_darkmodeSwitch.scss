@@ -1,14 +1,14 @@
 @import "./slider";
 @import "./variables";
 
-.dark-mode-paragraph {
+.dark-mode__paragraph {
   font-size: 1.25rem;
   font-weight: 600;
 }
 
 // Dark mode switch
 
-.dark-mode-container {
+.dark-mode__container {
   @include flex(flex-end, flex-start);
   grid-column-start: 5;
   margin: 2em;

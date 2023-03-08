@@ -7,7 +7,7 @@ header {
   color: #2e2e2e;
   padding: 0;
 }
-header .logo-container {
+header .logo__container {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -32,7 +32,7 @@ header .material-symbols-outlined {
 }
 .dark-body header,
 .dark-body footer,
-.dark-body .return {
+.dark-body .return__button {
   color: #e0e0e0;
 }
 .dark-body input {
@@ -41,90 +41,92 @@ header .material-symbols-outlined {
 .dark-body h1 {
   text-shadow: 1px 0px 1px #292929, 0px 1px 1px #414141, 2px 1px 1px #292929, 1px 2px 1px #414141, 3px 2px 1px #292929, 2px 3px 1px #414141, 4px 3px 1px #292929, 3px 4px 1px #414141, 5px 4px 1px #292929, 4px 5px 1px #414141, 6px 5px 1px #292929, 5px 6px 1px #414141, 7px 6px 1px #292929;
 }
-.dark-body .account-list-container .account-list li {
+.dark-body .content__container--small .accounts__list li {
   border-bottom-color: #e0e0e0;
 }
-.dark-body .account-list-container .account-list li p,
-.dark-body .account-list-container .account-list li .close-span {
+.dark-body .content__container--small .accounts__list li p,
+.dark-body .content__container--small .accounts__list li span {
   color: #e0e0e0;
 }
-.dark-body .account-list-container .account-list li .new-acc-icon {
+.dark-body .content__container--small .accounts__list li .new-acc__icon {
   filter: invert(100%);
 }
-.dark-body .account-list-container .account-list li:hover {
+.dark-body .content__container--small .accounts__list li:hover {
   background-color: #1b7c54;
 }
 .dark-body footer {
   border-top-color: #e0e0e0;
 }
-.dark-body footer .github-logo {
+.dark-body footer .github__logo {
   filter: invert(100%);
 }
-.dark-body .create-lobby-container h2,
-.dark-body .new-acc-container h2 {
+.dark-body .lobby-chosing__section h2,
+.dark-body .create-acc__container h2 {
   color: #e0e0e0;
 }
-.dark-body .create-lobby-container .new-avatar,
-.dark-body .new-acc-container .new-avatar {
+.dark-body .lobby-chosing__section .create-acc__avatar,
+.dark-body .lobby-chosing__section .player__avatar,
+.dark-body .create-acc__container .create-acc__avatar,
+.dark-body .create-acc__container .player__avatar {
   border-color: #e0e0e0;
   background-color: #3f3f3f;
 }
-.dark-body .join-lobby-input-container,
-.dark-body .new-acc-nickname-input {
+.dark-body .lobby-code__container,
+.dark-body .create-acc__nickname-input {
   border-color: #199964;
 }
-.dark-body .join-lobby-input,
-.dark-body .new-acc-nickname-input {
+.dark-body .lobby-code__input,
+.dark-body .create-acc__nickname-input {
   background-color: #3f3f3f;
 }
-.dark-body .join-lobby-input::-moz-placeholder, .dark-body .new-acc-nickname-input::-moz-placeholder {
+.dark-body .lobby-code__input::-moz-placeholder, .dark-body .create-acc__nickname-input::-moz-placeholder {
   color: #c7c7c7;
 }
-.dark-body .join-lobby-input:-ms-input-placeholder, .dark-body .new-acc-nickname-input:-ms-input-placeholder {
+.dark-body .lobby-code__input:-ms-input-placeholder, .dark-body .create-acc__nickname-input:-ms-input-placeholder {
   color: #c7c7c7;
 }
-.dark-body .join-lobby-input::placeholder,
-.dark-body .new-acc-nickname-input::placeholder {
+.dark-body .lobby-code__input::placeholder,
+.dark-body .create-acc__nickname-input::placeholder {
   color: #c7c7c7;
 }
-.dark-body .account-list-container,
-.dark-body .lobby {
+.dark-body .content__container--small,
+.dark-body .content__container--large {
   border-color: #199964;
   background-color: #252525;
 }
-.dark-body .lobby .lobby-header,
-.dark-body .lobby .close-lobby-btn {
+.dark-body .content__container--large .lobby__header,
+.dark-body .content__container--large .lobby__close-button {
   color: #e0e0e0;
 }
-.dark-body .lobby .lobby-header {
+.dark-body .content__container--large .lobby__header {
   border-bottom-color: #e0e0e0;
 }
-.dark-body .lobby .lobby-users-container ul li {
+.dark-body .content__container--large .lobby__user-list-container ul li {
   background-color: #252525;
   color: #e0e0e0;
 }
 
-.dark-mode-paragraph {
+.dark-mode__paragraph {
   font-size: 1.25rem;
   font-weight: 600;
 }
 
-.dark-mode-container {
+.dark-mode__container {
   display: flex;
   justify-content: flex-end;
   align-items: flex-start;
   grid-column-start: 5;
   margin: 2em;
 }
-.dark-mode-container p {
+.dark-mode__container p {
   margin: 0;
 }
-.dark-mode-container input[type=checkbox] {
+.dark-mode__container input[type=checkbox] {
   height: 0;
   width: 0;
   visibility: hidden;
 }
-.dark-mode-container label {
+.dark-mode__container label {
   cursor: pointer;
   position: relative;
   display: block;
@@ -134,7 +136,7 @@ header .material-symbols-outlined {
   text-indent: -9999px;
   border-radius: 100px;
 }
-.dark-mode-container label:after {
+.dark-mode__container label:after {
   content: "";
   position: absolute;
   top: 3px;
@@ -145,18 +147,57 @@ header .material-symbols-outlined {
   border-radius: 90px;
   transition: 0.3s;
 }
-.dark-mode-container input:checked + label {
+.dark-mode__container input:checked + label {
   background: linear-gradient(to right, #11998e, #38ef7d);
 }
-.dark-mode-container input:checked + label:after {
+.dark-mode__container input:checked + label:after {
   left: calc(100% - 5px);
   transform: translateX(-100%);
 }
-.dark-mode-container label:active:after {
+.dark-mode__container label:active:after {
   width: 24px;
 }
 
-.account-list-container {
+.avatar {
+  border-radius: 50%;
+  vertical-align: middle;
+}
+
+.avatar--medium {
+  width: 60px;
+  height: 60px;
+}
+
+.avatar.large {
+  width: 70px;
+  height: 70px;
+}
+
+.create-acc__avatar,
+.player__avatar {
+  width: 170px;
+  height: 170px;
+  border-radius: 50%;
+  background-color: white;
+  border: 2px solid #000;
+  overflow: visible;
+  vertical-align: middle;
+}
+
+.accounts__list__item {
+  display: flex;
+  justify-content: normal;
+  align-items: center;
+  gap: 1.5em;
+  padding: 0.625rem 1.25rem;
+}
+.accounts__list__item p {
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin-bottom: 0;
+}
+
+.content__container--small {
   width: 400px;
   height: 486px;
   margin: 3.125rem auto;
@@ -165,64 +206,44 @@ header .material-symbols-outlined {
   background-color: #e9e9e9;
   box-shadow: 0 10px 20px -6px black;
 }
-.account-list-container .account-list {
+.content__container--small .accounts__list {
   list-style: none;
   padding: 0 2.5rem;
 }
-.account-list-container .account-list li {
+.content__container--small .accounts__list li {
   position: relative;
   padding: 0.3125rem;
   border-bottom: 1px solid #000;
   transition: all 0.08s ease-in;
 }
-.account-list-container .account-list li .close-span,
-.account-list-container .account-list li .close {
+.content__container--small .accounts__list li span,
+.content__container--small .accounts__list li .delete-acc__button {
   width: 24px;
   height: 24px;
   padding: 0;
   margin: 0;
   border: none;
 }
-.account-list-container .account-list li .close {
+.content__container--small .accounts__list li .delete-acc__button {
   position: absolute;
   top: 12px;
   right: 12px;
   background-color: transparent;
   transition: 0.1s;
 }
-.account-list-container .account-list li .close:hover {
+.content__container--small .accounts__list li .delete-acc__button:hover {
   cursor: pointer;
   transform: scale(1.4);
 }
-.account-list-container .account-list li .close:active {
+.content__container--small .accounts__list li .delete-acc__button:active {
   transform: scale(1.1);
 }
-.account-list-container .account-list li:last-child {
+.content__container--small .accounts__list li:last-child {
   border-bottom: none;
 }
-.account-list-container .account-list li:hover {
+.content__container--small .accounts__list li:hover {
   background-color: #3dbb87;
   cursor: pointer;
-}
-.account-list-container .account-container {
-  display: flex;
-  justify-content: normal;
-  align-items: center;
-  gap: 1.5em;
-  padding: 0.625rem 1.25rem;
-}
-.account-list-container .account-container .avatar {
-  border-radius: 50%;
-  vertical-align: middle;
-}
-.account-list-container .account-container .avatar.normal {
-  width: 60px;
-  height: 60px;
-}
-.account-list-container .account-container p {
-  font-size: 1.5rem;
-  font-weight: 600;
-  margin-bottom: 0;
 }
 
 footer {
@@ -236,7 +257,7 @@ footer {
   padding: 1rem 0;
   border-top: 1px solid black;
 }
-footer .footer-container a {
+footer .github-link__container a {
   display: flex;
   align-items: center;
   gap: 15px;
@@ -245,15 +266,15 @@ footer .footer-container a {
   text-decoration: none;
   color: inherit;
 }
-footer .footer-container a .github-logo {
+footer .github-link__container a .github__logo {
   width: 40px;
   height: 40px;
 }
-footer .footer-container a:hover {
+footer .github-link__container a:hover {
   color: #199964;
 }
 
-.return {
+.return__button {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -267,12 +288,12 @@ footer .footer-container a:hover {
   font-weight: 600;
 }
 
-.return:hover {
+.return__button:hover {
   color: #199964;
   cursor: pointer;
 }
 
-.new-acc-container {
+.create-acc__container {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -280,26 +301,16 @@ footer .footer-container a:hover {
   flex-direction: column;
   padding: 0.5em;
 }
-.new-acc-container h2 {
+.create-acc__container h2 {
   margin: 0;
   text-transform: uppercase;
 }
 
-.new-acc-avatar-container {
+.create-acc__container--avatar {
   position: relative;
 }
 
-.new-avatar {
-  width: 170px;
-  height: 170px;
-  border-radius: 50%;
-  background-color: white;
-  border: 2px solid #000;
-  overflow: visible;
-  vertical-align: middle;
-}
-
-.random-avatar {
+.avatar__randomize-button {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -315,19 +326,19 @@ footer .footer-container a:hover {
   transition: 0.6s ease-in-out;
 }
 
-.random-avatar:hover {
+.avatar__randomize-button:hover {
   transform: rotate(360deg);
   background: #20bd7b;
 }
 
-.new-acc-nickname-input {
+.create-acc__nickname-input {
   width: 60%;
   padding: 0.25em 0.5em;
   border: 2px solid #000;
   font-size: 1.5rem;
 }
 
-.submit-btn {
+.submit__button {
   position: relative;
   padding: 0.5em 3.5em 0.5em 1em;
   border: none;
@@ -340,15 +351,15 @@ footer .footer-container a:hover {
   text-transform: uppercase;
 }
 
-.submit-btn:active {
+.submit__button:active {
   transform: scale(0.95);
 }
 
-.submit-btn.create-acc::after {
+.submit__button.create-acc__button::after {
   content: "✓";
 }
 
-.submit-btn::after {
+.submit__button::after {
   display: grid;
   place-items: center;
   position: absolute;
@@ -362,41 +373,41 @@ footer .footer-container a:hover {
   transform: scale(0.99);
 }
 
-.create-lobby-container {
+.lobby-chosing__section {
   display: flex;
   justify-content: space-between;
   align-items: center;
   flex-direction: column;
   gap: 20px;
 }
-.create-lobby-container h2 {
+.lobby-chosing__section h2 {
   font-size: 2em;
   margin: 0;
 }
-.create-lobby-container img {
+.lobby-chosing__section img {
   margin-bottom: 0.75rem;
 }
 
-.submit-btn.join-lobby::after,
-.join-lobby-button::after {
+.submit__button.join-lobby__button::after,
+.lobby-code__submit-button::after {
   content: "➤";
   font-size: 1.5rem;
 }
 
-.submit-btn.create-lobby::after {
+.submit__button.create-lobby__button::after {
   content: "+";
   font-weight: 600;
   font-size: 2rem;
 }
 
-.join-lobby-input {
+.lobby-code__input {
   width: 100%;
   padding: 0.25em 0.5em;
   font-size: 1.5rem;
   border: none;
 }
 
-.join-lobby-button {
+.lobby-code__submit-button {
   position: absolute;
   right: 0;
   bottom: 0;
@@ -407,11 +418,11 @@ footer .footer-container a:hover {
   cursor: pointer;
 }
 
-.join-lobby-button:hover {
+.lobby-code__submit-button:hover {
   background-color: #3dbb87;
 }
 
-.join-lobby-input-container {
+.lobby-code__container {
   position: relative;
   width: 40%;
   border: 2px solid #000;
@@ -437,11 +448,6 @@ footer .footer-container a:hover {
   font-weight: 600;
 }
 
-.avatar.large {
-  width: 70px;
-  height: 70px;
-}
-
 .user {
   display: flex;
   justify-content: center;
@@ -453,20 +459,15 @@ footer .footer-container a:hover {
   font-weight: 600;
 }
 
-.avatar.large {
-  width: 70px;
-  height: 70px;
-}
-
-.lobby.users {
+.content__container--large.user__lobby {
   height: 65vh;
 }
-.lobby.users .close-lobby-btn,
-.lobby.users .start-game {
+.content__container--large.user__lobby .lobby__close-button,
+.content__container--large.user__lobby .start-game__button {
   display: none;
 }
 
-.lobby {
+.content__container--large {
   border: 2px solid #000;
   width: 70vw;
   margin: 0 auto;
@@ -475,25 +476,28 @@ footer .footer-container a:hover {
   background-color: #e9e9e9;
   box-shadow: 0 10px 20px -6px #000;
 }
-.lobby .lobby-header {
+.content__container--large .lobby__header {
   display: grid;
   padding: 0.5em;
   grid-template-columns: 1fr 1fr 1fr;
   border-bottom: 1px solid #000;
 }
-.lobby .lobby-header h2 {
+.content__container--large .lobby__header h2 {
   font-size: 2.5rem;
   margin: auto;
 }
-.lobby .lobby-header button {
+.content__container--large .lobby__header button {
   place-self: flex-start;
 }
-.lobby .lobby-users-container ul {
+.content__container--large .lobby__user-list-container {
+  height: 70%;
+}
+.content__container--large .lobby__user-list-container ul {
   padding: 0 1em;
   display: grid;
   grid-template-columns: repeat(4, 1fr);
 }
-.lobby .lobby-users-container ul li {
+.content__container--large .lobby__user-list-container ul li {
   margin: 0.5em 0.5em;
   padding: 1.5em 0.5em;
   border: 2px dashed #3dbb87;
@@ -501,43 +505,41 @@ footer .footer-container a:hover {
   box-shadow: 0 0 10px -4px #3dbb87;
   background-color: rgb(238, 235, 235);
 }
-.lobby .lobby-users-container ul li p {
+.content__container--large .lobby__user-list-container ul li p {
   font-size: 1.5rem;
   margin-bottom: 0;
 }
 
-.lobby.admin {
+.content__container--large.admin__lobby {
   height: 70vh;
+  position: relative;
 }
-.lobby.admin .close-lobby-btn {
+.content__container--large.admin__lobby .lobby__close-button {
   place-self: start end;
   background-color: transparent;
   border: none;
   transition: 0.1s ease-in-out;
   cursor: pointer;
 }
-.lobby.admin .close-lobby-btn span {
+.content__container--large.admin__lobby .lobby__close-button span {
   font-size: 2rem;
 }
-.lobby.admin .close-lobby-btn:hover {
+.content__container--large.admin__lobby .lobby__close-button:hover {
   transform: scale(1.25);
 }
-.lobby.admin .admin-buttons {
+.content__container--large.admin__lobby .lobby__admin-buttons {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
   display: flex;
   justify-content: center;
   align-items: center;
+  padding: 1em;
 }
-.lobby.admin .submit-btn.start-game::after {
+.content__container--large.admin__lobby .submit__button.start-game__button::after {
   content: "➤";
   font-size: 1.5rem;
-}
-
-.lobby.ingame {
-  height: 70vh;
-}
-
-.game-section {
-  border: 2px solid coral;
 }
 
 *,

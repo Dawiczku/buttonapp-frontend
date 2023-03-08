@@ -8,7 +8,7 @@ header {
 
   padding: 0;
 
-  .logo-container {
+  .logo__container {
     @include flex(space-between, center);
     grid-column-start: 2;
     gap: 12px;
