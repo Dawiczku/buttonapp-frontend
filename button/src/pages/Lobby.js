@@ -1,5 +1,5 @@
 import React from "react";
-import User from "../components/User";
+import LobbyUser from "../components/LobbyUser";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
 import ReturnButton from "../components/ReturnButton";
@@ -26,40 +26,7 @@ export default function Lobby(user) {
         <div className="lobby__user-list-container">
           <ul className="lobby__user-list">
             <li>
-              <User />
-            </li>
-            <li>
-              <User />
-            </li>
-            <li>
-              <User />
-            </li>
-            <li>
-              <User />
-            </li>
-            <li>
-              <User />
-            </li>
-            <li>
-              <User />
-            </li>
-            <li>
-              <User />
-            </li>
-            <li>
-              <User />
-            </li>
-            <li>
-              <User />
-            </li>
-            <li>
-              <User />
-            </li>
-            <li>
-              <User />
-            </li>
-            <li>
-              <User />
+              <LobbyUser />
             </li>
           </ul>
         </div>
