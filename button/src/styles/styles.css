@@ -394,6 +394,47 @@ footer {
   font-weight: 600;
 }
 
+.lobby__header {
+  display: grid;
+  padding: 0.5em;
+  grid-template-columns: 1fr 1fr 1fr;
+  border-bottom: 1px solid #000;
+}
+.lobby__header h2 {
+  font-size: 2.5rem;
+  margin: auto;
+}
+.lobby__header button {
+  place-self: flex-start;
+}
+
+.lobby__user-list-container {
+  height: 70%;
+}
+.lobby__user-list-container ul {
+  padding: 0 1em;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+}
+.lobby__user-list-container ul li {
+  margin: 0.5em 0.5em;
+  padding: 1.5em 0.5em;
+  border: 2px dashed #3dbb87;
+  border-radius: 0.5em;
+  box-shadow: 0 0 10px -4px #3dbb87;
+  background-color: rgb(238, 235, 235);
+}
+.lobby__user-list-container ul li p {
+  font-size: 1.5rem;
+  margin-bottom: 0;
+}
+.lobby__user-list-container ul li:first-child {
+  box-shadow: 0 0 30px -4px #3dbb87;
+}
+.lobby__user-list-container ul li:first-child p {
+  color: aquamarine;
+}
+
 .lobby__user {
   display: flex;
   justify-content: center;
@@ -403,14 +444,6 @@ footer {
 .lobby__user p {
   font-size: 1.25rem;
   font-weight: 600;
-}
-
-.content__container--large.player__lobby {
-  height: 65vh;
-}
-.content__container--large.player__lobby .lobby__close-button,
-.content__container--large.player__lobby .start-game__button {
-  display: none;
 }
 
 .lobby__header {
@@ -446,6 +479,20 @@ footer {
 .lobby__user-list-container ul li p {
   font-size: 1.5rem;
   margin-bottom: 0;
+}
+.lobby__user-list-container ul li:first-child {
+  box-shadow: 0 0 30px -4px #3dbb87;
+}
+.lobby__user-list-container ul li:first-child p {
+  color: aquamarine;
+}
+
+.content__container--large.player__lobby {
+  height: 65vh;
+}
+.content__container--large.player__lobby .lobby__close-button,
+.content__container--large.player__lobby .start-game__button {
+  display: none;
 }
 
 .content__container--large.admin__lobby {
