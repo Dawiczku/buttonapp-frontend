@@ -5,7 +5,6 @@
 
   h2 {
     font-size: 2em;
-
     margin: 0;
   }
 
@@ -14,16 +13,25 @@
   }
 }
 
-.submit__button.join-lobby__button::after,
+.join-lobby__button::after,
 .lobby-code__submit-button::after {
   content: "\27A4";
   font-size: 1.5rem;
 }
 
-.submit__button.create-lobby__button::after {
+.create-lobby__button::after {
   content: "\002B";
   font-weight: 600;
   font-size: 2rem;
+}
+
+.lobby-code__container {
+  position: relative;
+
+  width: 40%;
+
+  border: 2px solid $lightModeBordersClr;
+  box-shadow: 0px 5px 10px -2px $lightModeBordersClr;
 }
 
 .lobby-code__input {
@@ -50,15 +58,6 @@
 
 .lobby-code__submit-button:hover {
   background-color: #3dbb87;
-}
-
-.lobby-code__container {
-  position: relative;
-
-  width: 40%;
-
-  border: 2px solid $lightModeBordersClr;
-  box-shadow: 0px 5px 10px -2px $lightModeBordersClr;
 }
 
 .disabled {
