@@ -1,0 +1,14 @@
+.scoreboard__player {
+  display: flex;
+  align-items: center;
+  gap: 1em;
+  width: 80%;
+  border-bottom: 1px solid $lightModeBordersClr;
+  color: $lightModeTextClr;
+  padding: 0 0 0 2em;
+  margin: 0.75em auto;
+}
+
+.scoreboard__player:last-child {
+  border-bottom: none;
+}

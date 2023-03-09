@@ -1,5 +1,6 @@
 .lobby__header {
   display: grid;
+  height: 6em;
   padding: 0.5em;
   grid-template-columns: 1fr 1fr 1fr;
   border-bottom: 1px solid $lightModeBordersClr;

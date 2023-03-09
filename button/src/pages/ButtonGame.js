@@ -11,13 +11,24 @@ export default function ButtonGame() {
       <div className="content__container content__container--large ingame__lobby">
         <div className="lobby__header">
           <ReturnButton />
-          <h2>Lobby</h2>
+          <h2>LSBI Game !</h2>
         </div>
-        <div className="ingame__game-section">
+        <div class="ingame-section__container">
           <ul className="score-board__list">
             <ScoreBoardPlayer />
+            <ScoreBoardPlayer />
+            <ScoreBoardPlayer />
+            <ScoreBoardPlayer />
+            <ScoreBoardPlayer />
+            <ScoreBoardPlayer />
+            <ScoreBoardPlayer />
+            <ScoreBoardPlayer />
+            <ScoreBoardPlayer />
+            <ScoreBoardPlayer />
+            <ScoreBoardPlayer />
+            <ScoreBoardPlayer />
           </ul>
-          <button className="ingame__main-button"></button>
+          <button className="ingame__main-button">CLICK ME !</button>
         </div>
       </div>
       <Footer />

@@ -1,1 +1,50 @@
+@import "./scoreboardPlayer";
 
+.ingame__lobby {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  height: 70vh;
+}
+
+.ingame-section__container {
+  display: flex;
+  position: absolute;
+  top: 6em;
+  bottom: 0;
+  width: 100%;
+  margin: 0;
+}
+
+.score-board__list {
+  width: 20%;
+  margin: 0;
+  padding: 0;
+  overflow: scroll;
+}
+
+.score-board__list::-webkit-scrollbar {
+  display: none;
+}
+
+.ingame__main-button {
+  position: absolute;
+  top: 15%;
+  left: 30%;
+  width: 680px;
+  aspect-ratio: 2/1;
+  border: none;
+  border-radius: 30px;
+  background-color: $mainButtonClr;
+  box-shadow: 0 0 50px $mainButtonClr;
+  font-size: 4rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.03s ease-in-out;
+}
+
+.ingame__main-button:active {
+  background-color: $mainButtonHoverClr;
+  box-shadow: 0 0 70px $mainButtonHoverClr;
+  transform: scale(0.98);
+}

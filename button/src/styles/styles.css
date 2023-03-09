@@ -108,6 +108,10 @@ header .material-symbols-outlined {
 .dark-body .content__container--large .lobby__user-list-container ul li:first-child p {
   color: aquamarine;
 }
+.dark-body .scoreboard__player {
+  border-bottom: 1px solid #e0e0e0;
+  color: #e0e0e0;
+}
 
 .dark-mode__paragraph {
   font-size: 1.25rem;
@@ -165,6 +169,11 @@ header .material-symbols-outlined {
   border-radius: 50%;
   vertical-align: middle;
   overflow: visible;
+}
+
+.avatar--small {
+  width: 40px;
+  height: 40px;
 }
 
 .avatar--medium {
@@ -399,6 +408,7 @@ footer {
 
 .lobby__header {
   display: grid;
+  height: 6em;
   padding: 0.5em;
   grid-template-columns: 1fr 1fr 1fr;
   border-bottom: 1px solid #000;
@@ -451,6 +461,7 @@ footer {
 
 .lobby__header {
   display: grid;
+  height: 6em;
   padding: 0.5em;
   grid-template-columns: 1fr 1fr 1fr;
   border-bottom: 1px solid #000;
@@ -528,6 +539,70 @@ footer {
 .content__container--large.admin__lobby .submit__button.start-game__button::after {
   content: "➤";
   font-size: 1.5rem;
+}
+
+.scoreboard__player {
+  display: flex;
+  align-items: center;
+  gap: 1em;
+  width: 80%;
+  border-bottom: 1px solid #000;
+  color: #000;
+  padding: 0 0 0 2em;
+  margin: 0.75em auto;
+}
+
+.scoreboard__player:last-child {
+  border-bottom: none;
+}
+
+.ingame__lobby {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  height: 70vh;
+}
+
+.ingame-section__container {
+  display: flex;
+  position: absolute;
+  top: 6em;
+  bottom: 0;
+  width: 100%;
+  margin: 0;
+}
+
+.score-board__list {
+  width: 20%;
+  margin: 0;
+  padding: 0;
+  overflow: scroll;
+}
+
+.score-board__list::-webkit-scrollbar {
+  display: none;
+}
+
+.ingame__main-button {
+  position: absolute;
+  top: 15%;
+  left: 30%;
+  width: 680px;
+  aspect-ratio: 2/1;
+  border: none;
+  border-radius: 30px;
+  background-color: #1ca76d;
+  box-shadow: 0 0 50px #1ca76d;
+  font-size: 4rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.03s ease-in-out;
+}
+
+.ingame__main-button:active {
+  background-color: #21c983;
+  box-shadow: 0 0 70px #21c983;
+  transform: scale(0.98);
 }
 
 .content__container--small {

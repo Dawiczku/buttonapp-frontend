@@ -109,4 +109,8 @@
       }
     }
   }
+  .scoreboard__player {
+    border-bottom: 1px solid $darkModeBorderClr;
+    color: $darkModeTextClr;
+  }
 }

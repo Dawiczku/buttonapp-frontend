@@ -8,8 +8,7 @@ export default function ScoreBoardPlayer() {
         src={require("../avatars/avatar2.png")}
         alt="avatar"
       />
-      <p className="scoreboard__position">1.</p>
-      <p className="scoreboard__nickname">Nickname</p>
+      <p className="scoreboard__position">1. Nickname</p>
     </div>
   );
 }
