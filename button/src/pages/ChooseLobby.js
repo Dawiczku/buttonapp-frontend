@@ -1,15 +1,13 @@
 import React from "react";
-import { useRef, useState } from "react";
+import { useState } from "react";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
 import { Link, useNavigate, useLocation } from "react-router-dom";
 import ReturnButton from "../components/ReturnButton";
 
-export default function ChooseLobby() {
-  const createButtonRef = useRef();
+export default function ChooseLobby({ socket }) {
   const location = useLocation();
   const navigate = useNavigate();
-
   const [code, setCode] = useState("");
   const [status, setStatus] = useState(false);
 
@@ -35,6 +33,29 @@ export default function ChooseLobby() {
     navigate("/lobby-users");
   };
 
+  const createLobby = () => {
+    socket.emit(
+      "createLobby",
+      JSON.stringify({
+        socketID: socket.id,
+        nickname: location.state.nickname,
+        avatarID: location.state.avatarid,
+        isClicked: false,
+        isAdmin: true,
+      })
+    );
+
+    socket.on("sendLobbyCode", (lobbyCode) => {
+      if (lobbyCode) {
+        socket.on("sendLobbyUsers", (lobbyUsers) => {
+          navigate("/lobby-admin", {
+            state: { lobbyCode: lobbyCode, lobbyUsers: JSON.parse(lobbyUsers) },
+          });
+        });
+      }
+    });
+  };
+
   return (
     <>
       <Header />
@@ -52,7 +73,7 @@ export default function ChooseLobby() {
           <Link to="/lobby-admin" className="link">
             <button
               className="submit__button create-lobby__button"
-              ref={createButtonRef}
+              onClick={createLobby}
             >
               create new lobby
             </button>

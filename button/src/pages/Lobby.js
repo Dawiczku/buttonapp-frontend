@@ -1,11 +1,19 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import LobbyUser from "../components/LobbyUser";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
 import ReturnButton from "../components/ReturnButton";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 
 export default function Lobby(user) {
+  const location = useLocation();
+  const [lobbyCode, setLobbyCode] = useState("");
+
+  useEffect(() => {
+    if (!location.state) return;
+    setLobbyCode(location.state.lobbyCode);
+  }, [location.state]);
+
   return (
     <>
       <Header />
@@ -18,7 +26,7 @@ export default function Lobby(user) {
       >
         <div className="lobby__header">
           <ReturnButton />
-          <h2>Lobby</h2>
+          <h2>Lobby - {lobbyCode}</h2>
           <button className="lobby__close-button">
             <span className="material-symbols-outlined">close</span>
           </button>
