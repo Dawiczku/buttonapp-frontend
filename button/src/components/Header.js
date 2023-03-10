@@ -36,7 +36,7 @@ export default function Header() {
           checked={darkMode}
           onChange={switchDarkMode}
         />
-        <label for="dark-mode__switch">Toggle</label>
+        <label htmlFor="dark-mode__switch">Toggle</label>
       </div>
     </header>
   );

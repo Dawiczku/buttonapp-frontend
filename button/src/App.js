@@ -31,8 +31,14 @@ function App() {
             element={<ChooseLobby socket={socket} />}
           />
           <Route path="create-account" element={<CreateAccount />} />
-          <Route path="lobby-admin" element={<Lobby type="admin" />} />
-          <Route path="lobby-users" element={<Lobby type="users" />} />
+          <Route
+            path="lobby-admin"
+            element={<Lobby type="admin" socket={socket} />}
+          />
+          <Route
+            path="lobby-users"
+            element={<Lobby type="users" socket={socket} />}
+          />
           <Route path="button-game" element={<ButtonGame />} />
         </Routes>
       </BrowserRouter>
