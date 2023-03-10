@@ -1,8 +1,7 @@
-import React from "react";
-import { useState } from "react";
+import React, { useEffect, useState } from "react";
+import { useNavigate, useLocation } from "react-router-dom";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
-import { Link, useNavigate, useLocation } from "react-router-dom";
 import ReturnButton from "../components/ReturnButton";
 
 export default function ChooseLobby({ socket }) {
@@ -10,6 +9,16 @@ export default function ChooseLobby({ socket }) {
   const navigate = useNavigate();
   const [code, setCode] = useState("");
   const [status, setStatus] = useState(false);
+  const [lobbyCode, setLobbyCode] = useState();
+  const [lobbyUsers, setLobbyUsers] = useState();
+
+  useEffect(() => {
+    if (lobbyCode && lobbyUsers) {
+      navigate("/lobby-admin", {
+        state: { lobbyCode: lobbyCode, lobbyUsers: lobbyUsers },
+      });
+    }
+  }, [lobbyCode, lobbyUsers, navigate]);
 
   const toggleInputVisibility = () => {
     setStatus(!status);
@@ -44,17 +53,15 @@ export default function ChooseLobby({ socket }) {
         isAdmin: true,
       })
     );
-
-    socket.on("sendLobbyCode", (lobbyCode) => {
-      if (lobbyCode) {
-        socket.on("sendLobbyUsers", (lobbyUsers) => {
-          navigate("/lobby-admin", {
-            state: { lobbyCode: lobbyCode, lobbyUsers: JSON.parse(lobbyUsers) },
-          });
-        });
-      }
-    });
   };
+
+  socket.on("sendLobbyCode", (incomingLobbyCode) => {
+    setLobbyCode(incomingLobbyCode);
+  });
+
+  socket.on("sendLobbyUsers", (incomingLobbyUsers) => {
+    setLobbyUsers(JSON.parse(incomingLobbyUsers));
+  });
 
   return (
     <>
@@ -70,14 +77,13 @@ export default function ChooseLobby({ socket }) {
             alt="avatar"
           ></img>
 
-          <Link to="/lobby-admin" className="link">
-            <button
-              className="submit__button create-lobby__button"
-              onClick={createLobby}
-            >
-              create new lobby
-            </button>
-          </Link>
+          <button
+            className="submit__button create-lobby__button"
+            onClick={createLobby}
+          >
+            create new lobby
+          </button>
+
           <button
             className={
               status
