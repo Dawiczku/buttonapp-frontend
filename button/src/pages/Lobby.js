@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import LobbyUser from "../components/LobbyUser";
 import Header from "../components/Header";
@@ -7,6 +7,21 @@ import ReturnButton from "../components/ReturnButton";
 
 export default function Lobby(user) {
   const location = useLocation();
+  const [lobbyUsers, setLobbyUsers] = useState(location.state.lobbyUsers);
+
+  const renderPlayerList = (playerList) => {
+    return playerList.map((user, index) => {
+      return (
+        <li key={index}>
+          <LobbyUser nickname={user.nickname} avatarid={user.avatarID} />
+        </li>
+      );
+    });
+  };
+
+  useEffect(() => {
+    setLobbyUsers(location.state.lobbyUsers);
+  }, [location.state.lobbyUsers]);
 
   return (
     <>
@@ -26,18 +41,7 @@ export default function Lobby(user) {
           </button>
         </div>
         <div className="lobby__user-list-container">
-          <ul className="lobby__user-list">
-            {location.state.lobbyUsers.map((user, index) => {
-              return (
-                <li key={index}>
-                  <LobbyUser
-                    nickname={user.nickname}
-                    avatarid={user.avatarID}
-                  />
-                </li>
-              );
-            })}
-          </ul>
+          <ul className="lobby__user-list">{renderPlayerList(lobbyUsers)}</ul>
         </div>
         <div className="lobby__admin-buttons">
           <Link to="/button-game" className="link">
