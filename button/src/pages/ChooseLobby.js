@@ -7,10 +7,11 @@ import ReturnButton from "../components/ReturnButton";
 export default function ChooseLobby({ socket }) {
   const location = useLocation();
   const navigate = useNavigate();
-  const [code, setCode] = useState("");
-  const [status, setStatus] = useState(false);
-  const [lobbyCode, setLobbyCode] = useState();
+  const [inputCode, setInputCode] = useState("");
+  const [lobbyCode, setLobbyCode] = useState("");
   const [lobbyUsers, setLobbyUsers] = useState();
+  const [canJoinLobby, setCanJoinLobby] = useState(false);
+  const [buttonVisibility, setButtonVisibility] = useState(false);
 
   useEffect(() => {
     if (lobbyCode && lobbyUsers) {
@@ -20,26 +21,37 @@ export default function ChooseLobby({ socket }) {
     }
   }, [lobbyCode, lobbyUsers, navigate]);
 
+  useEffect(() => {
+    if (canJoinLobby) {
+      navigate("/lobby-users", {
+        state: { lobbyCode: inputCode, lobbyUsers: lobbyUsers },
+      });
+    }
+  }, [lobbyUsers, canJoinLobby, inputCode, navigate]);
+
   const toggleInputVisibility = () => {
-    setStatus(!status);
+    setButtonVisibility(!buttonVisibility);
   };
 
-  const handleChange = (event) => {
-    setCode(event.target.value);
-  };
+  const handleJoiningLobby = (e) => {
+    e.preventDefault();
 
-  const handleClick = (event) => {
-    event.preventDefault();
-
-    if (code.length < 5) {
+    if (inputCode.length < 5) {
       window.alert("Code too short!");
       return;
     }
 
-    setCode(code);
-    // Reset after pushing to the array!
-    setCode("");
-    navigate("/lobby-users");
+    socket.emit(
+      "joinLobby",
+      JSON.stringify({
+        socketID: socket.id,
+        nickname: location.state.nickname,
+        avatarID: location.state.avatarid,
+        isClicked: false,
+        isAdmin: true,
+      }),
+      inputCode
+    );
   };
 
   const createLobby = () => {
@@ -61,6 +73,10 @@ export default function ChooseLobby({ socket }) {
 
   socket.on("sendLobbyUsers", (incomingLobbyUsers) => {
     setLobbyUsers(JSON.parse(incomingLobbyUsers));
+  });
+
+  socket.on("enterIntoLobby", (canEnter) => {
+    canEnter ? setCanJoinLobby(true) : setCanJoinLobby(false);
   });
 
   return (
@@ -86,7 +102,7 @@ export default function ChooseLobby({ socket }) {
 
           <button
             className={
-              status
+              buttonVisibility
                 ? "submit__button join-lobby__button disabled"
                 : "submit__button join-lobby__button enabled"
             }
@@ -96,7 +112,7 @@ export default function ChooseLobby({ socket }) {
           </button>
           <div
             className={
-              status
+              buttonVisibility
                 ? "lobby-code__container enabled"
                 : "lobby-code__container disabled"
             }
@@ -105,15 +121,15 @@ export default function ChooseLobby({ socket }) {
               className="lobby-code__input"
               type="text"
               placeholder="ABC12"
-              onChange={handleChange}
-              value={code}
+              onChange={(e) => setInputCode(e.target.value)}
+              value={inputCode}
               minLength="5"
               maxLength="5"
             ></input>
 
             <button
               className="lobby-code__submit-button"
-              onClick={handleClick}
+              onClick={handleJoiningLobby}
             ></button>
           </div>
         </div>
