@@ -5,34 +5,22 @@ import Header from "../components/Header";
 import Footer from "../components/Footer";
 import ReturnButton from "../components/ReturnButton";
 
-export default function Lobby(user) {
+export default function Lobby({ socket }) {
   const location = useLocation();
-  const [lobbyUsers, setLobbyUsers] = useState(location.state.lobbyUsers);
+  const [lobbyUserList, setLobbyUserList] = useState([]);
 
-  const renderPlayerList = (playerList) => {
-    return playerList.map((user, index) => {
-      return (
-        <li key={index}>
-          <LobbyUser nickname={user.nickname} avatarid={user.avatarID} />
-        </li>
-      );
-    });
-  };
+  socket.on("sendLobbyUsers", (lobbyUsers) => {
+    setLobbyUserList(JSON.parse(lobbyUsers));
+  });
 
   useEffect(() => {
-    setLobbyUsers(location.state.lobbyUsers);
-  }, [location.state.lobbyUsers]);
+    socket.emit("getLobbyUsers", location.state.lobbyCode);
+  }, []);
 
   return (
     <>
       <Header />
-      <div
-        className={
-          user.type === "users"
-            ? "content__container content__container--large player__lobby"
-            : "content__container content__container--large admin__lobby"
-        }
-      >
+      <div className="content__container content__container--large lobby">
         <div className="lobby__header">
           <ReturnButton />
           <h2>Lobby - {location.state.lobbyCode}</h2>
@@ -41,7 +29,18 @@ export default function Lobby(user) {
           </button>
         </div>
         <div className="lobby__user-list-container">
-          <ul className="lobby__user-list">{renderPlayerList(lobbyUsers)}</ul>
+          <ul className="lobby__user-list">
+            {lobbyUserList.map((user, index) => {
+              return (
+                <li key={index}>
+                  <LobbyUser
+                    nickname={user.nickname}
+                    avatarid={user.avatarID}
+                  />
+                </li>
+              );
+            })}
+          </ul>
         </div>
         <div className="lobby__admin-buttons">
           <Link to="/button-game" className="link">

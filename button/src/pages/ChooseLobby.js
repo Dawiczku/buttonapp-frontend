@@ -8,26 +8,25 @@ export default function ChooseLobby({ socket }) {
   const location = useLocation();
   const navigate = useNavigate();
   const [inputCode, setInputCode] = useState("");
-  const [lobbyCode, setLobbyCode] = useState("");
-  const [lobbyUsers, setLobbyUsers] = useState();
-  const [canJoinLobby, setCanJoinLobby] = useState(false);
   const [buttonVisibility, setButtonVisibility] = useState(false);
+  const [lobbyCode, setLobbyCode] = useState("");
+  const [canJoin, setCanJoin] = useState(null);
 
   useEffect(() => {
-    if (lobbyCode && lobbyUsers) {
-      navigate("/lobby-admin", {
-        state: { lobbyCode: lobbyCode, lobbyUsers: lobbyUsers },
+    if (lobbyCode) {
+      navigate("/lobby", {
+        state: {
+          lobbyCode: lobbyCode,
+        },
       });
     }
-  }, [lobbyCode, lobbyUsers, navigate]);
+  }, [lobbyCode, navigate]);
 
   useEffect(() => {
-    if (canJoinLobby) {
-      navigate("/lobby-users", {
-        state: { lobbyCode: inputCode, lobbyUsers: lobbyUsers },
-      });
+    if (canJoin) {
+      navigate("/lobby", { state: { lobbyCode: inputCode } });
     }
-  }, [lobbyUsers, canJoinLobby, inputCode, navigate]);
+  }, [canJoin, inputCode, navigate]);
 
   const toggleInputVisibility = () => {
     setButtonVisibility(!buttonVisibility);
@@ -48,7 +47,7 @@ export default function ChooseLobby({ socket }) {
         nickname: location.state.nickname,
         avatarID: location.state.avatarid,
         isClicked: false,
-        isAdmin: true,
+        isAdmin: false,
       }),
       inputCode
     );
@@ -67,16 +66,12 @@ export default function ChooseLobby({ socket }) {
     );
   };
 
-  socket.on("sendLobbyCode", (incomingLobbyCode) => {
-    setLobbyCode(incomingLobbyCode);
+  socket.on("enterIntoLobby", (canJoin) => {
+    setCanJoin(canJoin);
   });
 
-  socket.on("sendLobbyUsers", (incomingLobbyUsers) => {
-    setLobbyUsers(JSON.parse(incomingLobbyUsers));
-  });
-
-  socket.on("enterIntoLobby", (canEnter) => {
-    canEnter ? setCanJoinLobby(true) : setCanJoinLobby(false);
+  socket.on("sendLobbyCode", (lobbyCode) => {
+    setLobbyCode(lobbyCode);
   });
 
   return (
