@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Link, useLocation } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import LobbyUser from "../components/LobbyUser";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
@@ -7,22 +7,32 @@ import ReturnButton from "../components/ReturnButton";
 
 export default function Lobby({ socket }) {
   const location = useLocation();
+  const navigate = useNavigate();
   const [lobbyUserList, setLobbyUserList] = useState([]);
 
   socket.on("sendLobbyUsers", (lobbyUsers) => {
     setLobbyUserList(JSON.parse(lobbyUsers));
   });
 
+  socket.on("leaveLobby", (newLobbyUserList) => {
+    setLobbyUserList(JSON.parse(newLobbyUserList));
+  });
+
   useEffect(() => {
     socket.emit("getLobbyUsers", location.state.lobbyCode);
   }, []);
+
+  const leaveLobby = () => {
+    socket.emit("leaveLobby", location.state.lobbyCode);
+    navigate(-1);
+  };
 
   return (
     <>
       <Header />
       <div className="content__container content__container--large lobby">
         <div className="lobby__header">
-          <ReturnButton />
+          <ReturnButton leaveLobby={leaveLobby} />
           <h2>Lobby - {location.state.lobbyCode}</h2>
           <button className="lobby__close-button">
             <span className="material-symbols-outlined">close</span>
