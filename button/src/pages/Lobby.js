@@ -20,12 +20,32 @@ export default function Lobby({ socket }) {
 
   useEffect(() => {
     socket.emit("getLobbyUsers", location.state.lobbyCode);
-  }, []);
+  }, [location.state.lobbyCode, socket]);
 
   const leaveLobby = () => {
     socket.emit("leaveLobby", location.state.lobbyCode);
     navigate(-1);
   };
+
+  const closeLobby = () => {
+    for (let user of lobbyUserList) {
+      if (user.socketID === socket.id) {
+        if (user.isAdmin) {
+          socket.emit("closeLobby", location.state.lobbyCode);
+          return;
+        } else {
+          window.alert("You're not the admin!");
+          return;
+        }
+      }
+    }
+  };
+
+  useEffect(() => {
+    socket.on("closeLobby", () => {
+      navigate("/");
+    });
+  });
 
   return (
     <>
@@ -34,7 +54,7 @@ export default function Lobby({ socket }) {
         <div className="lobby__header">
           <ReturnButton leaveLobby={leaveLobby} />
           <h2>Lobby - {location.state.lobbyCode}</h2>
-          <button className="lobby__close-button">
+          <button className="lobby__close-button" onClick={closeLobby}>
             <span className="material-symbols-outlined">close</span>
           </button>
         </div>
