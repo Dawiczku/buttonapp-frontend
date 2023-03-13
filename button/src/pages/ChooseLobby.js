@@ -11,6 +11,7 @@ export default function ChooseLobby({ socket }) {
   const [buttonVisibility, setButtonVisibility] = useState(false);
   const [lobbyCode, setLobbyCode] = useState("");
   const [canJoin, setCanJoin] = useState(null);
+  const [errMessage, setErrMessage] = useState("");
 
   useEffect(() => {
     if (lobbyCode) {
@@ -27,6 +28,13 @@ export default function ChooseLobby({ socket }) {
       navigate("/lobby", { state: { lobbyCode: inputCode } });
     }
   }, [canJoin, inputCode, navigate]);
+
+  useEffect(() => {
+    if (errMessage) {
+      window.alert(errMessage);
+      return;
+    }
+  }, [errMessage]);
 
   const toggleInputVisibility = () => {
     setButtonVisibility(!buttonVisibility);
@@ -72,6 +80,14 @@ export default function ChooseLobby({ socket }) {
 
   socket.on("sendLobbyCode", (lobbyCode) => {
     setLobbyCode(lobbyCode);
+  });
+
+  socket.on("gameStartedOrTooMuchPeople", () => {
+    setErrMessage(`Lobby ${inputCode}} is full or the game started!`);
+  });
+
+  socket.on("wrongLobbyCode", () => {
+    setErrMessage(`${inputCode} is a wrong code!`);
   });
 
   return (
