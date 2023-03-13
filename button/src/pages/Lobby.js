@@ -52,7 +52,7 @@ export default function Lobby({ socket }) {
       <Header />
       <div className="content__container content__container--large lobby">
         <div className="lobby__header">
-          <ReturnButton leaveLobby={leaveLobby} />
+          <ReturnButton pageType="lobby" leaveLobby={leaveLobby} />
           <h2>Lobby - {location.state.lobbyCode}</h2>
           <button className="lobby__close-button" onClick={closeLobby}>
             <span className="material-symbols-outlined">close</span>

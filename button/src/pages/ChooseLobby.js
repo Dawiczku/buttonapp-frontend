@@ -74,6 +74,10 @@ export default function ChooseLobby({ socket }) {
     );
   };
 
+  const navigateToLastPage = () => {
+    navigate(-1);
+  };
+
   socket.on("enterIntoLobby", (canJoin) => {
     setCanJoin(canJoin);
   });
@@ -94,7 +98,10 @@ export default function ChooseLobby({ socket }) {
     <>
       <Header />
       <div className="content__container content__container--small">
-        <ReturnButton />
+        <ReturnButton
+          pageType="accountNav"
+          navigateToLastPage={navigateToLastPage}
+        />
         <div className="lobby-chosing__section">
           <h2>{location.state.nickname}</h2>
 
