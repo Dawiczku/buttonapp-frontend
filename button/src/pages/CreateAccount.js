@@ -67,11 +67,18 @@ export default function CreateAccount() {
     setAvatarID(`avatar${random}.png`);
   };
 
+  const navigateToLastPage = () => {
+    navigate(-1);
+  };
+
   return (
     <>
       <Header />
       <div className="content__container content__container--small">
-        <ReturnButton />
+        <ReturnButton
+          pageType="accountNav"
+          navigateToLastPage={navigateToLastPage}
+        />
         <div className="create-acc__container">
           <h2>Choose Avatar !</h2>
           <div className="create-acc__container--avatar">
