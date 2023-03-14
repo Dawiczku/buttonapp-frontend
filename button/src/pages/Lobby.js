@@ -20,7 +20,7 @@ export default function Lobby({ socket }) {
 
   useEffect(() => {
     socket.emit("getLobbyUsers", location.state.lobbyCode);
-  });
+  }, [location.state.lobbyCode, socket]);
 
   const leaveLobby = () => {
     socket.emit("leaveLobby", location.state.lobbyCode);
@@ -40,28 +40,6 @@ export default function Lobby({ socket }) {
       }
     }
   };
-
-  const startTheGame = () => {
-    for (let user of lobbyUserList) {
-      if (user.socketID === socket.id) {
-        if (user.isAdmin) {
-          socket.emit("startGame", location.state.lobbyCode);
-          return;
-        } else {
-          window.alert("You're not the admin!");
-          return;
-        }
-      }
-    }
-  };
-
-  socket.on("startGame", () => {
-    navigate("/button-game", {
-      state: {
-        lobbyCode: location.state.lobbyCode,
-      },
-    });
-  });
 
   useEffect(() => {
     socket.on("closeLobby", () => {
@@ -95,12 +73,11 @@ export default function Lobby({ socket }) {
           </ul>
         </div>
         <div className="lobby__admin-buttons">
-          <button
-            className="submit__button start-game__button"
-            onClick={startTheGame}
-          >
-            Start the game !
-          </button>
+          <Link to="/button-game" className="link">
+            <button className="submit__button start-game__button">
+              Start the game !
+            </button>
+          </Link>
         </div>
       </div>
       <Footer />

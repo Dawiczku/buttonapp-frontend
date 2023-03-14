@@ -1,48 +1,32 @@
-import React, { useEffect, useState } from "react";
-import { useLocation, useNavigate } from "react-router-dom";
+import React from "react";
 import Footer from "../components/Footer";
 import Header from "../components/Header";
 import ReturnButton from "../components/ReturnButton";
 import ScoreBoardPlayer from "../components/ScoreBoardPlayer";
 
-export default function ButtonGame({ socket }) {
-  const location = useLocation();
-  const navigate = useNavigate();
-  const [lobbyUserList, setLobbyUserList] = useState([]);
-
-  const leaveGame = () => {
-    socket.emit("leaveGame", location.state.lobbyCode);
-    navigate(-1);
-  };
-
-  useEffect(() => {
-    socket.emit("getLobbyUsers", location.state.lobbyCode);
-  });
-
-  socket.on("sendLobbyUsers", (lobbyUsers) => {
-    setLobbyUserList(JSON.parse(lobbyUsers));
-  });
-
+export default function ButtonGame() {
   return (
     <>
       <Header />
       <div className="content__container content__container--large ingame__lobby">
         <div className="lobby__header">
-          <ReturnButton pageType="lobby" leaveLobby={leaveGame} />
+          <ReturnButton />
           <h2>LSBI Game !</h2>
         </div>
-        <div className="ingame-section__container">
+        <div class="ingame-section__container">
           <ul className="score-board__list">
-            {lobbyUserList.map((user, index) => {
-              return (
-                <li key={index}>
-                  <ScoreBoardPlayer
-                    nickname={user.nickname}
-                    avatarid={user.avatarID}
-                  />
-                </li>
-              );
-            })}
+            <ScoreBoardPlayer />
+            <ScoreBoardPlayer />
+            <ScoreBoardPlayer />
+            <ScoreBoardPlayer />
+            <ScoreBoardPlayer />
+            <ScoreBoardPlayer />
+            <ScoreBoardPlayer />
+            <ScoreBoardPlayer />
+            <ScoreBoardPlayer />
+            <ScoreBoardPlayer />
+            <ScoreBoardPlayer />
+            <ScoreBoardPlayer />
           </ul>
           <button className="ingame__main-button">CLICK ME !</button>
         </div>
