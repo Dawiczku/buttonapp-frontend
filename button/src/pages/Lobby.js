@@ -55,13 +55,21 @@ export default function Lobby({ socket }) {
     }
   };
 
-  socket.on("startGame", () => {
-    navigate("/button-game", {
-      state: {
-        lobbyCode: location.state.lobbyCode,
-      },
-    });
-  });
+  useEffect(() => {
+    let mounted = false;
+    if (!mounted) {
+      socket.on("startGame", () => {
+        navigate("/button-game", {
+          state: {
+            lobbyCode: location.state.lobbyCode,
+          },
+        });
+      });
+      return () => {
+        mounted = true;
+      };
+    }
+  }, [socket, navigate, location.state.lobbyCode]);
 
   useEffect(() => {
     let mounted = true;
