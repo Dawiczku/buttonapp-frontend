@@ -87,7 +87,7 @@ export default function ChooseLobby({ socket }) {
   });
 
   socket.on("gameStartedOrTooMuchPeople", () => {
-    setErrMessage(`Lobby ${inputCode}} is full or the game started!`);
+    setErrMessage(`Lobby ${inputCode} is full or the game started!`);
   });
 
   socket.on("wrongLobbyCode", () => {

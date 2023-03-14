@@ -12,14 +12,18 @@ export default function ButtonGame({ socket }) {
 
   const leaveGame = () => {
     socket.emit("leaveGame", location.state.lobbyCode);
-    navigate(-1);
+    navigate("/");
   };
 
   useEffect(() => {
     socket.emit("getLobbyUsers", location.state.lobbyCode);
-  });
+  }, []);
 
   socket.on("sendLobbyUsers", (lobbyUsers) => {
+    setLobbyUserList(JSON.parse(lobbyUsers));
+  });
+
+  socket.on("leaveGame", (lobbyUsers) => {
     setLobbyUserList(JSON.parse(lobbyUsers));
   });
 
