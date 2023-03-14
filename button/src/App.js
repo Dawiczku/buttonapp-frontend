@@ -32,7 +32,7 @@ function App() {
           />
           <Route path="create-account" element={<CreateAccount />} />
           <Route path="lobby" element={<Lobby socket={socket} />} />
-          <Route path="button-game" element={<ButtonGame />} />
+          <Route path="button-game" element={<ButtonGame socket={socket} />} />
         </Routes>
       </BrowserRouter>
     </>
