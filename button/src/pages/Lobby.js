@@ -20,7 +20,7 @@ export default function Lobby({ socket }) {
 
   useEffect(() => {
     socket.emit("getLobbyUsers", location.state.lobbyCode);
-  });
+  }, []);
 
   const leaveLobby = () => {
     socket.emit("leaveLobby", location.state.lobbyCode);
