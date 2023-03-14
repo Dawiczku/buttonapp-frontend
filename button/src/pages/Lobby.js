@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Link, useLocation, useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import LobbyUser from "../components/LobbyUser";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
@@ -64,10 +64,16 @@ export default function Lobby({ socket }) {
   });
 
   useEffect(() => {
+    let mounted = true;
     socket.on("closeLobby", () => {
-      navigate("/");
+      if (mounted) {
+        navigate("/");
+      }
     });
-  });
+    return () => {
+      mounted = false;
+    };
+  }, [socket, navigate]);
 
   return (
     <>
