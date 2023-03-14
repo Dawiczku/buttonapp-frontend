@@ -1,32 +1,48 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
+import { useLocation, useNavigate } from "react-router-dom";
 import Footer from "../components/Footer";
 import Header from "../components/Header";
 import ReturnButton from "../components/ReturnButton";
 import ScoreBoardPlayer from "../components/ScoreBoardPlayer";
 
-export default function ButtonGame() {
+export default function ButtonGame({ socket }) {
+  const location = useLocation();
+  const navigate = useNavigate();
+  const [lobbyUserList, setLobbyUserList] = useState([]);
+
+  const leaveGame = () => {
+    socket.emit("leaveGame", location.state.lobbyCode);
+    navigate(-1);
+  };
+
+  useEffect(() => {
+    socket.emit("getLobbyUsers", location.state.lobbyCode);
+  });
+
+  socket.on("sendLobbyUsers", (lobbyUsers) => {
+    setLobbyUserList(JSON.parse(lobbyUsers));
+  });
+
   return (
     <>
       <Header />
       <div className="content__container content__container--large ingame__lobby">
         <div className="lobby__header">
-          <ReturnButton />
+          <ReturnButton pageType="lobby" leaveLobby={leaveGame} />
           <h2>LSBI Game !</h2>
         </div>
-        <div class="ingame-section__container">
+        <div className="ingame-section__container">
           <ul className="score-board__list">
-            <ScoreBoardPlayer />
-            <ScoreBoardPlayer />
-            <ScoreBoardPlayer />
-            <ScoreBoardPlayer />
-            <ScoreBoardPlayer />
-            <ScoreBoardPlayer />
-            <ScoreBoardPlayer />
-            <ScoreBoardPlayer />
-            <ScoreBoardPlayer />
-            <ScoreBoardPlayer />
-            <ScoreBoardPlayer />
-            <ScoreBoardPlayer />
+            {lobbyUserList.map((user, index) => {
+              return (
+                <li key={index}>
+                  <ScoreBoardPlayer
+                    nickname={user.nickname}
+                    avatarid={user.avatarID}
+                  />
+                </li>
+              );
+            })}
           </ul>
           <button className="ingame__main-button">CLICK ME !</button>
         </div>
