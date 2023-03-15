@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { useLocation, useNavigate } from "react-router-dom";
+import { Navigate, useLocation, useNavigate } from "react-router-dom";
 import LobbyUser from "../components/LobbyUser";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
@@ -15,12 +15,19 @@ export default function Lobby({ socket }) {
   });
 
   socket.on("leaveLobby", (newLobbyUserList) => {
+    if (!isAdminInLobby(JSON.parse(newLobbyUserList))) {
+      socket.emit("closeLobby", location.state.lobbyCode);
+    }
     setLobbyUserList(JSON.parse(newLobbyUserList));
   });
 
   useEffect(() => {
     socket.emit("getLobbyUsers", location.state.lobbyCode);
-  }, []);
+  }, [socket, location.state.lobbyCode]);
+
+  const isAdminInLobby = (playerList) => {
+    return playerList.some((player) => player.isAdmin);
+  };
 
   const leaveLobby = () => {
     socket.emit("leaveLobby", location.state.lobbyCode);
@@ -76,6 +83,7 @@ export default function Lobby({ socket }) {
     socket.on("closeLobby", () => {
       if (mounted) {
         navigate("/");
+        window.alert("Admin closed the lobby!");
       }
     });
     return () => {
@@ -88,7 +96,11 @@ export default function Lobby({ socket }) {
       <Header />
       <div className="content__container content__container--large lobby">
         <div className="lobby__header">
-          <ReturnButton pageType="lobby" leaveLobby={leaveLobby} />
+          <ReturnButton
+            pageType="lobby"
+            leaveLobby={leaveLobby}
+            socket={socket}
+          />
           <h2>Lobby - {location.state.lobbyCode}</h2>
           <button className="lobby__close-button" onClick={closeLobby}>
             <span className="material-symbols-outlined">close</span>
