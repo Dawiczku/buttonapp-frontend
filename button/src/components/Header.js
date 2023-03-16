@@ -1,13 +1,11 @@
 import React, { useState, useEffect } from "react";
 
 export default function Header() {
-  let storageDarkMode = null;
-
-  localStorage.getItem("darkMode")
-    ? (storageDarkMode = JSON.parse(localStorage.getItem("darkMode")))
-    : (storageDarkMode = false);
-
-  const [darkMode, setDarkMode] = useState(storageDarkMode);
+  const [darkMode, setDarkMode] = useState(
+    localStorage.getItem("darkMode")
+      ? JSON.parse(localStorage.getItem("darkMode"))
+      : false
+  );
 
   useEffect(() => {
     darkMode

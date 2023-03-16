@@ -3,10 +3,10 @@ import { Link } from "react-router-dom";
 import Account from "./Account";
 import NewAccount from "./NewAccount";
 
-export default function AccountContainer(account) {
+export default function AccountContainer({ nickname, avatarid, type }) {
   return (
     <>
-      {account.type === "new" ? (
+      {type === "new" ? (
         <Link to="/create-account" className="link">
           <NewAccount />
         </Link>
@@ -14,9 +14,9 @@ export default function AccountContainer(account) {
         <Link
           to="choose-lobby"
           className="link"
-          state={{ nickname: account.nickname, avatarid: account.avatarid }}
+          state={{ nickname: nickname, avatarid: avatarid }}
         >
-          <Account nickname={account.nickname} avatarid={account.avatarid} />
+          <Account nickname={nickname} avatarid={avatarid} />
         </Link>
       )}
     </>
