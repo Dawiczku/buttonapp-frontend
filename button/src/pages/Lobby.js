@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Navigate, useLocation, useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import LobbyUser from "../components/LobbyUser";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
@@ -9,6 +9,43 @@ export default function Lobby({ socket }) {
   const location = useLocation();
   const navigate = useNavigate();
   const [lobbyUserList, setLobbyUserList] = useState([]);
+
+  // UseEffect hooks
+
+  useEffect(() => {
+    socket.emit("getLobbyUsers", location.state.lobbyCode);
+  }, [socket, location.state.lobbyCode]);
+
+  useEffect(() => {
+    let mounted = false;
+    if (!mounted) {
+      socket.on("startGame", () => {
+        navigate("/button-game", {
+          state: {
+            lobbyCode: location.state.lobbyCode,
+          },
+        });
+      });
+      return () => {
+        mounted = true;
+      };
+    }
+  }, [socket, navigate, location.state.lobbyCode]);
+
+  useEffect(() => {
+    let mounted = true;
+    socket.on("closeLobby", () => {
+      if (mounted) {
+        navigate("/");
+        window.alert("Admin closed the lobby!");
+      }
+    });
+    return () => {
+      mounted = false;
+    };
+  }, [socket, navigate]);
+
+  // Receiving socket emits.
 
   socket.on("sendLobbyUsers", (lobbyUsers) => {
     setLobbyUserList(JSON.parse(lobbyUsers));
@@ -21,9 +58,7 @@ export default function Lobby({ socket }) {
     setLobbyUserList(JSON.parse(newLobbyUserList));
   });
 
-  useEffect(() => {
-    socket.emit("getLobbyUsers", location.state.lobbyCode);
-  }, [socket, location.state.lobbyCode]);
+  // Functions
 
   const isAdminInLobby = (playerList) => {
     return playerList.some((player) => player.isAdmin);
@@ -61,35 +96,6 @@ export default function Lobby({ socket }) {
       }
     }
   };
-
-  useEffect(() => {
-    let mounted = false;
-    if (!mounted) {
-      socket.on("startGame", () => {
-        navigate("/button-game", {
-          state: {
-            lobbyCode: location.state.lobbyCode,
-          },
-        });
-      });
-      return () => {
-        mounted = true;
-      };
-    }
-  }, [socket, navigate, location.state.lobbyCode]);
-
-  useEffect(() => {
-    let mounted = true;
-    socket.on("closeLobby", () => {
-      if (mounted) {
-        navigate("/");
-        window.alert("Admin closed the lobby!");
-      }
-    });
-    return () => {
-      mounted = false;
-    };
-  }, [socket, navigate]);
 
   return (
     <>

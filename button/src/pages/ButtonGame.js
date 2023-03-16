@@ -17,7 +17,7 @@ export default function ButtonGame({ socket }) {
 
   useEffect(() => {
     socket.emit("getLobbyUsers", location.state.lobbyCode);
-  }, []);
+  }, [socket, location.state.lobbyCode]);
 
   socket.on("sendLobbyUsers", (lobbyUsers) => {
     setLobbyUserList(JSON.parse(lobbyUsers));
