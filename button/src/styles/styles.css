@@ -616,6 +616,31 @@ footer {
   transform: scale(0.99);
 }
 
+.container__404 {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 2;
+  background-color: #1b1b1b;
+  color: #e0e0e0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+.container__404 h1 {
+  font-size: 7rem;
+}
+.container__404 h2 {
+  font-size: 5rem;
+}
+.container__404 h1,
+.container__404 h2 {
+  margin: 0;
+}
+
 *,
 *::after,
 *::before {
