@@ -1,7 +1,5 @@
 import React, { useEffect, useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
-import Footer from "../components/Footer";
-import Header from "../components/Header";
 import ReturnButton from "../components/ReturnButton";
 import ScoreBoardPlayer from "../components/ScoreBoardPlayer";
 
@@ -29,7 +27,6 @@ export default function ButtonGame({ socket }) {
 
   return (
     <>
-      <Header />
       <div className="content__container content__container--large ingame__lobby">
         <div className="lobby__header">
           <ReturnButton pageType="lobby" leaveLobby={leaveGame} />
@@ -51,7 +48,6 @@ export default function ButtonGame({ socket }) {
           <button className="ingame__main-button">CLICK ME !</button>
         </div>
       </div>
-      <Footer />
     </>
   );
 }

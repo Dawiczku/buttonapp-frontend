@@ -1,8 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import LobbyUser from "../components/LobbyUser";
-import Header from "../components/Header";
-import Footer from "../components/Footer";
 import ReturnButton from "../components/ReturnButton";
 
 export default function Lobby({ socket }) {
@@ -99,7 +97,6 @@ export default function Lobby({ socket }) {
 
   return (
     <>
-      <Header />
       <div className="content__container content__container--large lobby">
         <div className="lobby__header">
           <ReturnButton
@@ -135,7 +132,6 @@ export default function Lobby({ socket }) {
           </button>
         </div>
       </div>
-      <Footer />
     </>
   );
 }

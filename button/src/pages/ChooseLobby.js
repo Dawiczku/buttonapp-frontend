@@ -1,7 +1,5 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate, useLocation } from "react-router-dom";
-import Header from "../components/Header";
-import Footer from "../components/Footer";
 import ReturnButton from "../components/ReturnButton";
 
 export default function ChooseLobby({ socket }) {
@@ -96,7 +94,6 @@ export default function ChooseLobby({ socket }) {
 
   return (
     <>
-      <Header />
       <div className="content__container content__container--small">
         <ReturnButton
           pageType="accountNav"
@@ -152,7 +149,6 @@ export default function ChooseLobby({ socket }) {
           </div>
         </div>
       </div>
-      <Footer />
     </>
   );
 }

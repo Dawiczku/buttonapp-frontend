@@ -1,8 +1,6 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { BsArrowClockwise } from "react-icons/bs";
-import Header from "../components/Header";
-import Footer from "../components/Footer";
 import ReturnButton from "../components/ReturnButton";
 import uuid from "react-uuid";
 
@@ -73,7 +71,6 @@ export default function CreateAccount() {
 
   return (
     <>
-      <Header />
       <div className="content__container content__container--small">
         <ReturnButton
           pageType="accountNav"
@@ -112,7 +109,6 @@ export default function CreateAccount() {
           </button>
         </div>
       </div>
-      <Footer />
     </>
   );
 }

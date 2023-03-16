@@ -5,6 +5,8 @@ import AccountList from "./pages/AccountList";
 import ChooseLobby from "./pages/ChooseLobby";
 import Lobby from "./pages/Lobby";
 import ButtonGame from "./pages/ButtonGame";
+import Header from "./components/Header";
+import Footer from "./components/Footer";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import io from "socket.io-client";
 
@@ -23,6 +25,7 @@ function App() {
 
   return (
     <>
+      <Header />
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<AccountList />} />
@@ -35,6 +38,7 @@ function App() {
           <Route path="button-game" element={<ButtonGame socket={socket} />} />
         </Routes>
       </BrowserRouter>
+      <Footer />
     </>
   );
 }

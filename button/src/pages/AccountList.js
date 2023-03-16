@@ -1,6 +1,4 @@
 import React, { useState, useEffect } from "react";
-import Header from "../components/Header";
-import Footer from "../components/Footer";
 import AccountContainer from "../components/AccountContainer";
 import DeleteAccButton from "../components/DeleteAccButton";
 
@@ -34,7 +32,6 @@ export default function AccountList() {
 
   return (
     <>
-      <Header />
       <div className="content__container content__container--small">
         <ul className="accounts__list">
           {accountList.map((account, index) => {
@@ -54,7 +51,6 @@ export default function AccountList() {
           {accountList.length < 5 ? returnNewAccButton() : null}
         </ul>
       </div>
-      <Footer />
     </>
   );
 }
