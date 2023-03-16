@@ -4,18 +4,26 @@ import ReturnButton from "../components/ReturnButton";
 import ScoreBoardPlayer from "../components/ScoreBoardPlayer";
 
 export default function ButtonGame({ socket }) {
+  // Hooks
+
   const location = useLocation();
   const navigate = useNavigate();
   const [lobbyUserList, setLobbyUserList] = useState([]);
+
+  // UseEffects
+
+  useEffect(() => {
+    socket.emit("getLobbyUsers", location.state.lobbyCode);
+  }, [socket, location.state.lobbyCode]);
+
+  // Functions
 
   const leaveGame = () => {
     socket.emit("leaveGame", location.state.lobbyCode);
     navigate("/");
   };
 
-  useEffect(() => {
-    socket.emit("getLobbyUsers", location.state.lobbyCode);
-  }, [socket, location.state.lobbyCode]);
+  // Receiving sockets
 
   socket.on("sendLobbyUsers", (lobbyUsers) => {
     setLobbyUserList(JSON.parse(lobbyUsers));

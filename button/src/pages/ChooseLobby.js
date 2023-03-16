@@ -3,6 +3,7 @@ import { useNavigate, useLocation } from "react-router-dom";
 import ReturnButton from "../components/ReturnButton";
 
 export default function ChooseLobby({ socket }) {
+  // Hooks
   const location = useLocation();
   const navigate = useNavigate();
   const [inputCode, setInputCode] = useState("");
@@ -10,6 +11,8 @@ export default function ChooseLobby({ socket }) {
   const [lobbyCode, setLobbyCode] = useState("");
   const [canJoin, setCanJoin] = useState(null);
   const [errMessage, setErrMessage] = useState("");
+
+  // UseEffects
 
   useEffect(() => {
     if (lobbyCode) {
@@ -33,6 +36,8 @@ export default function ChooseLobby({ socket }) {
       return;
     }
   }, [errMessage]);
+
+  // Functions
 
   const toggleInputVisibility = () => {
     setButtonVisibility(!buttonVisibility);
@@ -75,6 +80,8 @@ export default function ChooseLobby({ socket }) {
   const navigateToLastPage = () => {
     navigate(-1);
   };
+
+  // Receiving sockets
 
   socket.on("enterIntoLobby", (canJoin) => {
     setCanJoin(canJoin);

@@ -5,7 +5,8 @@ import ReturnButton from "../components/ReturnButton";
 import uuid from "react-uuid";
 
 export default function CreateAccount() {
-  // Initializing variables.
+  // Hooks
+  const navigate = useNavigate();
   const [nickname, setNickname] = useState("");
   const [avatarID, setAvatarID] = useState("avatar3.png");
   const [accountList, setAccountList] = useState(
@@ -13,10 +14,11 @@ export default function CreateAccount() {
       ? JSON.parse(localStorage.getItem("accounts"))
       : []
   );
+
+  // Variables
   const amountOfAvatars = 3;
 
-  // Navigation hook.
-  const navigate = useNavigate();
+  // Functions
 
   // Handling kayboard clicks on input field.
   const handleNicknameChange = (event) => {

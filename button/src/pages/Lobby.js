@@ -4,11 +4,13 @@ import LobbyUser from "../components/LobbyUser";
 import ReturnButton from "../components/ReturnButton";
 
 export default function Lobby({ socket }) {
+  // Hooks
+
   const location = useLocation();
   const navigate = useNavigate();
   const [lobbyUserList, setLobbyUserList] = useState([]);
 
-  // UseEffect hooks
+  // UseEffects
 
   useEffect(() => {
     socket.emit("getLobbyUsers", location.state.lobbyCode);
@@ -42,19 +44,6 @@ export default function Lobby({ socket }) {
       mounted = false;
     };
   }, [socket, navigate]);
-
-  // Receiving socket emits.
-
-  socket.on("sendLobbyUsers", (lobbyUsers) => {
-    setLobbyUserList(JSON.parse(lobbyUsers));
-  });
-
-  socket.on("leaveLobby", (newLobbyUserList) => {
-    if (!isAdminInLobby(JSON.parse(newLobbyUserList))) {
-      socket.emit("closeLobby", location.state.lobbyCode);
-    }
-    setLobbyUserList(JSON.parse(newLobbyUserList));
-  });
 
   // Functions
 
@@ -94,6 +83,19 @@ export default function Lobby({ socket }) {
       }
     }
   };
+
+  // Receiving sockets.
+
+  socket.on("sendLobbyUsers", (lobbyUsers) => {
+    setLobbyUserList(JSON.parse(lobbyUsers));
+  });
+
+  socket.on("leaveLobby", (newLobbyUserList) => {
+    if (!isAdminInLobby(JSON.parse(newLobbyUserList))) {
+      socket.emit("closeLobby", location.state.lobbyCode);
+    }
+    setLobbyUserList(JSON.parse(newLobbyUserList));
+  });
 
   return (
     <>

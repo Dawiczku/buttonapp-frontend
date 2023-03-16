@@ -3,15 +3,21 @@ import AccountContainer from "../components/AccountContainer";
 import DeleteAccButton from "../components/DeleteAccButton";
 
 export default function AccountList() {
+  // Hooks
+
   const [accountList, setAccountList] = useState(
     localStorage.getItem("accounts")
       ? JSON.parse(localStorage.getItem("accounts"))
       : []
   );
 
+  // UseEffects
+
   useEffect(() => {
     localStorage.setItem("accounts", JSON.stringify(accountList));
   }, [accountList]);
+
+  // Functions
 
   // Function returns list item with button to create new account if account list it not full.
   const returnNewAccButton = () => {
