@@ -1,0 +1,30 @@
+@import "./variables";
+
+.container__404 {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+
+  z-index: 2;
+
+  background-color: $darkModeBackgroundClr;
+  color: $darkModeTextClr;
+
+  @include flex(center, center);
+  flex-direction: column;
+
+  h1 {
+    font-size: 7rem;
+  }
+
+  h2 {
+    font-size: 5rem;
+  }
+
+  h1,
+  h2 {
+    margin: 0;
+  }
+}

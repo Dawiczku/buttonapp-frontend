@@ -7,6 +7,7 @@ import Lobby from "./pages/Lobby";
 import ButtonGame from "./pages/ButtonGame";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
+import Page404 from "./pages/Page404";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import io from "socket.io-client";
 
@@ -36,6 +37,7 @@ function App() {
           <Route path="create-account" element={<CreateAccount />} />
           <Route path="lobby" element={<Lobby socket={socket} />} />
           <Route path="button-game" element={<ButtonGame socket={socket} />} />
+          <Route path="*" element={<Page404 />} />
         </Routes>
       </BrowserRouter>
       <Footer />
