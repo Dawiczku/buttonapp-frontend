@@ -101,7 +101,7 @@ export default function CreateAccount() {
             onChange={handleNicknameChange}
             value={nickname}
             minLength="2"
-            maxLength="15"
+            maxLength="12"
           ></input>
 
           <button
