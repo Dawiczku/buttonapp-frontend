@@ -9,12 +9,15 @@ export default function Lobby({ socket }) {
   const location = useLocation();
   const navigate = useNavigate();
   const [lobbyUserList, setLobbyUserList] = useState([]);
+  const [lobbyCode, setLobbyCode] = useState(
+    location.state.lobbyCode && location.state.lobbyCode
+  );
 
   // UseEffects
 
   useEffect(() => {
-    socket.emit("getLobbyUsers", location.state.lobbyCode);
-  }, [socket, location.state.lobbyCode]);
+    socket.emit("getLobbyUsers", lobbyCode);
+  }, [socket, lobbyCode]);
 
   useEffect(() => {
     let mounted = false;
@@ -22,7 +25,7 @@ export default function Lobby({ socket }) {
       socket.on("startGame", () => {
         navigate("/button-game", {
           state: {
-            lobbyCode: location.state.lobbyCode,
+            lobbyCode: lobbyCode,
           },
         });
       });
@@ -30,7 +33,7 @@ export default function Lobby({ socket }) {
         mounted = true;
       };
     }
-  }, [socket, navigate, location.state.lobbyCode]);
+  }, [socket, navigate, lobbyCode]);
 
   useEffect(() => {
     let mounted = true;
@@ -52,7 +55,7 @@ export default function Lobby({ socket }) {
   };
 
   const leaveLobby = () => {
-    socket.emit("leaveLobby", location.state.lobbyCode);
+    socket.emit("leaveLobby", lobbyCode);
     navigate(-1);
   };
 
@@ -60,7 +63,7 @@ export default function Lobby({ socket }) {
     for (let user of lobbyUserList) {
       if (user.socketID === socket.id) {
         if (user.isAdmin) {
-          socket.emit("closeLobby", location.state.lobbyCode);
+          socket.emit("closeLobby", lobbyCode);
           return;
         } else {
           window.alert("You're not the admin!");
@@ -74,7 +77,7 @@ export default function Lobby({ socket }) {
     for (let user of lobbyUserList) {
       if (user.socketID === socket.id) {
         if (user.isAdmin) {
-          socket.emit("startGame", location.state.lobbyCode);
+          socket.emit("startGame", lobbyCode);
           return;
         } else {
           window.alert("You're not the admin!");
@@ -92,7 +95,7 @@ export default function Lobby({ socket }) {
 
   socket.on("leaveLobby", (newLobbyUserList) => {
     if (!isAdminInLobby(JSON.parse(newLobbyUserList))) {
-      socket.emit("closeLobby", location.state.lobbyCode);
+      socket.emit("closeLobby", lobbyCode);
     }
     setLobbyUserList(JSON.parse(newLobbyUserList));
   });
@@ -106,7 +109,7 @@ export default function Lobby({ socket }) {
             leaveLobby={leaveLobby}
             socket={socket}
           />
-          <h2>Lobby - {location.state.lobbyCode}</h2>
+          <h2>Lobby - {lobbyCode}</h2>
           <button className="lobby__close-button" onClick={closeLobby}>
             <span className="material-symbols-outlined">close</span>
           </button>
