@@ -5,6 +5,22 @@
   flex-direction: column;
   position: relative;
   height: 70vh;
+
+  .lobby__close-button {
+    place-self: start end;
+    background-color: transparent;
+    border: none;
+    transition: 0.1s ease-in-out;
+    cursor: pointer;
+
+    span {
+      font-size: 2rem;
+    }
+  }
+
+  .lobby__close-button:hover {
+    transform: scale(1.25);
+  }
 }
 
 .ingame-section__container {

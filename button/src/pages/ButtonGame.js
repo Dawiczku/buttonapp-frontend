@@ -39,6 +39,9 @@ export default function ButtonGame({ socket }) {
         <div className="lobby__header">
           <ReturnButton pageType="lobby" leaveLobby={leaveGame} />
           <h2>LSBI Game !</h2>
+          <button className="lobby__close-button">
+            <span className="material-symbols-outlined">close</span>
+          </button>
         </div>
         <div className="ingame-section__container">
           <ul className="score-board__list">
