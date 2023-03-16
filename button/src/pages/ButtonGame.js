@@ -9,18 +9,48 @@ export default function ButtonGame({ socket }) {
   const location = useLocation();
   const navigate = useNavigate();
   const [lobbyUserList, setLobbyUserList] = useState([]);
+  const [lobbyCode, setLobbyCode] = useState(
+    location.state.lobbyCode && location.state.lobbyCode
+  );
 
   // UseEffects
 
   useEffect(() => {
-    socket.emit("getLobbyUsers", location.state.lobbyCode);
-  }, [socket, location.state.lobbyCode]);
+    socket.emit("getLobbyUsers", lobbyCode);
+  }, [socket, lobbyCode]);
+
+  useEffect(() => {
+    let mounted = true;
+    socket.on("closeGame", () => {
+      if (mounted) {
+        navigate("/");
+        window.alert("Admin closed the game!");
+      }
+    });
+    return () => {
+      mounted = false;
+    };
+  }, [socket, navigate]);
 
   // Functions
 
   const leaveGame = () => {
-    socket.emit("leaveGame", location.state.lobbyCode);
+    socket.emit("leaveGame", lobbyCode);
     navigate("/");
+  };
+
+  const closeGame = () => {
+    for (let user of lobbyUserList) {
+      if (user.socketID === socket.id) {
+        if (user.isAdmin) {
+          socket.emit("closeGame", lobbyCode);
+          return;
+        } else {
+          window.alert("You're not the admin!");
+          return;
+        }
+      }
+    }
   };
 
   // Receiving sockets
@@ -39,7 +69,7 @@ export default function ButtonGame({ socket }) {
         <div className="lobby__header">
           <ReturnButton pageType="lobby" leaveLobby={leaveGame} />
           <h2>LSBI Game !</h2>
-          <button className="lobby__close-button">
+          <button className="lobby__close-button" onClick={closeGame}>
             <span className="material-symbols-outlined">close</span>
           </button>
         </div>
