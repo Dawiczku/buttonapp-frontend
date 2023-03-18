@@ -91,7 +91,6 @@ export default function ButtonGame({ socket }) {
   });
 
   socket.on("buttonClicked", (sortedPlayersList) => {
-    console.log(sortedPlayersList);
     setLobbyUserList(JSON.parse(sortedPlayersList));
   });
 
