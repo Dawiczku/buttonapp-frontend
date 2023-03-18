@@ -535,12 +535,21 @@ footer {
   display: none;
 }
 
+.game-buttons__container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 80%;
+  gap: 4rem;
+  padding: 2rem;
+}
+
 .ingame__main-button {
-  position: absolute;
-  top: 15%;
-  left: 30%;
-  width: 680px;
+  text-transform: uppercase;
   aspect-ratio: 2/1;
+  width: 70%;
+  min-width: 600px;
   border: none;
   border-radius: 30px;
   background-color: #1ca76d;
@@ -548,13 +557,23 @@ footer {
   font-size: 4rem;
   font-weight: 600;
   cursor: pointer;
-  transition: 0.03s ease-in-out;
+  transition: 0.01s ease-in-out;
 }
 
 .ingame__main-button:active {
   background-color: #21c983;
   box-shadow: 0 0 70px #21c983;
-  transform: scale(0.98);
+  transform: scale(0.99);
+}
+
+.ingame__start-button {
+  width: 50%;
+  min-width: 400px;
+}
+
+.ingame__start-button::after {
+  content: "➸";
+  font-weight: 600;
 }
 
 .content__container--small {
