@@ -86,7 +86,12 @@ export default function ButtonGame({ socket }) {
               );
             })}
           </ul>
-          <button className="ingame__main-button">CLICK ME !</button>
+          <div className="game-buttons__container">
+            <button className="ingame__main-button">click me !</button>
+            <button className="ingame__start-button submit__button">
+              start the game!
+            </button>
+          </div>
         </div>
       </div>
     </>
