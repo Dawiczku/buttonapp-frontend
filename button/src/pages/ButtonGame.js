@@ -68,7 +68,12 @@ export default function ButtonGame({ socket }) {
   };
 
   const clickTheMainButton = () => {
-    socket.emit("buttonClicked", lobbyCode);
+    const clickingUser = lobbyUserList.find(
+      (user) => user.socketID === socket.id
+    );
+    if (!clickingUser.isClicked) {
+      socket.emit("buttonClicked", lobbyCode);
+    }
   };
 
   // Receiving sockets
