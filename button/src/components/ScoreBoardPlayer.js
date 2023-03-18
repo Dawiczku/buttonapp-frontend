@@ -1,6 +1,6 @@
 import React from "react";
 
-export default function ScoreBoardPlayer({ nickname, avatarid }) {
+export default function ScoreBoardPlayer({ nickname, avatarid, isadmin }) {
   return (
     <div className="scoreboard__player">
       <img
@@ -8,7 +8,15 @@ export default function ScoreBoardPlayer({ nickname, avatarid }) {
         src={require(`../avatars/${avatarid}`)}
         alt="avatar"
       />
-      <p className="scoreboard__position">{nickname}</p>
+      <p
+        className={` ${
+          isadmin
+            ? "scoreboard__position highlight--admin"
+            : "scoreboard__position"
+        }`}
+      >
+        {nickname}
+      </p>
     </div>
   );
 }
