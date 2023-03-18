@@ -2,7 +2,7 @@ import React from "react";
 
 // This component represents a single User in Lobby.
 
-export default function User({ nickname, avatarid }) {
+export default function User({ nickname, avatarid, isadmin }) {
   return (
     <div className="lobby__user">
       <img
@@ -10,7 +10,7 @@ export default function User({ nickname, avatarid }) {
         alt="avatar"
         src={require(`../avatars/${avatarid}`)}
       ></img>
-      <p>{nickname}</p>
+      <p className={`${isadmin ? "highlight--admin" : null}`}>{nickname}</p>
     </div>
   );
 }

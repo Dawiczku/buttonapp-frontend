@@ -105,9 +105,6 @@ header .material-symbols-outlined {
   background-color: #252525;
   color: #e0e0e0;
 }
-.dark-body .content__container--large .lobby__user-list-container ul li:first-child p {
-  color: #3dbb87;
-}
 .dark-body .scoreboard__player {
   border-bottom: 1px solid #e0e0e0;
   color: #e0e0e0;
@@ -402,7 +399,6 @@ footer {
   gap: 1em;
 }
 .lobby__user p {
-  font-size: 1.25rem;
   font-weight: 600;
 }
 
@@ -440,12 +436,6 @@ footer {
 .lobby__user-list-container ul li p {
   font-size: 1.5rem;
   margin-bottom: 0;
-}
-.lobby__user-list-container ul li:first-child {
-  box-shadow: 0 0 30px -4px #3dbb87;
-}
-.lobby__user-list-container ul li:first-child p {
-  color: rgb(16, 155, 79);
 }
 
 .content__container--large.lobby {

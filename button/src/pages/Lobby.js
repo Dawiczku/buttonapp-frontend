@@ -122,6 +122,7 @@ export default function Lobby({ socket }) {
                   <LobbyUser
                     nickname={user.nickname}
                     avatarid={user.avatarID}
+                    isadmin={user.isAdmin}
                   />
                 </li>
               );
