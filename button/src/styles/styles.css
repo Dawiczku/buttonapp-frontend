@@ -412,6 +412,10 @@ footer {
 .lobby__header h2 {
   font-size: 2.5rem;
   margin: auto;
+  -webkit-user-select: text;
+     -moz-user-select: text;
+      -ms-user-select: text;
+          user-select: text;
 }
 .lobby__header button {
   place-self: flex-start;

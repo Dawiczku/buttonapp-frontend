@@ -64,6 +64,15 @@ export default function ChooseLobby({ socket }) {
     );
   };
 
+  const handleJoiningLobbyWithKey = (e) => {
+    if (e.key === "Enter") {
+      console.log("56");
+      handleJoiningLobby(e);
+    } else {
+      return;
+    }
+  };
+
   const createLobby = () => {
     socket.emit(
       "createLobby",
@@ -144,6 +153,7 @@ export default function ChooseLobby({ socket }) {
               type="text"
               placeholder="ABC12"
               onChange={(e) => setInputCode(e.target.value)}
+              onKeyPress={handleJoiningLobbyWithKey}
               value={inputCode}
               minLength="5"
               maxLength="5"
