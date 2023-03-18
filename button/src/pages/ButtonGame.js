@@ -53,6 +53,24 @@ export default function ButtonGame({ socket }) {
     }
   };
 
+  const startTheRound = () => {
+    for (let user of lobbyUserList) {
+      if (user.socketID === socket.id) {
+        if (user.isAdmin) {
+          socket.emit("startRound", lobbyCode);
+          return;
+        } else {
+          window.alert("You're not the admin!");
+          return;
+        }
+      }
+    }
+  };
+
+  const clickTheMainButton = () => {
+    socket.emit("buttonClicked", lobbyCode);
+  };
+
   // Receiving sockets
 
   socket.on("sendLobbyUsers", (lobbyUsers) => {
@@ -61,6 +79,15 @@ export default function ButtonGame({ socket }) {
 
   socket.on("leaveGame", (lobbyUsers) => {
     setLobbyUserList(JSON.parse(lobbyUsers));
+  });
+
+  socket.on("startRound", (newLobbyUserList) => {
+    setLobbyUserList(JSON.parse(newLobbyUserList));
+  });
+
+  socket.on("buttonClicked", (sortedPlayersList) => {
+    console.log(sortedPlayersList);
+    setLobbyUserList(JSON.parse(sortedPlayersList));
   });
 
   return (
@@ -75,21 +102,34 @@ export default function ButtonGame({ socket }) {
         </div>
         <div className="ingame-section__container">
           <ul className="score-board__list">
-            {lobbyUserList.map((user, index) => {
-              return (
-                <li key={index}>
-                  <ScoreBoardPlayer
-                    nickname={user.nickname}
-                    avatarid={user.avatarID}
-                    isadmin={user.isAdmin}
-                  />
-                </li>
-              );
-            })}
+            {lobbyUserList &&
+              lobbyUserList.map((user, index) => {
+                return (
+                  <li key={index}>
+                    <ScoreBoardPlayer
+                      nickname={
+                        user.isClicked
+                          ? `${index + 1}. ${user.nickname}`
+                          : user.nickname
+                      }
+                      avatarid={user.avatarID}
+                      isadmin={user.isAdmin}
+                    />
+                  </li>
+                );
+              })}
           </ul>
           <div className="game-buttons__container">
-            <button className="ingame__main-button">click me !</button>
-            <button className="ingame__start-button submit__button">
+            <button
+              className="ingame__main-button"
+              onClick={clickTheMainButton}
+            >
+              click me !
+            </button>
+            <button
+              className="ingame__start-button submit__button"
+              onClick={startTheRound}
+            >
               start the game!
             </button>
           </div>
