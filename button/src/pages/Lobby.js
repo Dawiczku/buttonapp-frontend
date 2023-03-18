@@ -76,6 +76,10 @@ export default function Lobby({ socket }) {
   const startTheGame = () => {
     for (let user of lobbyUserList) {
       if (user.socketID === socket.id) {
+        if (lobbyUserList.length < 2) {
+          alert("Can not start the game alone !");
+          return;
+        }
         if (user.isAdmin) {
           socket.emit("startGame", lobbyCode);
           return;
