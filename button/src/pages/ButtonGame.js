@@ -81,6 +81,7 @@ export default function ButtonGame({ socket }) {
                   <ScoreBoardPlayer
                     nickname={user.nickname}
                     avatarid={user.avatarID}
+                    isadmin={user.isAdmin}
                   />
                 </li>
               );

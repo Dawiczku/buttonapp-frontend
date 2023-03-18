@@ -3,12 +3,17 @@
   align-items: center;
   gap: 1em;
   width: 80%;
-  border-bottom: 1px solid $lightModeBordersClr;
   color: $lightModeTextClr;
-  padding: 0 0 0 2em;
+  padding: 0.5em 1em;
   margin: 0.75em auto;
+  border-bottom: 1px solid $lightModeBordersClr;
+  font-weight: 600;
 }
 
-.scoreboard__player:last-child {
-  border-bottom: none;
+.highlight--admin {
+  color: #3dbb87;
+}
+
+.scoreboard__position {
+  margin-bottom: 0;
 }

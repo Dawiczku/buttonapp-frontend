@@ -106,7 +106,7 @@ header .material-symbols-outlined {
   color: #e0e0e0;
 }
 .dark-body .content__container--large .lobby__user-list-container ul li:first-child p {
-  color: aquamarine;
+  color: #3dbb87;
 }
 .dark-body .scoreboard__player {
   border-bottom: 1px solid #e0e0e0;
@@ -485,14 +485,19 @@ footer {
   align-items: center;
   gap: 1em;
   width: 80%;
-  border-bottom: 1px solid #000;
   color: #000;
-  padding: 0 0 0 2em;
+  padding: 0.5em 1em;
   margin: 0.75em auto;
+  border-bottom: 1px solid #000;
+  font-weight: 600;
 }
 
-.scoreboard__player:last-child {
-  border-bottom: none;
+.highlight--admin {
+  color: #3dbb87;
+}
+
+.scoreboard__position {
+  margin-bottom: 0;
 }
 
 .ingame__lobby {
