@@ -48,6 +48,7 @@ export default function ChooseLobby({ socket }) {
 
     if (inputCode.length < 5) {
       window.alert("Code too short!");
+      setInputCode("");
       return;
     }
 
@@ -66,7 +67,6 @@ export default function ChooseLobby({ socket }) {
 
   const handleJoiningLobbyWithKey = (e) => {
     if (e.key === "Enter") {
-      console.log("56");
       handleJoiningLobby(e);
     } else {
       return;
@@ -102,10 +102,12 @@ export default function ChooseLobby({ socket }) {
 
   socket.on("gameStartedOrTooMuchPeople", () => {
     setErrMessage(`Lobby ${inputCode} is full or the game started!`);
+    setInputCode("");
   });
 
   socket.on("wrongLobbyCode", () => {
     setErrMessage(`${inputCode} is a wrong code!`);
+    setInputCode("");
   });
 
   return (
