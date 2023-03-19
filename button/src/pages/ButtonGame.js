@@ -44,6 +44,7 @@ export default function ButtonGame({ socket }) {
       if (user.socketID === socket.id) {
         if (user.isAdmin) {
           socket.emit("closeGame", lobbyCode);
+          alert("Admin closed the game!");
           return;
         } else {
           window.alert("You're not the admin!");
@@ -71,6 +72,10 @@ export default function ButtonGame({ socket }) {
     socket.emit("buttonClicked", lobbyCode);
   };
 
+  const isAdminInLobby = (playerList) => {
+    return playerList.some((player) => player.isAdmin);
+  };
+
   // Receiving sockets
 
   socket.on("sendLobbyUsers", (lobbyUsers) => {
@@ -78,6 +83,9 @@ export default function ButtonGame({ socket }) {
   });
 
   socket.on("leaveGame", (lobbyUsers) => {
+    if (!isAdminInLobby(JSON.parse(lobbyUsers))) {
+      socket.emit("closeGame", lobbyCode);
+    }
     setLobbyUserList(JSON.parse(lobbyUsers));
   });
 
