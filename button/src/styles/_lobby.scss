@@ -23,6 +23,7 @@
     grid-template-columns: repeat(4, 1fr);
 
     li {
+      position: relative;
       margin: 0.5em 0.5em;
       padding: 1.5em 0.5em;
       border: 2px dashed $userInLobbyBorderClr;
@@ -35,4 +36,24 @@
       }
     }
   }
+}
+
+.kick-player__button {
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  padding: 0;
+  background-color: transparent;
+  border: none;
+  transition: 0.4s ease-in-out;
+  cursor: pointer;
+  height: 24px;
+
+  span {
+    font-size: 1.5rem;
+  }
+}
+
+.kick-player__button:hover {
+  transform: rotate(180deg);
 }

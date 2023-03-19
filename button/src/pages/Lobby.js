@@ -48,6 +48,19 @@ export default function Lobby({ socket }) {
     };
   }, [socket, navigate]);
 
+  useEffect(() => {
+    let mounted = true;
+    socket.on("kickUserFromLobby", () => {
+      if (mounted) {
+        navigate("/");
+        window.alert("You were kicked from lobby!");
+      }
+    });
+    return () => {
+      mounted = false;
+    };
+  }, [socket, navigate]);
+
   // Functions
 
   const isAdminInLobby = (playerList) => {
@@ -91,6 +104,22 @@ export default function Lobby({ socket }) {
     }
   };
 
+  const isPlayerAnAdmin = () => {
+    for (let user of lobbyUserList) {
+      if (user.socketID === socket.id) {
+        return user.isAdmin;
+      }
+    }
+  };
+
+  const kickPlayer = (e) => {
+    socket.emit(
+      "kickUserFromLobby",
+      lobbyCode,
+      e.target.parentNode.parentNode.id
+    );
+  };
+
   // Receiving sockets.
 
   socket.on("sendLobbyUsers", (lobbyUsers) => {
@@ -121,7 +150,23 @@ export default function Lobby({ socket }) {
         <div className="lobby__user-list-container">
           <ul className="lobby__user-list">
             {lobbyUserList.map((user, index) => {
-              return (
+              return isPlayerAnAdmin() ? (
+                <li key={index} id={user.socketID}>
+                  <LobbyUser
+                    nickname={user.nickname}
+                    avatarid={user.avatarID}
+                    isadmin={user.isAdmin}
+                  />
+                  {!user.isAdmin ? (
+                    <button
+                      className="kick-player__button"
+                      onClick={kickPlayer}
+                    >
+                      <span className="material-symbols-outlined">close</span>
+                    </button>
+                  ) : null}
+                </li>
+              ) : (
                 <li key={index}>
                   <LobbyUser
                     nickname={user.nickname}

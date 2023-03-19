@@ -86,7 +86,8 @@
 
   .content__container--large {
     .lobby__header,
-    .lobby__close-button {
+    .lobby__close-button,
+    .kick-player__button {
       color: $darkModeTextClr;
     }
 
