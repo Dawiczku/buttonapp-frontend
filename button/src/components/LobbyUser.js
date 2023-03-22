@@ -8,7 +8,7 @@ export default function User({ nickname, avatarid, isadmin }) {
       <img
         className="avatar avatar--large"
         alt="avatar"
-        src={require(`../avatars/${avatarid}`)}
+        src={require(`../avatars/${avatarid}.png`)}
       ></img>
       <p className={`${isadmin ? "highlight--admin" : null}`}>{nickname}</p>
     </div>

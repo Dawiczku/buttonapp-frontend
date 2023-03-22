@@ -8,7 +8,7 @@ export default function CreateAccount() {
   // Hooks
   const navigate = useNavigate();
   const [nickname, setNickname] = useState("");
-  const [avatarID, setAvatarID] = useState("avatar3.png");
+  const [avatarID, setAvatarID] = useState("avatar3");
   const [accountList, setAccountList] = useState(
     localStorage.getItem("accounts")
       ? JSON.parse(localStorage.getItem("accounts"))
@@ -26,6 +26,15 @@ export default function CreateAccount() {
   };
 
   // Submit button click handler.
+
+  const handleJoiningLobbyWithKey = (e) => {
+    if (e.key === "Enter") {
+      handleCreateAccButton();
+    } else {
+      return;
+    }
+  };
+
   const handleCreateAccButton = () => {
     if (nickname.length < 2) {
       window.alert("Nickname too short !");
@@ -64,7 +73,7 @@ export default function CreateAccount() {
   // Function setting avatar's ID randomly.
   const handleRandomAvatarButton = () => {
     const random = getRandomNumber(amountOfAvatars);
-    setAvatarID(`avatar${random}.png`);
+    setAvatarID(`avatar${random}`);
   };
 
   const navigateToLastPage = () => {
@@ -82,7 +91,7 @@ export default function CreateAccount() {
           <h2>Choose Avatar !</h2>
           <div className="create-acc__container--avatar">
             <img
-              src={require(`../avatars/${avatarID}`)}
+              src={require(`../avatars/${avatarID}.png`)}
               className="avatar create-acc__avatar"
               alt="avatar"
             ></img>
@@ -98,6 +107,7 @@ export default function CreateAccount() {
             type="text"
             placeholder="Nickname"
             onChange={handleNicknameChange}
+            onKeyPress={handleJoiningLobbyWithKey}
             value={nickname}
             minLength="2"
             maxLength="12"

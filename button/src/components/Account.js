@@ -6,7 +6,7 @@ export default function Account({ nickname, avatarid }) {
   return (
     <div className="accounts__list__item">
       <img
-        src={require(`../avatars/${avatarid}`)}
+        src={require(`../avatars/${avatarid}.png`)}
         className="avatar avatar--medium"
         alt="avatar"
       ></img>

@@ -5,7 +5,7 @@ export default function ScoreBoardPlayer({ nickname, avatarid, isadmin }) {
     <div className="scoreboard__player">
       <img
         className="avatar avatar--small"
-        src={require(`../avatars/${avatarid}`)}
+        src={require(`../avatars/${avatarid}.png`)}
         alt="avatar"
       />
       <p

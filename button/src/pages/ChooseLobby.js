@@ -121,7 +121,7 @@ export default function ChooseLobby({ socket }) {
           <h2>{location.state.nickname}</h2>
 
           <img
-            src={require(`../avatars/${location.state.avatarid}`)}
+            src={require(`../avatars/${location.state.avatarid}.png`)}
             className="avatar player__avatar"
             alt="avatar"
           ></img>
