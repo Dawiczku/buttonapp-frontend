@@ -1,5 +1,6 @@
 @import "./account";
 @import "./deleteButton";
+@import "./animations";
 
 .accounts__list {
   list-style: none;
@@ -13,6 +14,7 @@
     border-bottom: 1px solid $lightModeTextClr;
 
     transition: all 0.08s ease-in;
+    animation: slideup 1s;
 
     span {
       width: inherit;

@@ -230,6 +230,43 @@ header .material-symbols-outlined {
   transform: scale(1.1);
 }
 
+@-webkit-keyframes appear {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes appear {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+@-webkit-keyframes slideup {
+  from {
+    opacity: 0;
+    transform: translateY(100px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+@keyframes slideup {
+  from {
+    opacity: 0;
+    transform: translateY(100px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
 .accounts__list {
   list-style: none;
   padding: 0 2.5rem;
@@ -239,6 +276,8 @@ header .material-symbols-outlined {
   padding: 0.3125rem;
   border-bottom: 1px solid #000;
   transition: all 0.08s ease-in;
+  -webkit-animation: slideup 1s;
+          animation: slideup 1s;
 }
 .accounts__list li span {
   width: inherit;
@@ -596,6 +635,24 @@ footer {
   font-weight: 600;
 }
 
+@keyframes appear {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+@keyframes slideup {
+  from {
+    opacity: 0;
+    transform: translateY(100px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
 .content__container--small {
   width: 400px;
   height: 486px;
@@ -610,6 +667,8 @@ footer {
 .content__container {
   border: 2px solid #000;
   border-radius: 0.5em;
+  -webkit-animation: appear 1s;
+          animation: appear 1s;
   background-color: #e9e9e9;
   box-shadow: 0 10px 20px -6px #000;
 }
